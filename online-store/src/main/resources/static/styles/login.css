@@ -15,7 +15,7 @@
             rgba(250, 68, 32, 0.767) 163%
     ),
     linear-gradient(
-            163deg,
+            259deg,
             rgba(49, 146, 170, 0.0794448997) 86%,
             rgba(130, 77, 255, 0.3) 40%
     ),
@@ -25,7 +25,7 @@
             rgba(237, 106, 134, 0.5) 169%
     ),
     linear-gradient(
-            205deg,
+            338deg,
             var(--color-main-opac) 64%,
             rgba(247, 126, 132, 0.5) 43%
     );
@@ -43,13 +43,4 @@
     color: white;
     width: 100%;
     font-weight: 600;
-}
-.btn-custom:hover {
-    background-color: var(--color-main-opac);
-}
-#message {
-    color: red;
-}
-#message.hidden {
-    display: none;
 }
