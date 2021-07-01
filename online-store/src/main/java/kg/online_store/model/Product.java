@@ -21,12 +21,20 @@ public class Product {
     @Column(name = "name")
     String name;
 
-    @Column(name = "description")
-    String description;
+    @Column(name = "product_picture")
+    String productPicture = "";
 
-    String imageUrl = "";
+    @Column(name = "product_price")
+    double productPrice;
+
+    @Column(name = "product_count")
+    int productCount = 0;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
     Category category;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "description_id")
+    Description description;
 }

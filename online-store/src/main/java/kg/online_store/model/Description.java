@@ -6,22 +6,21 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
-@Table(name = "categories")
+@Table(name = "descriptions")
 @Data
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Category {
+public class Description {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "category_id")
     Long id;
 
-    @Column(name = "name")
-    String name;
+    @Column(name = "product_color")
+    String productColor;
 
-    @OneToMany(mappedBy = "category")
-    List<Product> products;
+    @Column(name = "size")
+    int size;
 }
