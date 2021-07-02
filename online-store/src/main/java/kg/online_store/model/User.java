@@ -22,7 +22,7 @@ public class User {
     Long id;
 
     @Column(name = "username")
-    String name;
+    String username;
 
     @Column(name = "last_name")
     String lastName;
@@ -36,17 +36,17 @@ public class User {
     @Column(name = "password")
     String password;
 
-    @Column(name = "confirm_password")
-    String confirmPassword;
-
     @Column(name = "phone_number")
     String phoneNumber;
 
+    @Column(name = "profile_picture")
     String profilePicture = "";
 
+    @Column(name = "register_date")
     LocalDate registerDate;
 
     @DateTimeFormat(pattern = "dd.MM.yyyy")
+    @Column(name = "birth_date")
     LocalDate birthDate;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

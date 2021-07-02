@@ -16,6 +16,7 @@ public class Description {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     Long id;
 
     @Column(name = "product_color")
