@@ -19,9 +19,18 @@ public class Description {
     @Column(name = "id")
     Long id;
 
+    @Column(name = "product_manufacturer")
+    String productManufacturer;
+
+    @Column(name = "product_guarantee")
+    String productGuarantee;
+
     @Column(name = "product_color")
     String productColor;
 
-    @Column(name = "size")
-    int size;
+    @Column(name = "product_dimensions")
+    int productDimensions;
+
+    @Column(name = "product_weight")
+    double productWeight;
 }

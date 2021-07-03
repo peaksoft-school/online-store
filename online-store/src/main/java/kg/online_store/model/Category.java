@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "categories")
@@ -21,7 +22,7 @@ public class Category {
     @Column(name = "name")
     String name;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_id")
-    Product products;
+    List<Product> products;
 }
