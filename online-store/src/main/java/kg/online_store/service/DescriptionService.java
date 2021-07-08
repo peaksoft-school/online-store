@@ -5,6 +5,6 @@ import kg.online_store.model.Description;
 import java.util.List;
 
 public interface DescriptionService {
-    void addDescription(Description description);
-    void removeDescriptionById(long id);
+    void save(Description description);
+    void deleteById(long id);
 }

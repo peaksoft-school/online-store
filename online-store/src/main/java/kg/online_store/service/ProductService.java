@@ -5,9 +5,9 @@ import kg.online_store.model.Product;
 import java.util.List;
 
 public interface ProductService {
-    List<Product> getProducts(String sort);
-    Product getProductById(long id);
-    Product getProductByName(String name);
-    void addProduct(Product product);
-    void removeProductById(long id);
+    List<Product> findAll(String sort);
+    Product findById(long id);
+    Product findProductByName(String name);
+    void save(Product product);
+    void deleteById(long id);
 }

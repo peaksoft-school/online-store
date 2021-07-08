@@ -14,12 +14,12 @@ public class DescriptionServiceImpl implements DescriptionService {
     }
 
     @Override
-    public void addDescription(Description description) {
+    public void save(Description description) {
         descriptionRepository.save(description);
     }
 
     @Override
-    public void removeDescriptionById(long id) {
+    public void deleteById(long id) {
         descriptionRepository.deleteById(id);
     }
 }

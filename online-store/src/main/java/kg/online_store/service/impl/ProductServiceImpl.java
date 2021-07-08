@@ -18,30 +18,30 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getProducts(String sort) {
+    public List<Product> findAll(String sort) {
         Sort sortProducts  = Sort.by(sort);
         return productRepository.findAll(sortProducts);
     }
 
     @Override
-    public Product getProductById(long id) {
+    public Product findById(long id) {
         Optional<Product> product = productRepository.findById(id);
         return product.orElse(null);
     }
 
     @Override
-    public Product getProductByName(String name) {
+    public Product findProductByName(String name) {
         Optional<Product> product = productRepository.findProductByName(name);
         return product.orElse(null);
     }
 
     @Override
-    public void addProduct(Product product) {
+    public void save(Product product) {
         productRepository.save(product);
     }
 
     @Override
-    public void removeProductById(long id) {
+    public void deleteById(long id) {
         productRepository.deleteById(id);
     }
 }
