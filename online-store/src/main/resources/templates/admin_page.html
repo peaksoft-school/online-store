@@ -11,7 +11,7 @@
 </head>
 <body style="background-color: #e9eee7">
 
-<div class="d-flex" >
+<div class="d-flex">
     <div style="padding-left: 40px">
         <button class="btn btn-outline-primary" data-toggle="modal" data-target="#addProducts">Add Products</button>
     </div>
@@ -21,16 +21,14 @@
     </div>
     <br>
     <div style="padding-left: 40px">
-        <button class="btn btn-outline-primary"><a href="/api/user">User table</a></button>
+        <button class="btn btn-outline-primary"><a href="/api/user"></a>User table</button>
     </div>
     <br>
+
     <div style="padding-left: 40px">
-        <button class="btn btn-outline-primary" ><a href="/api/admin">Admin table</a></button>
+        <button class="btn btn-outline-warning"><a href="/logout"></a>log out</button>
     </div>
-    <div style="padding-left: 40px">
-        <button class="btn btn-outline-warning"><a href="/logout">log out</a></button>
-    </div>
-    <div style="padding-left: 550px" class="nav justify-content-center">
+    <div style="padding-left: 670px" class="nav justify-content-center">
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="#">Search</button>
@@ -153,7 +151,7 @@
                         <br>
                         <div  class="col-md-11">
                             <select class="form-control ">
-                                <option style=" background-color: red">choose your options</option>
+                                <option style=" background-color: red">choose your option</option>
                                 <option>electronic</option>
                                 <option>appliances</option>
                                 <option>accessories</option>
@@ -200,10 +198,10 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container-left-lg-6">
     <table class="table table-hover table-striped">
 
-        <tr class="text-center">
+        <tr class="text-left">
             <th scope="col">Id</th>
             <th scope="col">UserName</th>
             <th scope="col">LastName</th>
@@ -221,14 +219,14 @@
         <td>Chyngyz</td>
         <td>Kamarov</td>
         <td>male</td>
-        <td>chyngyzkamarov@gmail.com</td>
+        <td>chyngyz@gmail.com</td>
         <td>ch</td>
         <td>0772202031</td>
         <td>3*4</td>
         <td>12.12.1989</td>
         <td>ROLE_ADMIN</td>
         <td><button class="btn btn-outline-success" data-toggle="modal" data-target="#UpdateUser">Update</button></td>
-        <td> <button  data-id="${u.id}" class="btn btn-outline-danger"><a href="#" id="delete-post">Delete</a></button></td>
+        <td> <button  data-id="${u.id}" class="btn btn-outline-danger"><a href="#" id="delete-post"></a>Delete</button></td>
 
     </tr>
 
