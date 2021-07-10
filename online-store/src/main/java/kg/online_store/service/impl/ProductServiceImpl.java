@@ -18,9 +18,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> findAll(String sort) {
-        Sort sortProducts  = Sort.by(sort);
-        return productRepository.findAll(sortProducts);
+    public List<Product> findAll() {
+        return productRepository.findAll();
     }
 
     @Override

@@ -5,7 +5,7 @@ import kg.online_store.model.Product;
 import java.util.List;
 
 public interface ProductService {
-    List<Product> findAll(String sort);
+    List<Product> findAll();
     Product findById(long id);
     Product findProductByName(String name);
     void save(Product product);
