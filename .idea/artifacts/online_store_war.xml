@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="online-store:war">
+    <output-path>$PROJECT_DIR$/online-store/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>online-store</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="online-store-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="online-store:war exploded" />
+    </root>
+  </artifact>
+</component>
