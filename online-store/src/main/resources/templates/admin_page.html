@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <div class="text-center">
+        <h1 style="background-color: gray">Admin page</h1>
+    </div>
+</head>
+<body style="background-color: #E9EEE7">
+<div class="d-flex">
+    <div style="padding-left: 40px">
+        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#addProducts">Add Products</button>
+    </div>
+    <br>
+    <div style="padding-left: 40px">
+        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#addUser">Add New User</button>
+    </div>
+    <br>
+    <div style="padding-left: 40px">
+        <button class="btn btn-outline-primary"><a href="/api/user"></a>User table</button>
+    </div>
+    <br>
+    <div style="padding-left: 40px">
+        <button class="btn btn-outline-primary"><a href="/api/product"></a>Product table</button>
+    </div>
+    <br>
+    <div style="padding-left: 40px">
+        <button class="btn btn-outline-primary"><a href="/api/category"></a>Category table</button>
+    </div>
+    <br>
+    <div style="padding-left: 40px">
+        <button class="btn btn-outline-warning"><a href="/logout"></a>log out</button>
+    </div>
+    <div style="padding-left: 370px" class="nav justify-content-center">
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="#">Search</button>
+        </form>
+    </div>
+</div>
+<div class="container-center">
+    <table id="users_table" class="table table-hover table-striped">
+    </table>
+</div>
+<!--//POST Method for user:-->
+<!--Modal-->
+<div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="#addUserLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserLabel">Form</h5>
+                <button class="btn close" data-dismiss="modal" aria-label="close"></button>
+            </div>
+            <div class="modal-body">
+                <div style="padding-left: 40px">
+                </div>
+                <form id="register" method="post" >
+                    <div class="form-group" align="center">
+                        <label for="username">UserName</label>
+                        <br>
+                        <input type="text" class="control-input col-sm-10" id="username" placeholder="userName">
+                    </div>
+                    <div class="form-group" align="center">
+                        <label for="lastname">lastName</label>
+                        <br>
+                        <input type="text" class="control-input col-sm-10" id="lastname" placeholder="lastName">
+                    </div>
+                    <div class="form-group" align="center">
+                        <label for="gender">Gender</label>
+                        <br>
+                        <input type="text" class="control-input col-sm-10" id="gender" placeholder="Gender">
+                    </div>
+                    <div class="form-group" align="center">
+                        <label for="email">email</label>
+                        <br>
+                        <input type="email" class="control-input col-sm-10" id="email" placeholder="Email">
+                    </div>
+                    <div class="form-group" align="center">
+                        <label for="password">Password</label>
+                        <br>
+                        <input type="password" class="control-input col-sm-10" id="password" placeholder="Password">
+                    </div>
+                    <div class="form-group" align="center">
+                        <label   for="phoneNumber">PhoneNumber</label>
+                        <br>
+                        <input type="number" class="control-input col-sm-10"id="phoneNumber" placeholder="phoneNumber">
+                    </div>
+                    <div class="form-group" align="center">
+                        <label   for="profilePicture">profilePicture</label>
+                        <br>
+                        <input type="text" class="control-input col-sm-10"id="profilePicture" placeholder="profilePicture">
+                    </div>
+                    <div class="form-group" align="center">
+                        <label   for="registerDate">registerDate</label>
+                        <br>
+                        <input type="date" class="control-input col-sm-10"id="registerDate" placeholder="registerDate">
+                    </div>
+                    <div class="form-group" align="center">
+                        <label   for="birthDate">birthDate</label>
+                        <br>
+                        <input type="date" class="control-input col-sm-10"id="birthDate" placeholder="birthDate">
+                    </div>
+                    <div class="form-group" align="center">
+                        <label   for="roles">Roles</label>
+                        <br>
+                        <div  class="col-md-11" id="roles">
+                            <select class="form-control ">
+                                <option>ROLE_ADMIN</option>
+                                <option>ROLE_USER</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" align="center">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button class="btn btn-outline-primary" type="submit">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Modal-->
+<!--//POST Method for user:-->
+<!--Modal-->
+<div class="modal fade" id="addProducts" tabindex="-1" aria-labelledby="#addProductsLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addProductsLabel">Form</h5>
+                <button class="btn close" data-dismiss="modal" aria-label="close"></button>
+            </div>
+            <div class="modal-body">
+                <form  id="registerPr" class="table table-bordered" method="post" >
+                    <div class="form-group" align="center">
+                        <label for="username">Name</label>
+                        <br>
+                        <input type="text" class="control-input col-sm-10" id="name" placeholder="name">
+                    </div>
+                    <div class="form-group" align="center">
+                        <label for="username">Category</label>
+                        <br>
+                        <div  class="col-md-11">
+                            <select class="form-control">
+                                <option style=" background-color: red">choose your option</option>
+                                <option>Electronic</option>
+                                <option>Appliances</option>
+                                <option>Accessories</option>
+                                <option>Transportation</option>
+                                <option>Books</option>
+                                <option>Dishes</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" align="center">
+                        <label for="products">Products</label>
+                        <br>
+                        <input type="text" class="control-input col-sm-10" id="products" placeholder="products">
+                    </div>
+                    <div class="form-group" align="center">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button class="btn btn-outline-primary" type="submit">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//Put method:-->
+<!--Modal-->
+<div class="modal fade" id="UpdateUser" tabindex="-1"  >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editUserLabel">Form</h5>
+                <button class="btn close" data-dismiss="modal" aria-label="close"></button>
+            </div>
+            <div class="modal-body">
+                <h1> you should create </h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-left-lg-6">
+    <table class="table table-hover table-striped table-bordered">
+        <tr class="text-left">
+            <th scope="col">Id</th>
+            <th scope="col">UserName</th>
+            <th scope="col">LastName</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
+            <th scope="col">PhoneNumber</th>
+            <th scope="col">profilePicture</th>
+            <th scope="col">birthDate</th>
+            <th scope="col">Roles</th>
+            <th style="color: #03C203" scope="col">Edit</th>
+            <th style="color: red" scope="col">Delete</th>
+        </tr><tr>
+        <td>1</td>
+        <td>Chyngyz</td>
+        <td>Kamarov</td>
+        <td>Male</td>
+        <td>
+            chyngyz@gmail.com
+        </td>
+        <td>ch</td>
+        <td>0772202031</td>
+        <td>3*4</td>
+        <td>12.12.1989</td>
+        <td>ROLE_ADMIN</td>
+        <td><button class="btn btn-outline-success" data-toggle="modal" data-target="#UpdateUser">Update</button></td>
+        <td> <button  data-id="${u.id}" class="btn btn-outline-danger"><a href="#" id="delete-post"></a>Delete</button></td>
+    </tr>
+    </table>
+</div>
+<script src="
+https://code.jquery.com/jquery-3.3.1.slim.min.js
+" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="
+https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js
+" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="
+https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js
+" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
