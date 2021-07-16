@@ -23,10 +23,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
         }
 
         if (authentication.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ROLE_USER"))){
-            UserDetailsImpl user = (UserDetailsImpl) authentication.getPrincipal();
-            long id = user.getUserId();
-            String url = "/users/getById/" + id;
-            httpServletResponse.sendRedirect(url);
+            httpServletResponse.sendRedirect("/products");
         }
     }
 }
