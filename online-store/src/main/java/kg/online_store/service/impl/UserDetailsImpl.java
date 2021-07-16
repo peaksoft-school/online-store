@@ -35,6 +35,10 @@ public class UserDetailsImpl implements UserDetails {
         return encryptedPassword;
     }
 
+    public long getUserId() {
+        return user.getId();
+    }
+
     @Override
     public String getUsername() {
         return user.getUsername();
