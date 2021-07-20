@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -32,7 +32,8 @@
     </div>
     <br>
     <div style="padding-left: 40px">
-        <button class="btn btn-outline-warning"><a href="/logout"></a>log out</button>
+        <button class="btn btn-outline-warning"><a th:href="@{/logout}"></a>log out</button>
+<!--        logout is not working here for some reason-->
     </div>
     <div style="padding-left: 370px" class="nav justify-content-center">
         <form class="form-inline my-2 my-lg-0">
