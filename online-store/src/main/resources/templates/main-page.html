@@ -26,12 +26,9 @@
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">PRODUCTS</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="#">Categorise 1</a>
-                        <a class="dropdown-item" href="#">Categorise 2</a>
-                        <a class="dropdown-item" href="#">Categorise 3</a>
-                        <a class="dropdown-item" href="#">Categorise 4</a>
-                        <a class="dropdown-item" href="#">Categorise 5</a>
-                        <a class="dropdown-item" href="#">Categorise 6</a>
+                        <div id="categories">
+
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -209,7 +206,38 @@
     </footer>
 </div>
 
+<!--categories-->
 
+<script>
+
+    let html_categories = ` <form action="mainPage.html">
+                                <div class="checkbox ">
+                                    <input type="checkbox">Все категории
+                                    <hr>`;
+
+    fetch("http://localhost:9898/categories")
+        .then(response => {
+
+            return response.json();
+        }).then(categories => {
+        categories.forEach((el, id) => {
+            html_categories +=`<input type="checkbox">  ${el.name}
+                                    <br>`
+
+        })
+
+        html_categories +=` <button type="submit" class="btn btn-outline-default"><b>Выбрать</b></button>
+                                </div>
+                            </form>`;
+        document.getElementById("categories").innerHTML = html_categories;
+
+    }).catch(err => {
+        console.log(err)
+    })
+
+
+
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
