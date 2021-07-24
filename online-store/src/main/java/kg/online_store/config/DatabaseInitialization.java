@@ -1,11 +1,10 @@
-package kg.online_store;
+package kg.online_store.config;
 
 import kg.online_store.model.*;
 import kg.online_store.service.CategoryService;
 import kg.online_store.service.ProductService;
 import kg.online_store.service.UserService;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
@@ -14,7 +13,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Component
+
 public class DatabaseInitialization implements CommandLineRunner {
 
     private final ProductService productService;
@@ -37,7 +36,8 @@ public class DatabaseInitialization implements CommandLineRunner {
      * @return Product
      */
 
-    @PostConstruct
+//    Эта аннотация нужна только при первом запуске приложения.
+//    @PostConstruct
     private Product initializationProduct() {
         Product iPhone12 = new Product();
         iPhone12.setName("iPhone 12 Pro Max");
@@ -102,40 +102,70 @@ public class DatabaseInitialization implements CommandLineRunner {
 
         refrigerator.setDescription(descriptionRefrigerator);
 
-        Product clothes = new Product();
-        clothes.setName("Дождевик Kivach Promo");
-        clothes.setProductCount(35);
-        clothes.setProductPrice(1800);
-        clothes.setProductPicture("https://max.kg/item/7130165/dozhdevik-kivach-promo-razmer-s-cvet-temno-siniy");
+        Product washingMachineLG = new Product();
+        washingMachineLG.setName("Стиральная машина LG");
+        washingMachineLG.setProductCount(14);
+        washingMachineLG.setProductPrice(29000);
+        washingMachineLG.setProductPicture("https://www.tabilga.kg/stiralnaja-mashina-lg-7-kg-6/");
 
-        Description clothesDescription = new Description();
-        clothesDescription.setProductColor("Black");
-        clothesDescription.setProductDimensions(40);
-        clothesDescription.setProductGuarantee("Возврат денежных средств за товар, если он имеет заводской брак или не соответствует описанию");
-        clothesDescription.setProductManufacturer("Страна Россия");
-        clothesDescription.setProductWeight(197);
+        Description washingMachineLGDescription = new Description();
+        washingMachineLGDescription.setProductColor("тёмно-серый");
+        washingMachineLGDescription.setProductDimensions(40);
+        washingMachineLGDescription.setProductGuarantee("Гарантия: 3 года");
+        washingMachineLGDescription.setProductManufacturer("Страна Россия");
+        washingMachineLGDescription.setProductWeight(74);
 
-        clothes.setDescription(clothesDescription);
+        washingMachineLG.setDescription(washingMachineLGDescription);
+
+        Product tv = new Product();
+        tv.setName("LED ТЕЛЕВИЗОР BBK 32 LEX-7289");
+        tv.setProductCount(8);
+        tv.setProductPrice(15000);
+        tv.setProductPicture("https://kupi.kg/catalog/tv_video_audio_v_bishkeke/led_lcd_televizori/i_13034_led_televizor_bbk_32_lex_7289");
+
+        Description tvDescription = new Description();
+        tvDescription.setProductColor("серый");
+        tvDescription.setProductDimensions(64);
+        tvDescription.setProductGuarantee("Гарантия: 1 год");
+        tvDescription.setProductManufacturer("Страна Узбекистан");
+        tvDescription.setProductWeight(12);
+
+        tv.setDescription(tvDescription);
 
 
         List<Product> productListTechnology = new ArrayList<>();
         productListTechnology.add(iPhone12);
         productListTechnology.add(iPhone11);
         productListTechnology.add(macBookProI9);
-        productListTechnology.add(refrigerator);
 
         Category categoryTechnology = new Category();
-        categoryTechnology.setName("Technology");
+        categoryTechnology.setName("Technologies");
         categoryTechnology.setProducts(productListTechnology);
         categoryService.save(categoryTechnology);
 
-        List<Product> productListClothes = new ArrayList<>();
-        productListClothes.add(clothes);
+        List<Product> productListWashingMachine = new ArrayList<>();
+        productListWashingMachine.add(washingMachineLG);
 
-        Category categoryClothes = new Category();
-        categoryClothes.setName("Clothes");
-        categoryClothes.setProducts(productListClothes);
-        categoryService.save(categoryClothes);
+        Category categoryWashingMachine = new Category();
+        categoryWashingMachine.setName("Washing Machines");
+        categoryWashingMachine.setProducts(productListWashingMachine);
+        categoryService.save(categoryWashingMachine);
+
+        List<Product> productListRefrigerator = new ArrayList<>();
+        productListRefrigerator.add(refrigerator);
+
+        Category categoryRefrigerator = new Category();
+        categoryRefrigerator.setName("Refrigerators");
+        categoryRefrigerator.setProducts(productListRefrigerator);
+        categoryService.save(categoryRefrigerator);
+
+        List<Product> productListTV = new ArrayList<>();
+        productListTV.add(tv);
+
+        Category categoryTV = new Category();
+        categoryTV.setName("TV");
+        categoryTV.setProducts(productListTV);
+        categoryService.save(categoryTV);
 
         return iPhone12;
     }
@@ -146,7 +176,8 @@ public class DatabaseInitialization implements CommandLineRunner {
      *
      * @return User
      */
-    @PostConstruct
+//    Эта аннотация нужна только при первом запуске приложения.
+//    @PostConstruct
     private User initializationUser() {
         User user = new User();
         user.setUsername("user");
@@ -180,7 +211,9 @@ public class DatabaseInitialization implements CommandLineRunner {
      *
      * @return User
      */
-    @PostConstruct
+
+//    Эта аннотация нужна только при первом запуске приложения.
+//    @PostConstruct
     private User initializationAdmin() {
         User admin = new User();
         admin.setUsername("admin");
