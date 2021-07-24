@@ -7,6 +7,7 @@ import kg.online_store.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -35,6 +36,8 @@ public class DatabaseInitialization implements CommandLineRunner {
      *
      * @return Product
      */
+
+    @PostConstruct
     private Product initializationProduct() {
         Product iPhone12 = new Product();
         iPhone12.setName("iPhone 12 Pro Max");
@@ -143,6 +146,7 @@ public class DatabaseInitialization implements CommandLineRunner {
      *
      * @return User
      */
+    @PostConstruct
     private User initializationUser() {
         User user = new User();
         user.setUsername("user");
@@ -176,6 +180,7 @@ public class DatabaseInitialization implements CommandLineRunner {
      *
      * @return User
      */
+    @PostConstruct
     private User initializationAdmin() {
         User admin = new User();
         admin.setUsername("admin");
