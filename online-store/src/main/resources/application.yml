@@ -21,7 +21,7 @@ spring:
           timezone: UTC
 
   server:
-    url: http://localhost:9898
+    url: http://localhost:8088
 
 server:
   port: 9898
