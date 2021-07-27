@@ -23,7 +23,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
         }
 
         if (authentication.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ROLE_USER"))){
-            httpServletResponse.sendRedirect("/main_page");
+            httpServletResponse.sendRedirect("/products");
         }
     }
 }
