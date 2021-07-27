@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -22,20 +22,18 @@
     <div style="padding-left: 40px">
         <button class="btn btn-outline-primary"><a href="/api/user"></a>User table</button>
     </div>
-    <br>
-    <div style="padding-left: 40px">
-        <button class="btn btn-outline-primary"><a href="/api/product"></a>Product table</button>
-    </div>
+    <br> <div style="padding-left: 40px">
+    <button class="btn btn-outline-primary"><a href="/api/product"></a>Product table</button>
+</div>
     <br>
     <div style="padding-left: 40px">
         <button class="btn btn-outline-primary"><a href="/api/category"></a>Category table</button>
     </div>
-    <br>
+
     <div style="padding-left: 40px">
-        <button class="btn btn-outline-warning"><a th:href="@{/logout}"></a>log out</button>
-<!--        logout is not working here for some reason-->
+        <button class="btn btn-outline-warning"><a href="/logout"></a>log out</button>
     </div>
-    <div style="padding-left: 370px" class="nav justify-content-center">
+    <div style="padding-left: 670px" class="nav justify-content-center">
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="#">Search</button>
