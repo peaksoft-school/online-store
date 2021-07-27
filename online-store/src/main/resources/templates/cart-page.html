@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Shopping cart</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/504c19067f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../static/styles/cart.css"/>
+</head>
+
+<body>
+<header>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">Company LOGO</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="main-page.html">HOME<span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">PRODUCTS</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item" href="#">Categorise 1</a>
+                            <a class="dropdown-item" href="#">Categorise 2</a>
+                            <a class="dropdown-item" href="#">Categorise 3</a>
+                            <a class="dropdown-item" href="#">Categorise 4</a>
+                            <a class="dropdown-item" href="#">Categorise 5</a>
+                            <a class="dropdown-item" href="#">Categorise 6</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <div style="float:right; width:45%">
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">LOGIN<i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sign_up.html">SIGNUP<i class="fas fa-user-plus"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart-page.html">CART<i class="fas fa-cart-arrow-down"></i></a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="pt-4 px-lg-0">
+        <div class="container text-white py-5 text-center">
+            <h4 class="display-4">Shopping Cart</h4>
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="mt-0 mb-4">
+            <div class="row">
+                <div class="col-lg-8">
+
+                    <div class="card wish-list mb-4">
+                        <div class="card-body">
+
+                            <h5 class="mb-4">Cart (<span>2</span> items)</h5>
+
+                            <div class="row mb-4">
+                                <div class="col-md-5 col-lg-3 col-xl-3">
+                                    <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
+                                        <img class="img-fluid w-100"
+                                             src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16touch-silver-select-201911?wid=1808&hei=1686&fmt=jpeg&qlt=80&.v=1572825196932"
+                                             alt="Sample">
+                                    </div>
+                                </div>
+                                <div class="col-md-7 col-lg-9 col-xl-9">
+                                    <div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="product-name">
+                                                <a href="#">MacBook Pro</a>
+                                                <div class="product-info">
+                                                    <br>
+                                                    <div><strong>Brand: </strong><span class="value">Apple</span></div>
+                                                    <div><strong>Display: </strong><span class="value">16 inch</span>
+                                                    </div>
+                                                    <div><strong>RAM: </strong><span class="value">64 GB</span></div>
+                                                    <div><strong>Storage: </strong><span class="value">8 TB</span></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 quantity">
+                                                <label for="quantity">Quantity:</label>
+                                                <input id="quantity" type="number" value="1"
+                                                       class="form-control quantity-input">
+                                            </div>
+                                        </div>
+
+                                        <hr>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <a href="#!" type="button"
+                                                   class="card-link-secondary small text-uppercase mr-3"><i
+                                                        class="fas fa-trash-alt mr-1"></i> Remove item </a>
+                                            </div>
+                                            <p class="mb-0"><span><strong>241965 som</strong></span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="mb-4">
+                            <div class="row mb-4">
+                                <div class="col-md-5 col-lg-3 col-xl-3">
+                                    <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
+                                        <img class="img-fluid w-100"
+                                             src="https://assets.swappie.com/swappie-product-iphone-12-pro-max-silver.png"
+                                             alt="Sample">
+                                    </div>
+                                </div>
+                                <div class="col-md-7 col-lg-9 col-xl-9">
+                                    <div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="product-name">
+                                                <a href="#">iPhone 12 Pro Max</a>
+                                                <div class="product-info">
+                                                    <br>
+                                                    <div><strong>Brand: </strong><span class="value">Apple</span></div>
+                                                    <div><strong>Display: </strong><span class="value">6.7 inch</span>
+                                                    </div>
+                                                    <div><strong>RAM: </strong><span class="value">6 GB</span></div>
+                                                    <div><strong>Memory: </strong><span class="value">512 GB</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 quantity">
+                                                <label for="quantity">Quantity:</label>
+                                                <input id="quantity" type="number" value="1"
+                                                       class="form-control quantity-input">
+                                            </div>
+                                        </div>
+
+                                        <hr>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <a href="#!" type="button"
+                                                   class="card-link-secondary small text-uppercase mr-3"><i
+                                                        class="fas fa-trash-alt mr-1"></i> Remove item </a>
+                                            </div>
+                                            <p class="mb-0"><span><strong>100182 som</strong></span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+
+                            <h5 class="mb-3">Order Summary</h5>
+
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                    Subtotal
+                                    <span>342147 som</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    Shipping
+                                    <span>Free</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                    <div>
+                                        <strong>Total</strong>
+                                    </div>
+                                    <span><strong>342147 som</strong></span>
+                                </li>
+                            </ul>
+
+                            <button type="button" class="btn btn-primary btn-block waves-effect waves-light">GO TO
+                                CHECKOUT
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="mb-4">We accept</h5>
+                            <img class="mr-2" width="45px"
+                                 src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+                                 alt="Visa">
+                            <img class="mr-2" width="45px"
+                                 src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+                                 alt="Mastercard">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="page-footer font-small mdb-color pt-4">
+    <div class="container text-center text-md-left">
+        <div class="row text-center text-md-left mt-3 pb-3">
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold">Company name</h6>
+                <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+                    consectetur
+                    adipisicing elit.</p>
+            </div>
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+                <p><a href="#!">Categories 1</a></p>
+                <p><a href="#!">Categories 2</a></p>
+                <p><a href="#!">Categories 3</a></p>
+                <p><a href="#!">Categories 4</a></p>
+            </div>
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
+                <p><a href="#!">Link 1</a></p>
+                <p><a href="#!">Link 2</a></p>
+                <p><a href="#!">Link 3</a></p>
+                <p><a href="#!">Link 4</a></p>
+            </div>
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+                <p><i class="fas fa-home mr-3"></i> Bishkek, 720010, Kyrgyzstan</p>
+                <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
+                <p><i class="fas fa-phone mr-3"></i> + 996 312 312 312</p>
+                <p><i class="fas fa-print mr-3"></i> + 996 315 315 315</p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row d-flex align-items-center">
+            <div class="col-md-7 col-lg-8">
+                <p class="text-center text-md-left"><i class="fas fa-copyright"></i> 2021 Copyright:
+                    <a href="#"><strong> Online-store.kg</strong></a>
+                </p>
+
+            </div>
+
+            <div class="col-md-5 col-lg-4 ml-lg-0">
+
+                <!-- Social buttons -->
+                <div class="text-center text-md-right">
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                <i class="fab fa-google-plus-g"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
