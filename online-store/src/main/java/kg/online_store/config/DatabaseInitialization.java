@@ -5,6 +5,7 @@ import kg.online_store.service.CategoryService;
 import kg.online_store.service.ProductService;
 import kg.online_store.service.UserService;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
@@ -13,17 +14,16 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@Component
+public class DatabaseInitialization {
 
-public class DatabaseInitialization implements CommandLineRunner {
-
-    private final ProductService productService;
 
     private final CategoryService categoryService;
 
     private final UserService userService;
 
-    public DatabaseInitialization(ProductService productService, CategoryService categoryService, UserService userService) {
-        this.productService = productService;
+    public DatabaseInitialization(CategoryService categoryService, UserService userService) {
+
         this.categoryService = categoryService;
         this.userService = userService;
     }
@@ -38,7 +38,7 @@ public class DatabaseInitialization implements CommandLineRunner {
 
 //    Эта аннотация нужна только при первом запуске приложения.
 //    @PostConstruct
-    private Product initializationProduct() {
+    private void initializationProduct() {
         Product iPhone12 = new Product();
         iPhone12.setName("iPhone 12 Pro Max");
         iPhone12.setProductCount(15);
@@ -54,6 +54,7 @@ public class DatabaseInitialization implements CommandLineRunner {
         descriptionIPhone12.setProductWeight(226);
 
         iPhone12.setDescription(descriptionIPhone12);
+
 
         Product iPhone11 = new Product();
         iPhone11.setName("iPhone 11 Pro");
@@ -71,6 +72,7 @@ public class DatabaseInitialization implements CommandLineRunner {
 
         iPhone11.setDescription(descriptionIPhone11);
 
+
         Product macBookProI9 = new Product();
         macBookProI9.setName("MacBook Pro i9 - 1 ТБ");
         macBookProI9.setProductCount(25);
@@ -87,6 +89,7 @@ public class DatabaseInitialization implements CommandLineRunner {
 
         macBookProI9.setDescription(descriptionMacBookProI9);
 
+
         Product refrigerator = new Product();
         refrigerator.setName("Холодильник Indesit DS 316 W");
         refrigerator.setProductCount(12);
@@ -102,6 +105,7 @@ public class DatabaseInitialization implements CommandLineRunner {
 
         refrigerator.setDescription(descriptionRefrigerator);
 
+
         Product washingMachineLG = new Product();
         washingMachineLG.setName("Стиральная машина LG");
         washingMachineLG.setProductCount(14);
@@ -116,6 +120,7 @@ public class DatabaseInitialization implements CommandLineRunner {
         washingMachineLGDescription.setProductWeight(74);
 
         washingMachineLG.setDescription(washingMachineLGDescription);
+
 
         Product tv = new Product();
         tv.setName("LED ТЕЛЕВИЗОР BBK 32 LEX-7289");
@@ -167,18 +172,11 @@ public class DatabaseInitialization implements CommandLineRunner {
         categoryTV.setProducts(productListTV);
         categoryService.save(categoryTV);
 
-        return iPhone12;
+        initializationUser();
     }
 
 
-    /**
-     * Метод для инициализация базы данных пользователями
-     *
-     * @return User
-     */
-//    Эта аннотация нужна только при первом запуске приложения.
-//    @PostConstruct
-    private User initializationUser() {
+    private void initializationUser() {
         User user = new User();
         user.setUsername("user");
         user.setLastName("userov");
@@ -201,20 +199,9 @@ public class DatabaseInitialization implements CommandLineRunner {
 
         user.setRoles(roleSet);
 
-        return user;
-
-    }
+        userService.save(user);
 
 
-    /**
-     * Метод для инициализация базы данных пользователями
-     *
-     * @return User
-     */
-
-//    Эта аннотация нужна только при первом запуске приложения.
-//    @PostConstruct
-    private User initializationAdmin() {
         User admin = new User();
         admin.setUsername("admin");
         admin.setLastName("adminov");
@@ -237,25 +224,7 @@ public class DatabaseInitialization implements CommandLineRunner {
         roles.add(roleAdmin);
 
         admin.setRoles(roles);
-        return admin;
-    }
 
-
-    /**
-     * Переопределенный метод для инициализации базы данных
-     *
-     * @param args String
-     * @throws Exception e
-     */
-    @Override
-    public void run(String... args) throws Exception {
-        Product product = initializationProduct();
-        productService.save(product);
-
-        User user = initializationUser();
-        userService.save(user);
-
-        User admin = initializationAdmin();
         userService.save(admin);
     }
 }
