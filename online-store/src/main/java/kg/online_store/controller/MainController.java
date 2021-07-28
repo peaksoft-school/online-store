@@ -11,4 +11,9 @@ public class MainController {
     public String loginPage() {
         return "main-page";
     }
+
+     @GetMapping("editProfile")
+    public String editPage() {
+        return "editUserPage";
+    }
 }

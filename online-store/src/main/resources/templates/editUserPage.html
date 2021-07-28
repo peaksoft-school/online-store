@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Company LOGO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">HOME<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">PRODUCTS</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="#">Categorise 1</a>
+                    <a class="dropdown-item" href="#">Categorise 2</a>
+                    <a class="dropdown-item" href="#">Categorise 3</a>
+                    <a class="dropdown-item" href="#">Categorise 4</a>
+                    <a class="dropdown-item" href="#">Categorise 5</a>
+                    <a class="dropdown-item" href="#">Categorise 6</a>
+                </div>
+            </li>
+        </ul>
+
+        <div style="float:right; width:50%">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link" href="#">LOGIN<i class="fas fa-sign-in-alt"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">SIGNUP<i class="fas fa-user-plus"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">CART<i class="fas fa-cart-arrow-down"></i></a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<div class="container">
+    <h1 align="center">Личные данные</h1>
+</div>
+<form class="container" id="editUser">
+    <br>
+    <div class="row">
+        <div>
+            <input type="number" id="editId" hidden>
+        </div>
+        <div class="col">
+            <label for="editUserName">User Name</label>
+            <br>
+            <input type="text" class="form-control" id="editUserName">
+        </div>
+        <div class="col">
+            <label for="editLastName">Last Name</label>
+            <br>
+            <input type="text" class="form-control" id="editLastName">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <label for="editGender">Gender</label>
+            <br>
+            <input type="text" class="form-control" id="editGender">
+        </div>
+        <div class="col">
+            <label for="editEmail">Email</label>
+            <br>
+            <input type="text" class="form-control" id="editEmail">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <label for="editPhoneNumber">Phone number</label>
+            <br>
+            <input type="text" class="form-control" id="editPhoneNumber">
+        </div>
+        <div class="col">
+            <label for="editBirthday">Birth date</label>
+            <br>
+            <input type="date" class="form-control" id="editBirthday">
+            <input type="password" class="form-control" id="editPassword" hidden>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <label for="editProfile">Profile</label>
+            <br>
+            <input type="file" style="width: 300px" class="form-control" id="editProfile">
+        </div>
+    </div>
+    <br>
+    <div align="center">
+        <input class="btn btn-primary" type="submit" value="update">
+    </div>
+
+</form>
+<script>
+    function getUser() {
+        let response = fetch('http://localhost:9898/users/user')
+            .then((res) => {
+                return res.json()
+            }).then((user) => {
+                console.log("test:  ", user)
+                document.getElementById('editId').value = user.id;
+                document.getElementById('editUserName').value = user.username;
+                document.getElementById('editLastName').value = user.lastName;
+                document.getElementById('editGender').value = user.gender;
+                document.getElementById('editEmail').value = user.email;
+                document.getElementById('editPassword').value = user.password;
+                document.getElementById('editPhoneNumber').value = user.phoneNumber;
+            })
+    }
+    getUser()
+    let editForm = document.getElementById('editUser');
+    editForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        let profilePicture = document.getElementById('editProfile').value;
+        let eid = document.getElementById('editId').value;
+        let eusername = document.getElementById('editUserName').value;
+        let elastName = document.getElementById('editLastName').value;
+        let egender = document.getElementById('editGender').value;
+        let eemail = document.getElementById('editEmail').value;
+        let epassword = document.getElementById('editPassword').value;
+        let ephoneNumber = document.getElementById('editPhoneNumber').value;
+        let ebirthDay = document.getElementById('editBirthday').value;
+
+        fetch('http://localhost:9898/users/updateUser', {
+            method: 'PUT',
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                id: eid,
+                username: eusername,
+                lastName: elastName,
+                gender: egender,
+                email: eemail,
+                password: epassword,
+                phoneNumber: ephoneNumber,
+                profilePicture: profilePicture,
+                birthDate: ebirthDay
+            }),
+        }).then((res) => {
+            if(res.ok) {
+                setTimeout(test, 100)
+            }
+        })
+        function test() {
+            document.location.href = 'http://localhost:9898/main_page/editProfile'
+        }
+    })
+
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
