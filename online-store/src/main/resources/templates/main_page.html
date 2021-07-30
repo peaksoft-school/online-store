@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/504c19067f.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 </head>
 <body>
 
@@ -36,7 +40,7 @@
                 </li>
             </ul>
 
-            <div style="float:right; width:50%">
+            <div style="float:left; width:50%">
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
@@ -61,62 +65,63 @@
     <main role="main">
 
         <div class="jumbotron">
-            <div class="container">
-                <h1 class="display-3">Welcome to our Online-Store!</h1>
-                <p>This is a template for a simple marketing or informational website. It includes a large callout
-                    called a jumbotron and three supporting pieces of content. Use it as a starting point to create
-                    something more unique.</p>
-                <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>Laptops</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                        mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-                        magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Phones</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                        mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-                        magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>TV's</h2>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id
-                        ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                        condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Tools</h2>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id
-                        ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                        condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Tablets</h2>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id
-                        ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                        condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Headsets</h2>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id
-                        ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                        condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <div class="container-fluid">
+                <div class="row">
+                    <!--        style="background-color: #f9cf8c"-->
+                    <div class="container col-md-12" >
+                        <form id="filter">
+                            <div class="form-group" align="center-left">
+                                <button type="submit" class="btn btn-primary">actual</button>
+                            </div>
+                        </form>
+                        <!--            style="background-color: #c9f9f9"-->
+                        <div class="container" >
+                            <div id="productList">
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
                 </div>
             </div>
+            <script>
+                actual = document.getElementById('filter');
+                actual.addEventListener('submit', async function (event) {
+                    event.preventDefault()
+                let html_actual = ``;
+                    fetch("http://localhost:9898/products/actual")
+                        .then(data=>{
+                            return data.json()
+                        }).then(result=>{
+                        console.log(result)
+                        result.forEach(product=>{
+                            html_actual += `<div class="col-md-4" >
+                    <br>
+                    <a href="#">
+                    <div class="container">
+                        <img src="${product.productPicture}" alt=""
+                             width="220" height="200">
+                    </div>
+                    <div class="text-center-left">
+                        <p>${product.name}</p>
+                        <p1>price:${product.productPrice}</p1>
+                    </div>
+                    </a>
+                    <br>
+                </div>
+`;
+                        })
+                        document.getElementById('productList').innerHTML = html_actual;
+                    })
+                })
+            </script>
 
-            <hr>
 
         </div> <!-- /container -->
 
@@ -209,6 +214,7 @@
     </footer>
 </div>
 
+<!--<script src="actual-product.js"></script>-->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
