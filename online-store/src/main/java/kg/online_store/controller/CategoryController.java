@@ -1,4 +1,6 @@
 package kg.online_store.controller;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import kg.online_store.model.Category;
 import kg.online_store.service.CategoryService;
 import org.springframework.http.HttpStatus;
@@ -10,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/categories")
 @CrossOrigin
+@Tag(name = "Контроллер для категорий", description = "***")
 public class CategoryController {
 
     private final CategoryService categoryService;
@@ -19,6 +22,7 @@ public class CategoryController {
     }
 
     @GetMapping
+    @Operation(summary = "Все категории", description = "Позволяет получить все категории из базы данных")
     public ResponseEntity<List<Category>> getAll() {
         try {
             return new ResponseEntity<>(categoryService.findAll(), HttpStatus.OK);
@@ -28,6 +32,7 @@ public class CategoryController {
     }
 
     @GetMapping("/getById/{id}")
+    @Operation(summary = "Категория(id)", description = "Позволяет получить категорию по 'id'")
     public ResponseEntity<Category> getById(@PathVariable Long id) {
         try {
             return new ResponseEntity<>(categoryService.findById(id), HttpStatus.OK);
@@ -36,7 +41,9 @@ public class CategoryController {
         }
     }
 
+
     @GetMapping("/getByName/{name}")
+    @Operation(summary = "Категория(name)", description = "Позволяет получить категорию по имени")
     public ResponseEntity<Category> getByName(@PathVariable String name) {
         try {
             return new ResponseEntity<>(categoryService.findCategoryByName(name), HttpStatus.OK);
@@ -46,6 +53,7 @@ public class CategoryController {
     }
 
     @PostMapping
+    @Operation(summary = "Добавление категории", description = "Позволяет добавить новую категорию")
     public ResponseEntity<?> saveCategory(@RequestBody Category category) {
         try {
             categoryService.save(category);
@@ -56,6 +64,7 @@ public class CategoryController {
     }
 
     @DeleteMapping("/deleteById/{id}")
+    @Operation(summary = "Удаление категории", description = "Позволяет удалить категорию")
     public ResponseEntity<?> deleteById(@PathVariable Long id) {
         try {
             categoryService.deleteById(id);

@@ -1,5 +1,6 @@
 package kg.online_store.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,13 +14,16 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Schema(description = "Категория")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @Schema(description = "Идентификатор", accessMode = Schema.AccessMode.READ_ONLY)
     Long id;
 
     @Column(name = "name")
+    @Schema(description = "название", example = "холодилники")
     String name;
 
     @OneToMany(cascade = CascadeType.ALL)

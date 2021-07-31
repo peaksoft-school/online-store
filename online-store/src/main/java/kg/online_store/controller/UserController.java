@@ -1,5 +1,7 @@
 package kg.online_store.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import kg.online_store.model.User;
 import kg.online_store.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -11,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 @CrossOrigin
+@Tag(name = "Контроллер для управления пользователем", description = "***")
 public class UserController {
 
     private final UserService userService;
@@ -20,6 +23,7 @@ public class UserController {
     }
 
     @GetMapping
+    @Operation(summary = "Все пользователи", description = "Позволяет получить всех пользователей из базы данных")
     public ResponseEntity<List<User>> getAllUsers() {
         try {
             return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
@@ -29,6 +33,7 @@ public class UserController {
     }
 
     @GetMapping("/getById/{id}")
+    @Operation(summary = "Пользователь(id)", description = "Позволяет получить пользователя по 'id'")
     public ResponseEntity<User> getById(@PathVariable Long id) {
         try {
             return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
@@ -38,6 +43,7 @@ public class UserController {
     }
 
     @GetMapping("/getByUsername/{name}")
+    @Operation(summary = "Пользователь(name)", description = "Позволяет получить пользователя по имени")
     public ResponseEntity<User> getByUsername(@PathVariable String name) {
         try {
             return new ResponseEntity<>(userService.findUserByUsername(name), HttpStatus.OK);
@@ -47,6 +53,7 @@ public class UserController {
     }
 
     @GetMapping("/getByEmail/{email}")
+    @Operation(summary = "Пользователь(email)", description = "Позволяет получить пользователя по по электронному адресу")
     public ResponseEntity<User> getByEmail(@PathVariable String email) {
         try {
             return new ResponseEntity<>(userService.findUserByEmail(email), HttpStatus.OK);
@@ -56,6 +63,7 @@ public class UserController {
     }
 
     @PostMapping
+    @Operation(summary = "Добавление пользователя", description = "Позволяет добавить нового пользователя")
     public ResponseEntity<?> saveUser(@RequestBody User user) {
         try {
             userService.save(user);
@@ -66,6 +74,7 @@ public class UserController {
     }
 
     @DeleteMapping("/deleteById/{id}")
+    @Operation(summary = "Удаление пользователя", description = "Позволяет удалить пользователя")
     public ResponseEntity<?> deleteById(@PathVariable Long id) {
         try {
             userService.deleteById(id);
