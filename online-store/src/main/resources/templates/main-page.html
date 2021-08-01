@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/504c19067f.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 </head>
 <body>
 
@@ -24,22 +28,19 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">PRODUCTS</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="#">Categorise 1</a>
-                        <a class="dropdown-item" href="#">Categorise 2</a>
-                        <a class="dropdown-item" href="#">Categorise 3</a>
-                        <a class="dropdown-item" href="#">Categorise 4</a>
-                        <a class="dropdown-item" href="#">Categorise 5</a>
-                        <a class="dropdown-item" href="#">Categorise 6</a>
-                    </div>
+                       aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">PRODUCTS</a>
+                    <ul class="dropdown-menu" id="categories">
+                    </ul>
                 </li>
+
             </ul>
 
-            <div style="float:right; width:50%">
+
+            <div style="float:left; width:50%">
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i>
+                    </button>
                 </form>
             </div>
 
@@ -118,7 +119,7 @@
 
             <hr>
 
-        </div> <!-- /container -->
+        </div>
 
     </main>
 
@@ -157,7 +158,7 @@
 
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                     <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
-                    <p><i class="fas fa-home mr-3"></i> Bishkek,  720010, Kyrgyzstan</p>
+                    <p><i class="fas fa-home mr-3"></i> Bishkek, 720010, Kyrgyzstan</p>
                     <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
                     <p><i class="fas fa-phone mr-3"></i> + 996 312 312 312</p>
                     <p><i class="fas fa-print mr-3"></i> + 996 315 315 315</p>
@@ -208,8 +209,31 @@
         </div>
     </footer>
 </div>
+<script>
 
 
+    let html_categories = ``;
+    console.log("html_categories")
+
+    fetch("http://localhost:9898/categories")
+        .then(response => {
+
+            return response.json();
+        }).then(categories => {
+        categories.forEach((el, id) => {
+            html_categories += ` <li><a href="#">&nbsp; ${el.name}</a></li>`
+
+        })
+
+        html_categories += ` <li class="divider"></li>
+                        <li><a href="#"> Все категории</a></li>`;
+        console.log(html_categories)
+        document.getElementById("categories").innerHTML = html_categories;
+
+    }).catch(err => {
+        console.log(err)
+    })
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
