@@ -29,8 +29,12 @@ public class Product {
 
     @Column(name = "product_count")
     int productCount = 0;
+    @Column(name = "count")
+    int count = 0;
+
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "description_id")
     Description description;
+
 }

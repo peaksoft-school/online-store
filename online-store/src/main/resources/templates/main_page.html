@@ -69,15 +69,37 @@
                 <div class="row">
                     <!--        style="background-color: #f9cf8c"-->
                     <div class="container col-md-12" >
-                        <form id="filter">
+<!--                        <li class="nav-item dropdown">-->
+<!--                            <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown"-->
+<!--                               aria-haspopup="true" aria-expanded="false">PRODUCTS</a>-->
+<!--                            <div class="dropdown-menu" aria-labelledby="dropdown01">-->
+<!--                                <a class="dropdown-item" href="${cheap}">Cheap</a>-->
+<!--                                <a class="dropdown-item" href="${expensive}">Expensive</a>-->
+
+<!--                            </div>-->
+<!--                        </li>-->
+                        <ul>
+                        <form id="cheap">
                             <div class="form-group" align="center-left">
-                                <button type="submit" class="btn btn-primary">actual</button>
+                                <button type="submit" class="btn btn-primary">cheap</button>
+
+                            </div>
+
+                        </form>
+
+                        <form id="expensive">
+                            <div class="form-group" align="center-left">
+                                <button type="submit" class="btn btn-primary">Expansive</button>
                             </div>
                         </form>
+                        <br>
+                        </ul>
+
                         <!--            style="background-color: #c9f9f9"-->
                         <div class="container" >
                             <div id="productList">
-                            </div>
+<!--                            <div id="cheapProductList">-->
+<!--                            </div>-->
                             <br>
                             <br>
                             <br>
@@ -90,37 +112,13 @@
                     </div>
                 </div>
             </div>
-            <script>
-                actual = document.getElementById('filter');
-                actual.addEventListener('submit', async function (event) {
-                    event.preventDefault()
-                let html_actual = ``;
-                    fetch("http://localhost:9898/products/actual")
-                        .then(data=>{
-                            return data.json()
-                        }).then(result=>{
-                        console.log(result)
-                        result.forEach(product=>{
-                            html_actual += `<div class="col-md-4" >
-                    <br>
-                    <a href="#">
-                    <div class="container">
-                        <img src="${product.productPicture}" alt=""
-                             width="220" height="200">
-                    </div>
-                    <div class="text-center-left">
-                        <p>${product.name}</p>
-                        <p1>price:${product.productPrice}</p1>
-                    </div>
-                    </a>
-                    <br>
-                </div>
-`;
-                        })
-                        document.getElementById('productList').innerHTML = html_actual;
-                    })
-                })
-            </script>
+
+
+
+
+
+
+
 
 
         </div> <!-- /container -->
@@ -214,7 +212,9 @@
     </footer>
 </div>
 
-<!--<script src="actual-product.js"></script>-->
+<script src="js/actual-product.js"></script>
+<script src="js/cheap-product.js"></script>
+<script src="js/expensive-product.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

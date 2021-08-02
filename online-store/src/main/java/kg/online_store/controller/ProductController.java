@@ -33,60 +33,51 @@ public class ProductController {
         }
     }
     @GetMapping("/actual")
-    public ResponseEntity<List<Product>> getActualProducts() {
+public ResponseEntity<List<Product>>getActualProduct(){
         try {
-            List<Product> products = new ArrayList<>();
-            List<Product> allProducts = productService.findAll();
-            List<ActualProduct> allActualProducts = actualProductRepository.findAll();
-            ActualProduct testAc;
-            for (int i = 0; i < allActualProducts.size(); i++) {
-                for (int j = 0; j < allActualProducts.size()-1; j++) {
-                    if(allActualProducts.get(j).getCount()<allActualProducts.get(j+1).getCount()){
-                        testAc = allActualProducts.get(j);
-                        allActualProducts.set(j,allActualProducts.get(j+1));
-                        allActualProducts.set(j+1,testAc);
-                    }
-                }
-            }
-            for (int i = 0; i < allActualProducts.size(); i++) {
-                for (int j = 0; j < allProducts.size(); j++) {
-                    if (allActualProducts.get(i).getProductId() == allProducts.get(j).getId()){
-                        products.add(allProducts.get(j));
-                    }
-                }
-            }
-            for (int i = 0; i < allActualProducts.size(); i++) {
-                for (int j = 0; j < allProducts.size(); j++) {
-                    if (allActualProducts.get(i).getProductId() == allProducts.get(j).getId()){
-                        allProducts.remove(j);
-                    }else {
-                    }
-                }
-            }
-            products.addAll(allProducts);
-            return new ResponseEntity<>(products, HttpStatus.OK);
-        } catch (Exception e) {
-            System.out.println("exception");
+            return new ResponseEntity<>(productService.findActual(),HttpStatus.OK);
+        }catch (Exception e){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping("/cheap")
+    public ResponseEntity<List<Product>>getCheapProduct(){
+        try {
+            return new ResponseEntity<>(productService.findCheap(),HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+    @GetMapping("/expensive")
+    public ResponseEntity<List<Product>>getExpensiveProduct(){
+        try {
+            return new ResponseEntity<>(productService.findExpensive(),HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
     @GetMapping("/getById/{id}")
     public ResponseEntity<Product> getById(@PathVariable Long id) {
         try {
-            ActualProduct actualProduct;
+            Product actualProduct;
             try {
-                actualProduct = actualProductRepository.getByProductId(id);
+                actualProduct = productService.findById(id);
             } catch (Exception e) {
-                actualProduct = new ActualProduct(id,0L);
-
+                actualProduct = new Product();
+                actualProduct.setId(id);
+                actualProduct.setCount(0);
             }
             actualProduct.setCount(actualProduct.getCount()+1);
-            actualProductRepository.save(actualProduct);
+            productService.save(actualProduct);
             return new ResponseEntity<>(productService.findById(id), HttpStatus.OK);
-        } catch (Exception e) {
+        }catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
     @GetMapping("/getByName/{name}")
     public ResponseEntity<Product> getByName(@PathVariable String name) {
         try {
