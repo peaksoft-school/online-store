@@ -95,11 +95,7 @@ public class UserController {
     @PutMapping("/updateUser")
     public ResponseEntity<?> editUserPage(@RequestBody User user) {
         try {
-            Set<Role> rolesFromBD = new HashSet<>();
-            rolesFromBD.add(roleService.getRoleByName("ROLE_USER"));
-            user.setRoles(rolesFromBD);
-            user.setRegisterDate(LocalDate.now());
-            userService.save(user);
+            userService.updateUser(user);
             return new ResponseEntity<>(HttpStatus.OK);
         }catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
