@@ -70,7 +70,7 @@
         <div class="col">
             <label for="editUserName">User Name</label>
             <br>
-            <input type="text" class="form-control control-input col-sm-8" id="editUserName">
+            <input type="text" class="form-control control-input col-sm-8" id="editUserName" required>
         </div>
     </div>
     <br>
@@ -78,7 +78,7 @@
         <div class="col">
             <label for="editLastName">Last Name</label>
             <br>
-            <input type="text" class="form-control control-input col-sm-8" id="editLastName">
+            <input type="text" class="form-control control-input col-sm-8" id="editLastName" required>
         </div>
     </div>
     <br>
@@ -86,7 +86,7 @@
         <div class="col">
             <label for="editEmail">Email</label>
             <br>
-            <input type="text" class="form-control control-input col-sm-8" id="editEmail">
+            <input type="email" class="form-control control-input col-sm-8" id="editEmail" required>
         </div>
     </div>
     <br>
@@ -94,7 +94,7 @@
         <div class="col">
             <label for="editPhoneNumber">Phone number</label>
             <br>
-            <input type="text" class="form-control control-input col-sm-8" id="editPhoneNumber">
+            <input type="number" class="form-control control-input col-sm-8" id="editPhoneNumber" required>
         </div>
     </div>
     <br>
@@ -102,7 +102,7 @@
         <div class="col">
             <label for="editBirthday">Birth date</label>
             <br>
-            <input type="date" class="form-control control-input col-sm-5" id="editBirthday">
+            <input type="date" class="form-control control-input col-sm-5" id="editBirthday" required>
 
             <input type="password" class="form-control" id="editPassword" hidden>
         </div>
@@ -112,7 +112,7 @@
         <div class="col">
             <label for="editProfile">Profile</label>
             <br>
-            <input type="file" style="width: 300px" class="form-control" id="editProfile">
+            <input type="file" style="width: 300px" class="form-control" id="editProfile" required>
         </div>
     </div>
     <br>
@@ -120,7 +120,7 @@
         <div class="col">
             <div class="radio-inline">
                 <label>
-                    <input type="radio" name="optionsRadios" id="radio1" value="Male">
+                    <input type="radio" name="optionsRadios" id="radio1" value="Male" checked>
                     Male
                 </label>
             </div>
@@ -191,7 +191,7 @@
             }),
         }).then((res) => {
             if(res.ok) {
-                setTimeout(test, 100)
+                setTimeout(test, 50)
             }
         })
         function test() {
