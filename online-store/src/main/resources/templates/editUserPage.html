@@ -59,54 +59,56 @@
 <br>
 <br>
 <div class="container">
-    <h1 align="center">Личные данные</h1>
+    <h1 align="center">Update user</h1>
 </div>
 <form class="container" id="editUser">
     <br>
-    <div class="row">
+    <div class="row" align="center">
         <div>
             <input type="number" id="editId" hidden>
         </div>
         <div class="col">
             <label for="editUserName">User Name</label>
             <br>
-            <input type="text" class="form-control" id="editUserName">
+            <input type="text" class="form-control control-input col-sm-8" id="editUserName">
         </div>
+    </div>
+    <br>
+    <div class="row" align="center">
         <div class="col">
             <label for="editLastName">Last Name</label>
             <br>
-            <input type="text" class="form-control" id="editLastName">
+            <input type="text" class="form-control control-input col-sm-8" id="editLastName">
         </div>
     </div>
     <br>
-    <div class="row">
-        <div class="col">
-            <label for="editGender">Gender</label>
-            <br>
-            <input type="text" class="form-control" id="editGender">
-        </div>
+    <div class="row" align="center">
         <div class="col">
             <label for="editEmail">Email</label>
             <br>
-            <input type="text" class="form-control" id="editEmail">
+            <input type="text" class="form-control control-input col-sm-8" id="editEmail">
         </div>
     </div>
     <br>
-    <div class="row">
+    <div class="row" align="center">
         <div class="col">
             <label for="editPhoneNumber">Phone number</label>
             <br>
-            <input type="text" class="form-control" id="editPhoneNumber">
+            <input type="text" class="form-control control-input col-sm-8" id="editPhoneNumber">
         </div>
+    </div>
+    <br>
+    <div class="row" align="center">
         <div class="col">
             <label for="editBirthday">Birth date</label>
             <br>
-            <input type="date" class="form-control" id="editBirthday">
+            <input type="date" class="form-control control-input col-sm-5" id="editBirthday">
+
             <input type="password" class="form-control" id="editPassword" hidden>
         </div>
     </div>
     <br>
-    <div class="row">
+    <div class="row" align="center">
         <div class="col">
             <label for="editProfile">Profile</label>
             <br>
@@ -114,10 +116,27 @@
         </div>
     </div>
     <br>
+    <div class="row" align="center">
+        <div class="col">
+            <div class="radio-inline">
+                <label>
+                    <input type="radio" name="optionsRadios" id="radio1" value="Male">
+                    Male
+                </label>
+            </div>
+            <div class="radio-inline">
+                <label>
+                    <input type="radio" name="optionsRadios" id="radio2" value="Female">
+                    Female
+                </label>
+            </div>
+        </div>
+    </div>
+    <br>
     <div align="center">
         <input class="btn btn-primary" type="submit" value="update">
     </div>
-
+    <hr>
 </form>
 <script>
     function getUser() {
@@ -129,7 +148,6 @@
                 document.getElementById('editId').value = user.id;
                 document.getElementById('editUserName').value = user.username;
                 document.getElementById('editLastName').value = user.lastName;
-                document.getElementById('editGender').value = user.gender;
                 document.getElementById('editEmail').value = user.email;
                 document.getElementById('editPassword').value = user.password;
                 document.getElementById('editPhoneNumber').value = user.phoneNumber;
@@ -143,11 +161,17 @@
         let eid = document.getElementById('editId').value;
         let eusername = document.getElementById('editUserName').value;
         let elastName = document.getElementById('editLastName').value;
-        let egender = document.getElementById('editGender').value;
+        let egender;
         let eemail = document.getElementById('editEmail').value;
         let epassword = document.getElementById('editPassword').value;
         let ephoneNumber = document.getElementById('editPhoneNumber').value;
         let ebirthDay = document.getElementById('editBirthday').value;
+        let radio = document.getElementsByName('optionsRadios');
+        for (let i = 0; i < radio.length; i++) {
+            if(radio[i].checked) {
+                 egender = radio[i].value;
+            }
+        }
 
         fetch('http://localhost:9898/users/updateUser', {
             method: 'PUT',
@@ -171,7 +195,7 @@
             }
         })
         function test() {
-            document.location.href = 'http://localhost:9898/main_page/editProfile'
+            document.location.href = 'http://localhost:9898/main_page'
         }
     })
 
