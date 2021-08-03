@@ -131,6 +131,9 @@
                 </label>
             </div>
         </div>
+        <div class="col">
+            <input type="date" id="registerDate" required hidden>
+        </div>
     </div>
     <br>
     <div align="center">
@@ -151,6 +154,7 @@
                 document.getElementById('editEmail').value = user.email;
                 document.getElementById('editPassword').value = user.password;
                 document.getElementById('editPhoneNumber').value = user.phoneNumber;
+                document.getElementById('registerDate').value = user.registerDate;
             })
     }
     getUser()
@@ -166,6 +170,7 @@
         let epassword = document.getElementById('editPassword').value;
         let ephoneNumber = document.getElementById('editPhoneNumber').value;
         let ebirthDay = document.getElementById('editBirthday').value;
+        let eregisterDate = document.getElementById('registerDate').value;
         let radio = document.getElementsByName('optionsRadios');
         for (let i = 0; i < radio.length; i++) {
             if(radio[i].checked) {
@@ -187,7 +192,8 @@
                 password: epassword,
                 phoneNumber: ephoneNumber,
                 profilePicture: profilePicture,
-                birthDate: ebirthDay
+                birthDate: ebirthDay,
+                registerDate: eregisterDate
             }),
         }).then((res) => {
             if(res.ok) {

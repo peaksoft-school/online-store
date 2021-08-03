@@ -68,7 +68,6 @@ public class UserServiceImpl implements UserService {
         Set<Role> rolesFromBD = new HashSet<>();
         rolesFromBD.add(roleService.getRoleByName("ROLE_USER"));
         user.setRoles(rolesFromBD);
-        user.setRegisterDate(LocalDate.now());
         userRepository.save(user);
     }
 }
