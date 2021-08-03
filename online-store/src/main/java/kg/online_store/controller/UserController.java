@@ -1,12 +1,18 @@
 package kg.online_store.controller;
 
+import kg.online_store.model.Role;
 import kg.online_store.model.User;
+import kg.online_store.service.RoleService;
 import kg.online_store.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/users")
@@ -14,9 +20,11 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+    private final RoleService roleService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, RoleService roleService) {
         this.userService = userService;
+        this.roleService = roleService;
     }
 
     @GetMapping
@@ -55,8 +63,8 @@ public class UserController {
         }
     }
 
-    @PostMapping
-    public ResponseEntity<?> saveUser(@RequestBody User user) {
+    @PostMapping("/newUser")
+    public ResponseEntity<?> saveUser(@Valid @RequestBody User user) {
         try {
             userService.save(user);
             return new ResponseEntity<>(HttpStatus.OK);
