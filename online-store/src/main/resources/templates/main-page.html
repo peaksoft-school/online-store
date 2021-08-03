@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<div class="container-fluid">
+ <div class="container-fluid">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="#">Company LOGO</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
@@ -27,10 +27,10 @@
                     <a class="nav-link" href="#">HOME<span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">PRODUCTS</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                     <ul class="dropdown-menu" id="categories">
                     </ul>
+
                 </li>
 
             </ul>
@@ -209,31 +209,7 @@
         </div>
     </footer>
 </div>
-<script>
-
-
-    let html_categories = ``;
-    console.log("html_categories")
-
-    fetch("http://localhost:9898/categories")
-        .then(response => {
-
-            return response.json();
-        }).then(categories => {
-        categories.forEach((el, id) => {
-            html_categories += ` <li><a href="#">&nbsp; ${el.name}</a></li>`
-
-        })
-
-        html_categories += ` <li class="divider"></li>
-                        <li><a href="#"> Все категории</a></li>`;
-        console.log(html_categories)
-        document.getElementById("categories").innerHTML = html_categories;
-
-    }).catch(err => {
-        console.log(err)
-    })
-</script>
+<script src="js/category_in_main_page.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
