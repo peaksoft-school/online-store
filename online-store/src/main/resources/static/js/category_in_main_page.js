@@ -10,12 +10,13 @@ fetch("http://localhost:9898/categories")
         return response.json();
     }).then(categories => {
     categories.forEach((el, id) => {
-        html_categories += ` <li><a href="#">&nbsp; ${el.name}</a></li>`
+        html_categories += `<a href=""><li><a href="#">&nbsp;&nbsp; ${el.name}</a></li></a>`
 
     })
 
-    html_categories += ` <li class="divider"></li>
-                        <li><a href="#"> Все категории</a></li>`;
+    html_categories += ` <hr>
+ <li class="divider"></li>
+                        <li><a href="#">&nbsp;&nbsp; Все категории</a></li>`;
     console.log(html_categories)
     document.getElementById("categories").innerHTML = html_categories;
 
