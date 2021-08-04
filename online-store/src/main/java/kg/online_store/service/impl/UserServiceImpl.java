@@ -60,14 +60,4 @@ public class UserServiceImpl implements UserService {
     public void deleteById(long id) {
         userRepository.deleteById(id);
     }
-
-    @Override
-    public void updateUser(User user) {
-        String encryptedPass = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encryptedPass);
-        Set<Role> rolesFromBD = new HashSet<>();
-        rolesFromBD.add(roleService.getRoleByName("ROLE_USER"));
-        user.setRoles(rolesFromBD);
-        userRepository.save(user);
-    }
 }

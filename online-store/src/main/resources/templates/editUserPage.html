@@ -133,6 +133,7 @@
         </div>
         <div class="col">
             <input type="date" id="registerDate" required hidden>
+            <input type="text" id="role" required hidden>
         </div>
     </div>
     <br>
@@ -141,12 +142,100 @@
     </div>
     <hr>
 </form>
+<footer class="page-footer font-small mdb-color pt-4">
+    <div class="container text-center text-md-left">
+        <div class="row text-center text-md-left mt-3 pb-3">
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold">Company name</h6>
+                <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+                    consectetur
+                    adipisicing elit.</p>
+            </div>
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+                <p><a href="#!">Categories 1</a></p>
+                <p><a href="#!">Categories 2</a></p>
+                <p><a href="#!">Categories 3</a></p>
+                <p><a href="#!">Categories 4</a></p>
+            </div>
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
+                <p><a href="#!">Link 1</a></p>
+                <p><a href="#!">Link 2</a></p>
+                <p><a href="#!">Link 3</a></p>
+                <p><a href="#!">Link 4</a></p>
+            </div>
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+                <p><i class="fas fa-home mr-3"></i> Bishkek,  720010, Kyrgyzstan</p>
+                <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
+                <p><i class="fas fa-phone mr-3"></i> + 996 312 312 312</p>
+                <p><i class="fas fa-print mr-3"></i> + 996 315 315 315</p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row d-flex align-items-center">
+            <div class="col-md-7 col-lg-8">
+                <p class="text-center text-md-left"><i class="fas fa-copyright"></i> 2021 Copyright:
+                    <a href="#"><strong> Online-store.kg</strong></a>
+                </p>
+
+            </div>
+
+            <div class="col-md-5 col-lg-4 ml-lg-0">
+
+                <!-- Social buttons -->
+                <div class="text-center text-md-right">
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                <i class="fab fa-google-plus-g"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</footer>
 <script>
     function getUser() {
         let response = fetch('http://localhost:9898/users/user')
             .then((res) => {
                 return res.json()
             }).then((user) => {
+                let userRole = '';
+                for (let i = 0; i < user.roles.length; i++) {
+                    userRole += `${user.roles[i].name}`
+                }
                 console.log("test:  ", user)
                 document.getElementById('editId').value = user.id;
                 document.getElementById('editUserName').value = user.username;
@@ -155,6 +244,7 @@
                 document.getElementById('editPassword').value = user.password;
                 document.getElementById('editPhoneNumber').value = user.phoneNumber;
                 document.getElementById('registerDate').value = user.registerDate;
+                document.getElementById('role').value = userRole;
             })
     }
     getUser()
@@ -165,7 +255,7 @@
         let eid = document.getElementById('editId').value;
         let eusername = document.getElementById('editUserName').value;
         let elastName = document.getElementById('editLastName').value;
-        let egender;
+        let egender = '';
         let eemail = document.getElementById('editEmail').value;
         let epassword = document.getElementById('editPassword').value;
         let ephoneNumber = document.getElementById('editPhoneNumber').value;
@@ -177,6 +267,7 @@
                  egender = radio[i].value;
             }
         }
+        let role = document.getElementById('role').value;
 
         fetch('http://localhost:9898/users/updateUser', {
             method: 'PUT',
@@ -193,7 +284,12 @@
                 phoneNumber: ephoneNumber,
                 profilePicture: profilePicture,
                 birthDate: ebirthDay,
-                registerDate: eregisterDate
+                registerDate: eregisterDate,
+                roles:[
+                    {
+                        name:role
+                    }
+                ]
             }),
         }).then((res) => {
             if(res.ok) {
