@@ -3,7 +3,6 @@ package kg.online_store.service.impl;
 import kg.online_store.model.Product;
 import kg.online_store.repository.ProductRepository;
 import kg.online_store.service.ProductService;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -43,4 +42,38 @@ public class ProductServiceImpl implements ProductService {
     public void deleteById(long id) {
         productRepository.deleteById(id);
     }
+
+    @Override
+    public List<Product> findActual() {
+        List<Product> allProducts = productRepository.findAll();
+        Product testPr;
+        for (int i = 0; i < allProducts.size(); i++) {
+            for (int j = 0; j < allProducts.size() - 1; j++) {
+                if (allProducts.get(j).getRating() < allProducts.get(j + 1).getRating()) {
+                    testPr = allProducts.get(j);
+                    allProducts.set(j, allProducts.get(j + 1));
+                    allProducts.set(j + 1, testPr);
+                }
+            }
+        }
+        return allProducts;
+    }
+
+    @Override
+    public void findActualById(Long id) {
+
+
+        Product actualProduct;
+        try {
+            actualProduct = findById(id);
+        } catch (Exception e) {
+            actualProduct = new Product();
+            actualProduct.setId(id);
+            actualProduct.setRating(0);
+        }
+        actualProduct.setRating(actualProduct.getRating() + 1);
+        save(actualProduct);
+
+    }
+
 }
