@@ -1,9 +1,5 @@
 package kg.online_store.config.handler;
-
-import kg.online_store.model.User;
-import kg.online_store.service.impl.UserDetailsImpl;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
