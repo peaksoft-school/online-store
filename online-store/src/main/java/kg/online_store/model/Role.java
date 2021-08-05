@@ -1,5 +1,6 @@
 package kg.online_store.model;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -16,6 +17,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @ToString
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@ApiModel(description = "ROLE",value = "Role ")
 public class Role implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

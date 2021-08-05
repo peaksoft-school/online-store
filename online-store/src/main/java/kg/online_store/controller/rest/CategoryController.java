@@ -1,4 +1,5 @@
-package kg.online_store.controller;
+package kg.online_store.controller.rest;
+import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import kg.online_store.model.Category;
@@ -12,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/categories")
 @CrossOrigin
-@Tag(name = "Контроллер для категорий", description = "***")
+@Api(description = "Контроллер для категорий")
 public class CategoryController {
 
     private final CategoryService categoryService;

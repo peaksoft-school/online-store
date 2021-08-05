@@ -1,5 +1,6 @@
-package kg.online_store.controller;
+package kg.online_store.controller.rest;
 
+import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import kg.online_store.model.User;
@@ -13,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 @CrossOrigin
-@Tag(name = "Контроллер для управления пользователем", description = "***")
+@Api(description = "Контроллер для управления пользователем")
 public class UserController {
 
     private final UserService userService;
@@ -24,6 +25,7 @@ public class UserController {
 
     @GetMapping
     @Operation(summary = "Все пользователи", description = "Позволяет получить всех пользователей из базы данных")
+
     public ResponseEntity<List<User>> getAllUsers() {
         try {
             return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);

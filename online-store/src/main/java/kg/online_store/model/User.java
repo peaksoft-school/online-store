@@ -1,5 +1,6 @@
 package kg.online_store.model;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -16,7 +17,8 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Schema(description = "Пользователь")
+@ApiModel(description = "Пользователь",value = "User ")
+//@Schema(description = "Пользователь")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
