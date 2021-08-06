@@ -21,7 +21,6 @@ form.addEventListener('submit', function (e) {
     let phoneNumber = document.getElementById('phoneNumber').value
     let birthday = document.getElementById('birthday').value
     let password = document.getElementById('password').value
-
     var data = new FormData(form);
     var output = "";
     for (const entry of data) {
