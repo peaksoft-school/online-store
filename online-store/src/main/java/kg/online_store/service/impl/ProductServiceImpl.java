@@ -43,6 +43,7 @@ public class ProductServiceImpl implements ProductService {
         productRepository.deleteById(id);
     }
 
+
     @Override
     public List<Product> findActual() {
         List<Product> allProducts = productRepository.findAll();
@@ -60,17 +61,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void findActualById(Long id) {
-
-
-        Product actualProduct;
-        try {
-            actualProduct = findById(id);
-        } catch (Exception e) {
-            actualProduct = new Product();
-            actualProduct.setId(id);
-            actualProduct.setRating(0);
-        }
+    public void rateUpById(Long id) {
+        Product actualProduct = findById(id);
         actualProduct.setRating(actualProduct.getRating() + 1);
         save(actualProduct);
 

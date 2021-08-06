@@ -13,12 +13,15 @@ fetch("http://localhost:9898/products/actual")
                     </div>
                     <div class="text-center-left">
                         <p>${product.name}</p>
-                        <p1>price:${product.productPrice}</p1>
+                        <p1 style="color: black">price:${product.productPrice}</p1>
+                        <br>
+                        <p1 style="color: black" >Rating:${product.rating}</p1>
                     </div>
                     </a>
                     <br>
                 </div>
 `;
     })
+    console.log(html_actual)
     document.getElementById('productList').innerHTML = html_actual;
 })
