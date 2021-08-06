@@ -50,6 +50,10 @@ public class UserServiceImpl implements UserService {
         return user.orElse(null);
     }
 
+    /**
+     * Роль юзера назначаеться автоматически всем новым пользователям.
+     * @param user
+     */
     @Override
     public void save(User user) {
         String encryptedPass = passwordEncoder.encode(user.getPassword());

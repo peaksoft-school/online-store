@@ -8,6 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
@@ -24,7 +25,7 @@ public class User {
     @Column(name = "id")
     Long id;
 
-    @Column(name = "username")
+    @Column(unique =true, name = "username")
     @NotEmpty
     @Size(min = 3,max = 15,message = "username should have at least 2 characters")
     String username;
@@ -34,14 +35,14 @@ public class User {
     @Column(name = "last_name")
     String lastName;
 
-    @NotEmpty
+    @NotBlank
     @Column(name = "gender")
     String gender;
 
     @NotEmpty
-    @Email(message = "email should be valid")
+    @Email(message = "Please enter a valid e-mail address")
     @Size(min = 5, message = " email should have at least 2 characters")
-    @Column(name = "email")
+    @Column(unique = true,name = "email")
     String email;
 
     @NotEmpty
