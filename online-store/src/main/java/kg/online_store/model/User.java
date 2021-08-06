@@ -7,10 +7,6 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -25,34 +21,21 @@ public class User {
     @Column(name = "id")
     Long id;
 
-    @Column(unique =true, name = "username")
-    @NotEmpty
-    @Size(min = 3,max = 15,message = "username should have at least 2 characters")
+    @Column(name = "username")
     String username;
 
-    @NotEmpty
-    @Size(min = 3,max = 15,message = " lastname should have at least 2 characters")
     @Column(name = "last_name")
     String lastName;
 
-    @NotBlank
     @Column(name = "gender")
     String gender;
 
-    @NotEmpty
-    @Email(message = "Please enter a valid e-mail address")
-    @Size(min = 5, message = " email should have at least 2 characters")
-    @Column(unique = true,name = "email")
+    @Column(name = "email")
     String email;
 
-    @NotEmpty
-    @Size(min = 8, message = "password should have at least 2 characters")
     @Column(name = "password")
     String password;
 
-
-    @NotEmpty
-    @Size(min = 10, max = 10)
     @Column(name = "phone_number")
     String phoneNumber;
 
