@@ -1,5 +1,8 @@
-package kg.online_store.controller;
+package kg.online_store.controller.rest;
 
+import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import kg.online_store.model.Product;
 import kg.online_store.service.ProductService;
 import org.springframework.http.HttpStatus;
@@ -11,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/products")
 @CrossOrigin
+@Api(description = "Контроллер для управления продуктами")
 public class ProductController {
 
     private final ProductService productService;
@@ -20,6 +24,7 @@ public class ProductController {
     }
 
     @GetMapping
+    @Operation(summary = "Все продукты", description = "Позволяет получить все продукты из базы данных")
     public ResponseEntity<List<Product>> getAllProduct() {
         try {
             return new ResponseEntity<>(productService.findAll(), HttpStatus.OK);
@@ -29,6 +34,7 @@ public class ProductController {
     }
 
     @GetMapping("/getById/{id}")
+    @Operation(summary = "Продукт(id)", description = "Позволяет получить продукт по 'id'")
     public ResponseEntity<Product> getById(@PathVariable Long id) {
         try {
             return new ResponseEntity<>(productService.findById(id), HttpStatus.OK);
@@ -38,6 +44,7 @@ public class ProductController {
     }
 
     @GetMapping("/getByName/{name}")
+    @Operation(summary = "Продукт(name)", description = "Позволяет получить продукт по имени")
     public ResponseEntity<Product> getByName(@PathVariable String name) {
         try {
             return new ResponseEntity<>(productService.findProductByName(name), HttpStatus.OK);
@@ -47,6 +54,7 @@ public class ProductController {
     }
 
     @PostMapping
+    @Operation(summary = "Добавление продукта", description = "Позволяет добавить новый продукт")
     public ResponseEntity<?> saveProduct(@RequestBody Product product) {
         try {
             productService.save(product);
@@ -57,6 +65,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/deleteById/{id}")
+    @Operation(summary = "Удаление продукта", description = "Позволяет удалить продукт")
     public ResponseEntity<?> deleteById(@PathVariable Long id) {
         try {
             productService.deleteById(id);
