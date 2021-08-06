@@ -15,7 +15,6 @@ fetch("http://localhost:9898/products/actual")
                         <p>${product.name}</p>
                         <p1 style="color: black">price:${product.productPrice}</p1>
                         <br>
-                        <p1 style="color: black" >Rating:${product.rating}</p1>
                     </div>
                     </a>
                     <br>

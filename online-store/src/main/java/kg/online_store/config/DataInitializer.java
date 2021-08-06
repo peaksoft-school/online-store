@@ -45,9 +45,10 @@ public class DataInitializer {
     private void productsAndCategoriesInit() {
         Product iPhone12 = new Product();
         iPhone12.setName("iPhone 12 Pro Max");
+        iPhone12.setRating(3.7);
         iPhone12.setProductCount(15);
         iPhone12.setProductPrice(100182);
-        iPhone12.setProductPicture("https://istore.kg/catalog/product/12-pro-max");
+        iPhone12.setProductPicture("https://www.mytrendyphone.eu/images/iPhone-12-Pro-Max-128GB-Graphite-0194252021200-25102020-1-p.jpg");
 
         Description descriptionIPhone12 = new Description();
         descriptionIPhone12.setProductColor("Silver");
@@ -61,9 +62,10 @@ public class DataInitializer {
 
         Product iPhone11 = new Product();
         iPhone11.setName("iPhone 11 Pro");
+        iPhone11.setRating(4.8);
         iPhone11.setProductCount(13);
         iPhone11.setProductPrice(75561);
-        iPhone11.setProductPicture("https://istore.kg/catalog/product/11-pro");
+        iPhone11.setProductPicture("https://cdn.alzashop.com/Foto/f16/RI/RI029b1.jpg");
 
         Description descriptionIPhone11 = new Description();
         descriptionIPhone11.setProductColor("Gold ");
@@ -77,9 +79,10 @@ public class DataInitializer {
 
         Product macBookProI9 = new Product();
         macBookProI9.setName("MacBook Pro i9 - 1 ТБ");
+        macBookProI9.setRating(4.3);
         macBookProI9.setProductCount(25);
         macBookProI9.setProductPrice(241965);
-        macBookProI9.setProductPicture("https://istore.kg/catalog/product/Pro-16-1");
+        macBookProI9.setProductPicture("https://asiastore.kg/image/cache/catalog/mac/macbook/pro/191114150007894631-670x540.png");
 
         Description descriptionMacBookProI9 = new Description();
         descriptionMacBookProI9.setProductColor("Space Gray");
@@ -93,9 +96,10 @@ public class DataInitializer {
 
         Product refrigerator = new Product();
         refrigerator.setName("Холодильник Indesit DS 316 W");
+        refrigerator.setRating(3.5);
         refrigerator.setProductCount(12);
         refrigerator.setProductPrice(21290);
-        refrigerator.setProductPicture("https://www.technodom.kg/catalog/kholodilniki/p/holodilnik-indesit-ds--w-56558");
+        refrigerator.setProductPicture("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSUuqtXCfN6yyeSALZ4HQIO8oAF0z5NeHF9Q&usqp=CAU");
 
         Description descriptionRefrigerator = new Description();
         descriptionRefrigerator.setProductColor("White");
@@ -108,9 +112,10 @@ public class DataInitializer {
 
         Product washingMachineLG = new Product();
         washingMachineLG.setName("Стиральная машина LG");
+        washingMachineLG.setRating(3.9);
         washingMachineLG.setProductCount(14);
         washingMachineLG.setProductPrice(29000);
-        washingMachineLG.setProductPicture("https://www.tabilga.kg/stiralnaja-mashina-lg-7-kg-6/");
+        washingMachineLG.setProductPicture("https://object.pscloud.io/cms/cms/Photo/img_0_8_629_0.png");
 
         Description washingMachineLGDescription = new Description();
         washingMachineLGDescription.setProductColor("тёмно-серый");
@@ -123,9 +128,10 @@ public class DataInitializer {
 
         Product tv = new Product();
         tv.setName("LED ТЕЛЕВИЗОР BBK 32 LEX-7289");
+        tv.setRating(3.1);
         tv.setProductCount(8);
         tv.setProductPrice(15000);
-        tv.setProductPicture("https://kupi.kg/catalog/tv_video_audio_v_bishkeke/led_lcd_televizori/i_13034_led_televizor_bbk_32_lex_7289");
+        tv.setProductPicture("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcjpYci9bUHwcOVN1_1yvdgaHt_rhzLSF-MQ&usqp=CAU");
 
         Description tvDescription = new Description();
         tvDescription.setProductColor("серый");
@@ -180,7 +186,7 @@ public class DataInitializer {
         user.setPassword("2");
         user.setGender("Male");
         user.setPhoneNumber("0705250086");
-        user.setProfilePicture("D:\\FFOutput");
+        user.setProfilePicture("https://24.kg/files/media/205/205233.jpg");
 
         LocalDate birthDate = LocalDate.of(1989, 6, 1);
         user.setBirthDate(birthDate);
@@ -205,7 +211,7 @@ public class DataInitializer {
         admin.setPassword("1");
         admin.setGender("Male");
         admin.setPhoneNumber("0705250086");
-        admin.setProfilePicture("D:\\FFOutput");
+        admin.setProfilePicture("https://24.kg/files/media/205/205233.jpg");
 
         LocalDate birthDateAdmin = LocalDate.of(1989, 6, 1);
         admin.setBirthDate(birthDateAdmin);
