@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/products")
 @CrossOrigin
+@Api(description = "Контроллер для управления продуктами")
 public class ProductController {
 
     private final ProductService productService;
@@ -20,10 +21,31 @@ public class ProductController {
     }
 
     @GetMapping
+    @Operation(summary = "Все продукты", description = "Позволяет получить все продукты из базы данных")
     public ResponseEntity<List<Product>> getAllProduct() {
         try {
             return new ResponseEntity<>(productService.findAll(), HttpStatus.OK);
         } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/getById/{id}")
+    @Operation(summary = "Продукт(id)", description = "Позволяет получить продукт по 'id'")
+    public ResponseEntity<Product> getById(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(productService.findById(id), HttpStatus.OK);
+        }catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/getByName/{name}")
+    @Operation(summary = "Продукт(name)", description = "Позволяет получить продукт по имени")
+    public ResponseEntity<Product> getByName(@PathVariable String name) {
+        try {
+            return new ResponseEntity<>(productService.findProductByName(name), HttpStatus.OK);
+        }catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
@@ -39,6 +61,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/deleteById/{id}")
+    @Operation(summary = "Удаление продукта", description = "Позволяет удалить продукт")
     public ResponseEntity<?> deleteById(@PathVariable Long id) {
         try {
             productService.deleteById(id);
