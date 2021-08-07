@@ -1,7 +1,7 @@
 package kg.online_store.controller.rest;
+
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import kg.online_store.model.Category;
 import kg.online_store.service.CategoryService;
 import org.springframework.http.HttpStatus;
