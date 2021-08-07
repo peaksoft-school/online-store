@@ -9,8 +9,6 @@ import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 
 @Entity
 @Table(name = "products")
@@ -44,8 +42,6 @@ public class Product {
 
     @Column(name = "rating")
     @NonNull
-    @Min(0)
-    @Max(5)
     Double rating;
 
     @OneToOne(cascade = CascadeType.ALL)
