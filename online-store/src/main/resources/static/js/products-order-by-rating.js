@@ -1,5 +1,5 @@
 let html_actual = ' ';
-fetch("http://localhost:9898/products/actual")
+fetch("http://localhost:9898/products/order-by-rating")
     .then(data=>{
         return data.json()
     }).then(result=>{

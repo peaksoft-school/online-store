@@ -3,9 +3,12 @@ package kg.online_store.model;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 @Entity
 @Table(name = "products")
@@ -31,7 +34,10 @@ public class Product {
     int productCount = 0;
 
     @Column(name = "rating")
-    int rating =0;
+    @NonNull
+    @Min(0)
+    @Max(5)
+    Double rating;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "description_id")

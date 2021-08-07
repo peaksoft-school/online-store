@@ -23,6 +23,6 @@ public class Category {
     String name;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "category_id")
     List<Product> products;
 }

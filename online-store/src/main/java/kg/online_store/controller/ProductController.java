@@ -28,36 +28,6 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/actual")
-    public ResponseEntity<List<Product>> getActualProduct() {
-        try {
-            return new ResponseEntity<>(productService.findActual(), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-    }
-
-
-    @GetMapping("/getById/{id}")
-    public ResponseEntity<Product> getById(@PathVariable Long id) {
-        try {
-            productService.rateUpById(id);
-            return new ResponseEntity<>(productService.findById(id), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-    }
-
-    @GetMapping("/getByName/{name}")
-    public ResponseEntity<Product> getByName(@PathVariable String name) {
-        try {
-            productService.rateUpById(productService.findProductByName(name).getId());
-            return new ResponseEntity<>(productService.findProductByName(name), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-    }
-
     @PostMapping
     public ResponseEntity<?> saveProduct(@RequestBody Product product) {
         try {
@@ -73,6 +43,16 @@ public class ProductController {
         try {
             productService.deleteById(id);
             return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/order-by-rating")
+    public ResponseEntity<List<Product>> getActualProduct() {
+        try {
+            return new ResponseEntity<>(productService.findAndOrderByRating(),
+                    HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
