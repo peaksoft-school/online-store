@@ -14,50 +14,21 @@
         <div class="container h3">Create your account</div>
         <form id="form" method="post" autocomplete="off">
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required placeholder="email">
-            </div>
-            <div class="mb-3">
                 <label for="username" class="form-label">User Name</label>
                 <input type="text" class="form-control" id="username" aria-describedby="nameHelp" required placeholder="enter name">
             </div>
             <div class="mb-3">
-                <label for="lastName" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="lastName" required placeholder="enter last_name">
-            </div>
-            <div class="mb-3">
-                <label for="phoneNumber" class="form-label">Phone</label>
-                <input type="text" class="form-control" id="phoneNumber" required placeholder="example: 0(312)123456">
-            </div>
-            <div class="mb-3">
-                <label for="profilePicture" class="form-label">Avatar</label>
-                <input type="file" class="form-control" id="profilePicture" required>
-            </div>
-            <div class="mb-3">
-                <label for="birthday" class="form-label">BirthDate</label>
-                <input type="date" class="form-control" id="birthday" required>
-            </div>
-            <div>
-                <div class="radio-inline">
-                    <p><em>Gender</em></p>
-                    <label>
-                        <input type="radio" name="optionsRadios" id="radio1" value="MALE" checked>
-                        MALE&nbsp;
-                        <input type="radio" name="optionsRadios" id="radio3" value="FEMALE" checked>
-                        FEMALE
-                    </label>
-                </div>
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required placeholder="enter email">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" required placeholder="the password must be at least 5 symbols">
+                <input type="password" class="form-control" id="password" required placeholder="the password must be at least 5 symbols" onkeyup='check();'>
             </div>
             <div class="mb-5">
                 <label for="confirmPassword" class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" id="confirmPassword" required placeholder="repeat password">
-                <div id="message" class="hidden">
-                    <p>Passwords do not match</p>
-                </div>
+                <input type="password" class="form-control" id="confirmPassword" required placeholder="repeat password" onkeyup='check();'>
+            <span id='message'></span>
             </div>
             <div class="container text-center">
                 <button type="submit" class="btn btn-primary">

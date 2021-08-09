@@ -31,14 +31,16 @@ public class User {
 
     @Schema(description = "username", example = "almazbekov25")
     @NotEmpty
-    @Size(min = 3,max = 15,message = "username should have at least 2 characters")
+    @Size(min = 3,max = 15,message = "username should have at least 3 characters")
     @Column(name = "username")
     String username;
+    
+  
+    @Schema(description = "имя", example = "айдар")
+    @Column(name = "first_name")
+    String firstName;
 
     @Schema(description = "фамилия", example = "алмазбеков")
-
-    @NotEmpty
-    @Size(min = 3,max = 15,message = " lastname should have at least 2 characters")
     @Column(name = "last_name")
     String lastName;
 
@@ -60,7 +62,6 @@ public class User {
     String password;
 
     @Schema(description = "номер телефона", example = "+996709888777")
-    @Size(min = 10, max = 10)
     @Column(name = "phone_number")
     String phoneNumber;
 
