@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
@@ -38,6 +39,10 @@ public class Product {
     @Column(name = "product_count")
     @Schema(description = "Количество", example = "100")
     int productCount = 0;
+
+    @Column(name = "rating")
+    @NonNull
+    Double rating;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "description_id")

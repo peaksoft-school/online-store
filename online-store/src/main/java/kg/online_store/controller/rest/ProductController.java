@@ -2,7 +2,6 @@ package kg.online_store.controller.rest;
 
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import kg.online_store.model.Product;
 import kg.online_store.service.ProductService;
 import org.springframework.http.HttpStatus;
@@ -28,38 +27,17 @@ public class ProductController {
     public ResponseEntity<List<Product>> getAllProduct() {
         try {
             return new ResponseEntity<>(productService.findAll(), HttpStatus.OK);
-        }catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-    }
-
-    @GetMapping("/getById/{id}")
-    @Operation(summary = "Продукт(id)", description = "Позволяет получить продукт по 'id'")
-    public ResponseEntity<Product> getById(@PathVariable Long id) {
-        try {
-            return new ResponseEntity<>(productService.findById(id), HttpStatus.OK);
-        }catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-    }
-
-    @GetMapping("/getByName/{name}")
-    @Operation(summary = "Продукт(name)", description = "Позволяет получить продукт по имени")
-    public ResponseEntity<Product> getByName(@PathVariable String name) {
-        try {
-            return new ResponseEntity<>(productService.findProductByName(name), HttpStatus.OK);
-        }catch (Exception e) {
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
     @PostMapping
-    @Operation(summary = "Добавление продукта", description = "Позволяет добавить новый продукт")
     public ResponseEntity<?> saveProduct(@RequestBody Product product) {
         try {
             productService.save(product);
             return new ResponseEntity<>(HttpStatus.OK);
-        }catch (Exception e) {
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
@@ -70,7 +48,17 @@ public class ProductController {
         try {
             productService.deleteById(id);
             return new ResponseEntity<>(HttpStatus.OK);
-        }catch (Exception e) {
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/order-by-rating")
+    public ResponseEntity<List<Product>> getActualProduct() {
+        try {
+            return new ResponseEntity<>(productService.findAndOrderByRating(),
+                    HttpStatus.OK);
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }

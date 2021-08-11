@@ -21,7 +21,6 @@ import java.util.Set;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @ApiModel(description = "Пользователь",value = "User ")
-//@Schema(description = "Пользователь")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
