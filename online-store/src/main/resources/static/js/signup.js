@@ -16,6 +16,7 @@ form.addEventListener('submit', function (e) {
     let username = document.getElementById('username').value
     let email = document.getElementById('email').value
     let password = document.getElementById('password').value
+    let spinner = document.getElementById('spinner');
 
     fetch(url, {
         method: 'POST',
@@ -29,15 +30,21 @@ form.addEventListener('submit', function (e) {
         }
     })
         .then(function (response) {
-            return response.json()
+            if (response.ok) {
+                spinner.classList.add('spinner-grow')
+                return response.text()
+            } else {
+                spinner.innerText += "ошибка";
+            }
         })
         .then(function (data) {
             console.log(data)
         })
-    setTimeout(test, 100);
 
-    function test() {
-        document.location.href = 'http://localhost:9898/main_page'
-    }
+        setTimeout(test, 1500);
+
+        function test() {
+             document.location.href = 'http://localhost:9898/main_page'
+        }
 })
 

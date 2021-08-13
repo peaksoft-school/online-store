@@ -9,9 +9,6 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -29,8 +26,6 @@ public class User {
     Long id;
 
     @Schema(description = "username", example = "almazbekov25")
-    @NotEmpty
-    @Size(min = 3,max = 15,message = "username should have at least 3 characters")
     @Column(name = "username")
     String username;
     
@@ -48,15 +43,10 @@ public class User {
     String gender;
 
     @Schema(description = "email", example = "03aid@gmail.com")
-    @NotEmpty
-    @Email(message = "email should be valid")
-    @Size(min = 5, message = " email should have at least 2 characters")
     @Column(name = "email")
     String email;
 
     @Schema(description = "пароль", example = "password")
-    @NotEmpty
-    @Size(min = 8, message = "password should have at least 2 characters")
     @Column(name = "password")
     String password;
 
