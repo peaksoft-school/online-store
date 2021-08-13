@@ -47,13 +47,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/products/**", "/categories/**").hasAnyRole("ADMIN", "USER")
+                .antMatchers(HttpMethod.GET, "/products/**", "/categories/**", "/users/user").hasAnyRole("ADMIN", "USER")
+                .antMatchers(HttpMethod.PUT, "/users/updateUser").hasAnyRole("ADMIN", "USER")
                 .antMatchers(HttpMethod.DELETE, "/products/**", "/categories/**", "/users/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST, "/products/**", "/categories/**", "/users/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.PUT, "/products/**", "/categories/**", "/users/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET, "/users/**").hasRole("ADMIN")
                 .antMatchers("/admin_page").hasRole("ADMIN")
                 .antMatchers("/sign_up", "/js/**", "/styles/**").permitAll()
+                .antMatchers( "/swagger-ui/**").anonymous()
                 .anyRequest().authenticated();
     }
 

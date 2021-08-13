@@ -1,5 +1,7 @@
-package kg.online_store.controller;
+package kg.online_store.controller.rest;
 
+import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.Operation;
 import kg.online_store.model.Product;
 import kg.online_store.service.ProductService;
 import org.springframework.http.HttpStatus;
@@ -11,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/products")
 @CrossOrigin
+@Api(description = "Контроллер для управления продуктами")
 public class ProductController {
 
     private final ProductService productService;
@@ -20,28 +23,11 @@ public class ProductController {
     }
 
     @GetMapping
+    @Operation(summary = "Все продукты", description = "Позволяет получить все продукты из базы данных")
     public ResponseEntity<List<Product>> getAllProduct() {
         try {
             return new ResponseEntity<>(productService.findAll(), HttpStatus.OK);
-        }catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-    }
-
-    @GetMapping("/getById/{id}")
-    public ResponseEntity<Product> getById(@PathVariable Long id) {
-        try {
-            return new ResponseEntity<>(productService.findById(id), HttpStatus.OK);
-        }catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-    }
-
-    @GetMapping("/getByName/{name}")
-    public ResponseEntity<Product> getByName(@PathVariable String name) {
-        try {
-            return new ResponseEntity<>(productService.findProductByName(name), HttpStatus.OK);
-        }catch (Exception e) {
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
@@ -51,17 +37,28 @@ public class ProductController {
         try {
             productService.save(product);
             return new ResponseEntity<>(HttpStatus.OK);
-        }catch (Exception e) {
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
     @DeleteMapping("/deleteById/{id}")
+    @Operation(summary = "Удаление продукта", description = "Позволяет удалить продукт")
     public ResponseEntity<?> deleteById(@PathVariable Long id) {
         try {
             productService.deleteById(id);
             return new ResponseEntity<>(HttpStatus.OK);
-        }catch (Exception e) {
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/order-by-rating")
+    public ResponseEntity<List<Product>> getActualProduct() {
+        try {
+            return new ResponseEntity<>(productService.findAndOrderByRating(),
+                    HttpStatus.OK);
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
