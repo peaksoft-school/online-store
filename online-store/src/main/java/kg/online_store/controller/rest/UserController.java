@@ -68,7 +68,7 @@ public class UserController {
         }
     }
 
-    @PostMapping("/newUser")
+    @PostMapping("/register")
     @Operation(summary = "Добавление пользователя", description = "Позволяет добавить нового пользователя")
     public ResponseEntity<?> saveUser(@RequestBody User user) {
         try {

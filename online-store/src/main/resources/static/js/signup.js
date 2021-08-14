@@ -10,7 +10,7 @@ var check = function () {
     }
 }
 
-let url = 'http://localhost:9898/users/newUser';
+let url = 'http://localhost:9898/users/register';
 form.addEventListener('submit', function (e) {
     e.preventDefault()
     let username = document.getElementById('username').value
