@@ -28,6 +28,11 @@ public class User {
     @Schema(description = "username", example = "almazbekov25")
     @Column(name = "username")
     String username;
+    
+  
+    @Schema(description = "имя", example = "айдар")
+    @Column(name = "first_name")
+    String firstName;
 
     @Schema(description = "фамилия", example = "алмазбеков")
     @Column(name = "last_name")

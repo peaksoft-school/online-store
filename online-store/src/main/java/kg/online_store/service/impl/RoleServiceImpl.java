@@ -33,10 +33,6 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public Role getRoleByName(String name) {
         List<Role> roles = getRoles();
-        return roles.stream()
-                .filter(r -> r.getName()
-                        .equals(name))
-                            .findAny()
-                                .orElse(null);
+        return roles.stream().filter(r -> r.getName().equals(name)).findAny().orElse(null);
     }
 }

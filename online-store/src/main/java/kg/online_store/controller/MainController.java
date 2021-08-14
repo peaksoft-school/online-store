@@ -11,7 +11,7 @@ public class MainController {
         return "main-page";
     }
 
-     @GetMapping("editProfile")
+    @GetMapping("editProfile")
     public String editPage() {
         return "editUserPage";
     }
