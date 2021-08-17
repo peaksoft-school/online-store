@@ -2,6 +2,7 @@ package kg.online_store.controller.rest;
 
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
+import kg.online_store.model.Category;
 import kg.online_store.model.Product;
 import kg.online_store.service.ProductService;
 import org.springframework.http.HttpStatus;
@@ -59,6 +60,14 @@ public class ProductController {
             return new ResponseEntity<>(productService.findAndOrderByRating(),
                     HttpStatus.OK);
         } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+    @GetMapping("/getById/{id}")
+    public ResponseEntity<Product> getById(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(productService.findById(id), HttpStatus.OK);
+        }catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
