@@ -11,6 +11,36 @@ public class MainController {
         return "main-page";
     }
 
+    @GetMapping("phones")
+    public String productPage() {
+        return "phone";
+    }
+
+    @GetMapping("fridges")
+    public String fridgePage() {
+        return "fridge";
+    }
+
+    @GetMapping("laptops")
+    public String laptopPage() {
+        return "laptop";
+    }
+
+    @GetMapping("televisions")
+    public String televisionPage() {
+        return "television";
+    }
+
+    @GetMapping("washMachine")
+    public String washMachinePage() {
+        return "wash-machine";
+    }
+
+    @GetMapping("products")
+    public String listProductPage() {
+        return "list-product";
+    }
+
      @GetMapping("editProfile")
     public String editPage() {
         return "editUserPage";
