@@ -20,10 +20,11 @@ public class UserServiceImpl implements UserService {
     private final PasswordEncoder passwordEncoder;
     private final RoleService roleService;
 
-    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, RoleService roleService) {
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder,RoleService roleService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.roleService = roleService;
+
     }
 
     @Override
@@ -49,10 +50,18 @@ public class UserServiceImpl implements UserService {
         return user.orElse(null);
     }
 
+    /**
+     * Роль юзера назначаеться автоматически всем новым пользователям.
+     * @param user
+     */
     @Override
     public void save(User user) {
         String encryptedPass = passwordEncoder.encode(user.getPassword());
         user.setPassword(encryptedPass);
+        Set<Role> rolesFromBD = new HashSet<>();
+        rolesFromBD.add(roleService.getRoleByName("ROLE_USER"));
+        user.setRoles(rolesFromBD);
+        user.setRegisterDate(LocalDate.now());
         userRepository.save(user);
     }
 
