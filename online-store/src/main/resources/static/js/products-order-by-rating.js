@@ -1,37 +1,12 @@
-let html_actual = ' ';
 window.MyLib = {
     selectedProduct: 0
 };
-
 
 fetch("http://localhost:9898/products/order-by-rating")
     .then(data=>{
         return data.json()
     }).then(result=>{
         renderProduct(result);
-    // localStorage.setItem('products', JSON.stringify(result));
-//     result.forEach(product=>{
-//         MyLib.products.push(product);
-//         // console.log(MyLib.productId);
-//         html_actual += `<div class="col-md-4" >
-//                     <br>
-//                     <div class="container">
-//                         <img src="${product.productPicture}" alt=""
-//                              width="220" height="200">
-//                     </div>
-//                     <div class="text-center-left">
-//                    <a href="/product_page">
-//                         <p id="product-name" class=${product.id} >${product.name}</p>
-//                         </a>
-//                         <p style="color: black">price:${product.productPrice}</p>
-//                         <br>
-//                     </div>
-//                     <br>
-//                 </div>
-// `;
-//     })
-
-    // .innerHTML = html_actual;
 });
 
 function renderProduct(data) {
@@ -62,7 +37,6 @@ function renderProduct(data) {
 
         link.addEventListener('click', (e) => {
             localStorage.setItem('selectedProduct', p.id);
-            alert(p.id);
         })
 
         div.appendChild(br);
