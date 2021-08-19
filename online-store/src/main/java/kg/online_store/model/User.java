@@ -40,12 +40,13 @@ public class User {
     String phoneNumber;
 
     @Column(name = "profile_picture")
-    String profilePicture = "";
+    String profilePicture;
+
 
     @Column(name = "register_date")
     LocalDate registerDate;
 
-    @DateTimeFormat(pattern = "dd.MM.yyyy")
+    @DateTimeFormat(pattern ="yyyy-MM-dd" )
     @Column(name = "birth_date")
     LocalDate birthDate;
 
