@@ -10,7 +10,6 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-
 <div class="container-fluid">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="/main_page">Online_Store</a>
@@ -20,54 +19,70 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">HOME<span class="sr-only"></span></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">Categories</a>
-                          <ul class="dropdown-menu" id="categories">
-                           </ul>
-                         </li>
 
-                           </ul>
-            <div style="float:left; width:50%">
-
-
-                <div style="float:left; width:50%">
-                    <form class="form-inline my-2 my-lg-0">
+                <div>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">HOME<span class="sr-only"></span></a>
+                    </li>
+                </div>
+                <div style="float:right; width:28%">
+                    <li class="nav-item dropdown" >
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">Categories</a>
+                        <ul class="dropdown-menu" id="categories">
+                        </ul>
+                    </li>
+                </div>
+                <div >
+                    <form class="form-inline my-2 my-lg-0" >
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i>
                         </button>
                     </form>
                 </div>
-                <ul class="nav justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">LOGIN<i class="fas fa-sign-in-alt"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">SIGNUP<i class="fas fa-user-plus"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">CART<i class="fas fa-cart-arrow-down"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/main_page/userProfile">Profile <i class="fas fa-user-circle"></i></a>
-                    </li>
-                </ul>
-            </div>
+                <div>
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">BASKET<i class="fas fa-cart-arrow-down"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div style="float:right; width:23%">
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">LOG OUT<i class="fas fa-sign-out-alt"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/sign_up">SIGN UP<i class="fas fa-user-plus"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/main_page/userProfile">Profile <i
+                                    class="fas fa-user-circle"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </ul>
+        </div>
     </nav>
     <main role="main">
         <div class="jumbotron">
             <div class="container-fluid">
                 <div class="row">
                     <div class="container col-md-12">
-<!--                        <div class="container">-->
+                        <div class="container">
                             <div id="productL"></div>
                             <br>
                             <br>
                             <br>
-<!--                        </div>-->
+                        </div>
                         <br>
                         <br>
                         <br>
@@ -78,22 +93,6 @@
             </div>
         </div> <!-- /container -->
     </main>
-<!--<main role="main">-->
-<!--    <div class="jumbotron">-->
-<!--        <div class="container-fluid">-->
-<!--            <div class="row">-->
-<!--                <div class="container col-md-12">-->
-<!--&lt;!&ndash;                    <div class="container">&ndash;&gt;-->
-<!--                        <div id="productL"></div>-->
-<!--                        <br>-->
-<!--                        <br>-->
-<!--                        <br>-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div> &lt;!&ndash; /container &ndash;&gt;-->
-<!--</main>-->
     <!-- Footer -->
     <footer class="page-footer font-small mdb-color pt-4">
         <div class="container text-center text-md-left">
@@ -166,6 +165,7 @@
             </div>
         </div>
     </footer>
+</div>
 <script src="js/products-order-by-rating.js"></script>
 <script src="js/product_page.js"></script>
 <!-- jQuery -->
@@ -174,6 +174,5 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
-
 </body>
 </html>
