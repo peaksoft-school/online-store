@@ -12,7 +12,7 @@ fetch(`${url}`, {
                          <div class="col-md-12" >
                     <div class="col-md-6" >
                       <img src="${about_product.productPicture}" alt=""
-                             width="520" height="500">
+                             width="420" height="400">
                     </div>
                     <div class="col-md-6">
                     <p ><b>Имя: </b>${about_product.name}</p>
