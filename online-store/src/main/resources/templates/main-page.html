@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Home page</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>Main page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/504c19067f.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -16,68 +14,59 @@
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="nav mr-auto">
-
-            <div>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">HOME<span class="sr-only"></span></a>
-                </li>
-            </div>
-                <div style="float:right; width:28%">
-                <li class="nav-item dropdown" >
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">Categories</a>
-                    <ul class="dropdown-menu" id="categories">
-                    </ul>
-                </li>
-            </div>
-            <div >
-                <form class="form-inline my-2 my-lg-0" >
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i>
-                    </button>
-                </form>
-            </div>
-            <div>
-                <ul class="nav justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">BASKET<i class="fas fa-cart-arrow-down"></i></a>
-                    </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">HOME<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item dropdown" >
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">Categories</a>
+                <ul class="dropdown-menu" id="categories">
                 </ul>
-            </div>
-            <div style="float:right; width:23%">
-                <ul class="nav justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/logout">LOG OUT<i class="fas fa-sign-out-alt"></i></a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <ul class="nav justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/sign_up">SIGN UP<i class="fas fa-user-plus"></i></a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <ul class="nav justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/main_page/userProfile">Profile <i
-                                class="fas fa-user-circle"></i></a>
-                    </li>
-                </ul>
-            </div>
+            </li>
         </ul>
+
+        <div class="container-center">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        <div style="float:left; width:10%">
+            <ul class="nav justify-content-end" >
+                <li class="nav-item">
+                    <a class="nav-link" href="#">BASKET<i class="fas fa-cart-arrow-down"></i></a>
+                </li>
+            </ul>
+        </div>
+
+        <ul class="nav justify-content-end" style="float:left; width:40%">
+            <li class="nav-item ">
+                <a class="nav-link" href="/logout">LOG OUT<i class="fas fa-sign-out-alt"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sign_up">SIGN UP<i class="fas fa-user-plus"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/main_page/userProfile">Profile <i
+                        class="fas fa-user-circle"></i></a>
+            </li>
+        </ul>
+
     </div>
 </nav>
+<br>
+<br>
+<br>
 <main role="main">
-    <div class="jumbotron">
+        <div>
         <div class="container-fluid">
             <div class="row">
                 <div class="container col-md-12">
                     <div class="container">
-                        <div id="productList"></div>
+                        <div id="productList" style="display: flex; flex-wrap: wrap"></div>
                         <br>
                         <br>
                         <br>

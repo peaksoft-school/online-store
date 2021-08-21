@@ -4,7 +4,8 @@ fetch("http://localhost:9898/products/order-by-rating")
         return data.json()
     }).then(result=>{
     result.forEach(product=>{
-        html_actual += `<div class="col-md-4" >
+        html_actual += `
+                  <div class="col-md-4" >
                     <br>
                     <a href="#">
                     <div class="container">
