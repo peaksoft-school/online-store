@@ -9,7 +9,7 @@ fetch(`${url}`, {
 }).then((about_product) => {
     console.log(about_product);
     html_about_product += `
-                         <div class="col-md-12" >
+                         <div class="col-md-12" style="display: flex; flex-wrap: wrap">
                     <div class="col-md-6" >
                       <img src="${about_product.productPicture}" alt=""
                              width="420" height="400">
