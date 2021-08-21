@@ -1,6 +1,3 @@
-
-
-
 let html_categories = ``;
 console.log("html_categories")
 
@@ -9,14 +6,16 @@ fetch("http://localhost:9898/categories")
 
         return response.json();
     }).then(categories => {
-    categories.forEach((el, id) => {
-        html_categories += `<a href=""><li><a href="#">&nbsp;&nbsp; ${el.name}</a></li></a>`
-
-    })
-
+    html_categories += `<li><a style="color: black; font-family: Times New Roman, Times, serif" href="/main_page/phones">Phones</a>
+                        <a style="color: black; font-family: Times New Roman, Times, serif" href="/main_page/laptops">Laptops</a>
+                        <a style="color: black; font-family: Times New Roman, Times, serif" href="/main_page/fridges">Fridges</a>
+                        <a style="color: black; font-family: Times New Roman, Times, serif" href="/main_page/televisions">Televisions</a> 
+                        <a style="color: black; font-family: Times New Roman, Times, serif" href="/main_page/washMachines">Wash Machines</a>
+                        </li>                     
+                        `
     html_categories += ` <hr>
  <li class="divider"></li>
-                        <li><a href="#">&nbsp;&nbsp; Все категории</a></li>`;
+                        <li><a style="color: black; font-family: Times New Roman, Times, serif" href="/main_page/products">&nbsp;&nbsp;Все категории</a></li>`;
     console.log(html_categories)
     document.getElementById("categories").innerHTML = html_categories;
 
