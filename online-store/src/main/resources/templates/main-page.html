@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Home page</title>
     <meta charset="utf-8">
@@ -8,13 +8,11 @@
     <script src="https://kit.fontawesome.com/504c19067f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
     <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"-->
     <!--          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
-
 </head>
 <body>
-<div class="container-fluid">
+<div class="container-fluid" style="width: 1500px; height: 900px">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="/main_page">Company LOGO</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
@@ -29,20 +27,15 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Categories</a>
-
                     <!--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>-->
                     <div class="container">
                         <ul class="dropdown-menu" id="categories">
 
                         </ul>
-
                     </div>
-
                 </li>
-
             </ul>
             <div style="float:left; width:50%">
-
 
             <div style="float:left; width:50%">
                 <form class="form-inline my-2 my-lg-0">
@@ -67,27 +60,20 @@
             </ul>
         </div>
     </nav>
-    <main role="main">
-        <div class="jumbotron">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="container col-md-12">
-                        <div class="container">
-                            <div id="productList"></div>
-                            <br>
-                            <br>
-                            <br>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- /container -->
-    </main>
+    <div class="main" style="margin-left: 170px">
+        <div class="product-list" style="margin-left: 40px; height: 70px; margin-top: 30px; margin-bottom: 30px">
+           <h2> Product List </h2>
+            <a style="font-size: 17px; margin-top: 20px; height: 90px" href="/main_page/products">Click here to list products</a>
+        </div>
+
+<!--        <form action="#" style="margin-left: 40px; margin-top: 20px; margin-bottom: 40px" >-->
+<!--            <input type="text" placeholder="product name...">-->
+<!--            &nbsp;-->
+<!--            <input type="button" value="submit" placeholder="Search">-->
+<!--        </form>-->
+        <div id="productList" style="margin-left: 20px">
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="page-footer font-small mdb-color pt-4">

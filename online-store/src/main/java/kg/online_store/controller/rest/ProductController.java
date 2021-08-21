@@ -4,8 +4,10 @@ import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
 import kg.online_store.model.Product;
 import kg.online_store.service.ProductService;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
