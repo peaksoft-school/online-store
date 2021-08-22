@@ -15,7 +15,7 @@ fetch("http://localhost:9898/categories")
                         `
     html_categories += ` <hr>
  <li class="divider"></li>
-                        <li><a style="color: black; font-family: Times New Roman, Times, serif" href="/main_page/products">&nbsp;&nbsp;Все категории</a></li>`;
+                        <li><a style="color: black; font-family: Times New Roman, Times, serif" href="/main_page/products">&nbsp;&nbsp;All categories</a></li>`;
     console.log(html_categories)
     document.getElementById("categories").innerHTML = html_categories;
 
