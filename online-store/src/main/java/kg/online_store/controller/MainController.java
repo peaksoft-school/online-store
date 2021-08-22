@@ -31,7 +31,7 @@ public class MainController {
         return "television";
     }
 
-    @GetMapping("washMachine")
+    @GetMapping("washMachines")
     public String washMachinePage() {
         return "wash-machine";
     }
