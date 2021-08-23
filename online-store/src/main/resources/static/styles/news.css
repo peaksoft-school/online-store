@@ -1,0 +1,19 @@
+
+.div1,div2,div3,div1{
+    background-image: url("https://kartinkin.com/uploads/posts/2020-07/1593659731_7-p-foni-s-kosmosom-11.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-size: 25% 28%;
+}
+
+div1{
+    color: #a0fc00;
+}
+div2{
+    color: #0b47ff;
+}
+div3{
+    color: #ff7b8f;
+}
+

@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/504c19067f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="styles/news.css" />
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -61,12 +62,73 @@
 <br>
 <br>
 <main role="main">
-        <div>
+    <div>
+        <div class="col-md-3">
+
+
+        <div id= "mySlider" class="carousel slide" data-ride="carousel"  >
+
+            <ol class="carousel-indicators" >
+                <li data-target="#mySlider" data-slide-to="0" class="active"></li>
+                <li data-target="#mySlider" data-slide-to="1"></li>
+                <li data-target="#mySlider" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+
+                <div1 class="carousel-item active"  >
+
+
+                    <h4 class="color-text">Открытие нового филиала: <big>Online Store</big></h4>
+                    <h4 class="color-text">Дата: <small>20 сентебря 2021г.</small></h4>
+                    <hr>
+                </div1>
+                <div2 class="carousel-item ">
+                    <h4 class="color-text">Скоро в продаже новый товар: <big>AirPods</big></h4>
+
+                    <h4 class="color-text">В продаже с <small>25 сентебря 2021г.</small></h4>
+
+                    <hr>
+                </div2>
+                <div3 class="carousel-item " >
+
+                    <h4 class="color-text">Скоро в продаже новый товар: <big>Кондиционер</big></h4>
+                    <h4 class="color-text">В продаже с: <small>5 сентебря 2021г.</small></h4>
+                    <hr>
+
+
+
+
+
+                </div3>
+
+            </div>
+            <a href="#mySlider" class="carousel-control-prev" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"> </span>
+                <span class="sr-only"> Previous</span>
+            </a>
+            <a href="#mySlider" class="carousel-control-next" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"> </span>
+                <span class="sr-only"> Next</span>
+
+            </a>
+
+
+</div>
+        </div>
+        <ul  style="float:left; width:13%">
+        <a class="nav-link" href="/news">Подробнее  <i class=" fa fa-book"></i></a>
+</ul>
+
+
+<!--        <i class=" fa fa-book"></i>-->
+
         <div class="container-fluid">
+
             <div class="row">
                 <div class="container col-md-12">
                     <div class="container">
                         <div id="productList" style="display: flex; flex-wrap: wrap"></div>
+
                         <br>
                         <br>
                         <br>
