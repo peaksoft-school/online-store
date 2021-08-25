@@ -19,8 +19,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootpag/1.0.4/jquery.bootpag.min.js"
             integrity="sha512-wHItMiTGA88lHywV54pU8t5Nm4le+AmLJGIVS/U1mpd8PuV0h/Azjw1JhQqZH6UnUP/uOraGUcSI1tGvnE/Mug=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="/dist/viewer.js"></script>
-    <link rel="stylesheet" href="/dist/viewer.css">
 
 </head>
 
@@ -197,7 +195,7 @@
 </style>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/admin_page">Home</a>
+    <a class="navbar-brand" href="#">Online-store</a>
     <div class="container" style="margin: 10px">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -214,12 +212,14 @@
                 <li class="nav-item active" style="font-size: 18px">
                     <button class="btn btn-primary"><a href="/api/category"></a>Category table</button>
                 </li>
+                <li>
+                    <form class="form-inline" style="justify-content: end">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </form>
+                </li>
             </ul>
         </div>
-        <form class="form-inline my-2 my-lg-0 " style="margin-left: 50px">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-primary" type="submit">Search</button>
-        </form>
     </div>
     <div class="logout" style="margin: 10px">
         <ul class="nav nav-pills " style="justify-content:end">
