@@ -66,7 +66,7 @@ public class AdminPageController {
     }
 
     @RequestMapping("delUser")
-    public String delStudent(long id) {
+    public String deleteUser(long id) {
         userService.deleteById(id);
         return "admin_page";
     }
