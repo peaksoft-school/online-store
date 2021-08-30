@@ -1,236 +1,340 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Admin Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <div class="text-center">
-        <h1 style="background-color: gray">Admin page</h1>
-    </div>
-</head>
-<body style="background-color: #E9EEE7">
-<div class="d-flex">
-    <div style="padding-left: 40px">
-        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#addProducts">Add Products</button>
-    </div>
-    <br>
-    <div style="padding-left: 40px">
-        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#addUser">Add New User</button>
-    </div>
-    <br>
-    <div style="padding-left: 40px">
-        <button class="btn btn-outline-primary"><a href="/api/user"></a>User table</button>
-    </div>
-    <br> <div style="padding-left: 40px">
-    <button class="btn btn-outline-primary"><a href="/api/product"></a>Product table</button>
-</div>
-    <br>
-    <div style="padding-left: 40px">
-        <button class="btn btn-outline-primary"><a href="/api/category"></a>Category table</button>
-    </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootpag/1.0.4/jquery.bootpag.min.js"
+            integrity="sha512-wHItMiTGA88lHywV54pU8t5Nm4le+AmLJGIVS/U1mpd8PuV0h/Azjw1JhQqZH6UnUP/uOraGUcSI1tGvnE/Mug=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <div style="padding-left: 40px">
-        <ul class="nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/logout">LOG OUT<i class="fas fa-sign-out-alt"></i></a>
+</head>
+
+
+<script th:inline="javascript">
+    const scpt_tb_col_nm = ["id", "username", "lastName", "gender", "email", "phoneNumber", "birthDate",
+        "profilePicture"];
+    const scpt_tb_disp_col_nm = ["Id", "Name", "Lastname", "Gender", "Email", "PhoneNum", "BirthDate",
+        "Photo"];
+    const totalUser = 10;
+
+    function fetchData(display_Start) {
+        let data;
+        $.ajax({
+            type: "POST",
+            url: "users/" + (display_Start - 1) + "/10",
+            success: function (htmldata) {
+                let i;
+                data = htmldata;
+
+                const Table = document.getElementById("data_table");
+                Table.innerHTML = "";
+                let tr = $('<tr>');
+                for (i = 0; i < scpt_tb_disp_col_nm.length; i++) {
+                    $(`#data_table`).append(
+                        "<th>" + scpt_tb_disp_col_nm[i] + "</th>");
+                }
+                $('#data_table').append("<th>Delete</th>");
+
+                tr.append("</tr>");
+                $('#data_table').append(tr);
+
+                for (let i = 0; i < data.length; i++) {
+                    tr = $('<tr>');
+                    tr.append("<td><button type=' button' class='btn btn-info' onclick='viewData("
+                        + data[i].id
+                        + ",\""
+                        + data[i].username
+                        + "\",\""
+                        + data[i].lastName
+                        + "\",\""
+                        + data[i].gender
+                        + "\",\""
+                        + data[i].email
+                        + "\",\""
+                        + data[i].phoneNumber
+                        + "\",\""
+                        + data[i].birthDate
+                        + "\")'>"
+                        + data[i].id + "</button></td>");
+                    tr.append("<td>" + data[i].username + "</td>");
+                    tr.append("<td>" + data[i].lastName + "</td>");
+                    tr.append("<td>" + data[i].gender + "</td>");
+                    tr.append("<td>" + data[i].email + "</td>");
+                    tr.append("<td>" + data[i].phoneNumber + "</td>");
+                    tr.append("<td>" + data[i].birthDate + "</td>");
+
+                    tr.append("<td><img onclick=getTooltip('/imageData/" + data[i].profilePicture +
+                        "') src='/imageData/" + data[i].profilePicture + "' style='width:50px;'></td>");
+
+                    tr.append("<td><button type='button' class='btn btn-danger' onclick='deleteUser("
+                        + data[i].id
+                        + ")' >Delete</button></td>");
+                    tr.append("</tr>");
+                    $('#data_table').append(tr);
+                }
+            },
+            error: function (errorThrown) {
+                alert("Оппа!!! Ошибочка вышла");
+            }
+        });
+    }
+
+    function viewData(id, username, lastName, gender, email, phoneNumber,
+                      birthDate) {
+        $('#id').val(id);
+        $('#username').val(username);
+        $('#lastName').val(lastName);
+        $('#gender').val(gender);
+        $('#email').val(email);
+        $('#phoneNumber').val(phoneNumber);
+        $('#birthDate').val(birthDate);
+    }
+
+    function deleteUser(id) {
+        if (confirm('Вы хотите удалить ?')) {
+            $.ajax({
+                type: "POST",
+                url: "delUser?id=" + id,
+                success: function (htmldata) {
+                    alert("Успешно удален !!")
+                    fetchData(1);
+                },
+                error: function (errorThrown) {
+                    alert("Оппа!!! Ошибочка вышла");
+                }
+            });
+        }
+    }
+    function getTooltip(path1) {
+        const image = new Image();
+        image.src = path1;
+        const viewer = new Viewer(image, {
+            hidden: function () {
+                viewer.destroy();
+            },
+            toolbar: {
+                zoomIn: true,
+                zoomOut: true,
+                oneToOne: false,
+                reset: true,
+                prev: false,
+                play: false,
+                next: false,
+                rotateLeft: true,
+                rotateRight: true,
+                flipHorizontal: false,
+                flipVertical: false,
+            },
+        });
+        viewer.show();
+    }
+
+    function addUser() {
+        if (confirm('Вы хотели бы сохранить ?')) {
+            const obj = $("#frmUser");
+            const formData = new FormData();
+
+            $.each($(obj).find("input[type='file']"), function (i, tag) {
+                $.each($(tag)[0].files, function (i, file) {
+                    formData.append(tag.name, file);
+                    // alert(tag.name);
+                });
+            });
+            const params = $(obj).serializeArray();
+            $.each(params, function (i, val) {
+                formData.append(val.name, val.value);
+            });
+
+
+            $.ajax({
+                type: "POST",
+                url: "addUser",
+                contentType: false,
+                processData: false,
+                cache: false,
+                data: formData,
+                success: function (htmldata) {
+                    alert(htmldata);
+                    fetchData(1);
+                    viewData('', '', '', '', '', '', '');
+                },
+                error: function (e) {
+                    alert('Error: ' + e.message);
+                },
+            });
+        }
+
+    }
+</script>
+
+<style>
+    .pagination > li > a, .pagination > li > span {
+        position: relative;
+        float: left;
+        padding: 6px 12px;
+        line-height: 1.42857143;
+        text-decoration: none;
+        color: #337ab7;
+        border: 1px solid #ddd;
+        margin-left: -1px;
+    }
+</style>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/admin_page">Online-store</a>
+    <div class="container" style="margin: 10px">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav " style="margin: 10px">
+                <li class="nav-item active" style="font-size: 18px">
+                    <button class="btn btn-primary "><a href="/admin_page"></a>Home</button>
+                </li>
+                <li class="nav-item active" style="font-size: 18px">
+                    <button class="btn btn-primary"><a href="/api/product"></a>Product table</button>
+                </li>
+                <li class="nav-item active" style="font-size: 18px">
+                    <button class="btn btn-primary"><a href="/api/category"></a>Category table</button>
+                </li>
+                <li>
+                    <form class="form-inline" style="justify-content: end">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="logout" style="margin: 10px">
+        <ul class="nav nav-pills " style="justify-content:end">
+            <li class="active">
+                <a href="/logout">Logout</a>
             </li>
         </ul>
     </div>
-    <div style="padding-left: 670px" class="nav justify-content-center">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="#">Search</button>
-        </form>
-    </div>
-</div>
-<div class="container-center">
-    <table id="users_table" class="table table-hover table-striped">
-    </table>
-</div>
-<!--//POST Method for user:-->
-<!--Modal-->
-<div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="#addUserLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addUserLabel">Form</h5>
-                <button class="btn close" data-dismiss="modal" aria-label="close"></button>
+</nav>
+<div class="container" style="margin-top: 15px">
+    <ul class="nav nav-pills" role="tablist">
+        <li class="active"><a href="#table" role="tab" data-toggle="pill">All Users</a></li>
+        <li class="active"><a href="#new" role="tab" data-toggle="pill">New User</a></li>
+
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active fade in" id="table">
+            <div class="row"
+                 style="overflow: auto; margin-right: 10px; margin-left: 10px">
+                <table id="data_table" class="table"></table>
             </div>
-            <div class="modal-body">
-                <div style="padding-left: 40px">
-                </div>
-                <form id="register" method="post" >
-                    <div class="form-group" align="center">
-                        <label for="username">UserName</label>
-                        <br>
-                        <input type="text" class="control-input col-sm-10" id="username" placeholder="userName">
+
+            <div class="row" style="margin-right: 10px; margin-left: 10px">
+                <p class="demo demo4_bottom"></p>
+            </div>
+
+        </div>
+        <div role="tabpanel" class="tab-pane fade in" id="new">
+            <div class="container">
+                <form id="frmUser" name="frmUser" class="tab-pane fade in">
+                    <div class="form-group">
+                        <input type="hidden" class="form-control"
+                               id="id" name="id">
                     </div>
-                    <div class="form-group" align="center">
-                        <label for="lastname">lastName</label>
-                        <br>
-                        <input type="text" class="control-input col-sm-10" id="lastname" placeholder="lastName">
+                    <div class="form-group">
+                        <label>Name</label> <input type="text" class="form-control"
+                                                   id="username" name="username" placeholder="Name">
                     </div>
-                    <div class="form-group" align="center">
-                        <label for="gender">Gender</label>
-                        <br>
-                        <input type="text" class="control-input col-sm-10" id="gender" placeholder="Gender">
+                    <div class="form-group">
+                        <label>Lastname</label> <input type="text" class="form-control"
+                                                       id="lastName" name="lastName" placeholder="Lastname">
                     </div>
-                    <div class="form-group" align="center">
-                        <label for="email">email</label>
-                        <br>
-                        <input type="email" class="control-input col-sm-10" id="email" placeholder="Email">
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select name="gender" id="gender">
+                            <option value="Male">Male</option>
+                            <option selected="Female" value="Female">Female</option>
+                        </select>
                     </div>
-                    <div class="form-group" align="center">
-                        <label for="password">Password</label>
-                        <br>
-                        <input type="password" class="control-input col-sm-10" id="password" placeholder="Password">
+                    <div class="form-group">
+                        <label>E-mail</label> <input type="text" class="form-control"
+                                                     id="email" name="email" placeholder="E-mail">
                     </div>
-                    <div class="form-group" align="center">
-                        <label   for="phoneNumber">PhoneNumber</label>
-                        <br>
-                        <input type="number" class="control-input col-sm-10"id="phoneNumber" placeholder="phoneNumber">
+                    <div class="form-group">
+                        <label>Password</label> <input type="text" class="form-control"
+                                                       id="password" name="password" placeholder="Password">
                     </div>
-                    <div class="form-group" align="center">
-                        <label   for="profilePicture">profilePicture</label>
-                        <br>
-                        <input type="text" class="control-input col-sm-10"id="profilePicture" placeholder="profilePicture">
+                    <div class="form-group">
+                        <label>Phone</label> <input type="text" class="form-control"
+                                                    id="phoneNumber" name="phoneNumber" placeholder="Phone">
                     </div>
-                    <div class="form-group" align="center">
-                        <label   for="registerDate">registerDate</label>
-                        <br>
-                        <input type="date" class="control-input col-sm-10"id="registerDate" placeholder="registerDate">
+                    <div class="form-group">
+                        <label>Birth Date</label> <input type="date" class="form-control"
+                                                         id="birthDate" name="birthDate" placeholder="BirthDate">
                     </div>
-                    <div class="form-group" align="center">
-                        <label   for="birthDate">birthDate</label>
-                        <br>
-                        <input type="date" class="control-input col-sm-10"id="birthDate" placeholder="birthDate">
-                    </div>
-                    <div class="form-group" align="center">
-                        <label   for="roles">Roles</label>
-                        <br>
-                        <div  class="col-md-11" id="roles">
-                            <select class="form-control ">
-                                <option>ROLE_ADMIN</option>
-                                <option>ROLE_USER</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group" align="center">
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button class="btn btn-outline-primary" type="submit">Save</button>
+                    <div class="form-group">
+                        <label>Photo</label> <input type="file" class="form-control"
+                                                    id="img" name="img" placeholder="Photo">
+
+                        <button type="button" class="btn btn-primary" onclick="addUser()">Save</button>
+                        <button type="button" class="btn btn-primary"
+                                onclick="viewData('', '', '','','','','','')">Cancel
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-<!--Modal-->
-<!--//POST Method for user:-->
-<!--Modal-->
-<div class="modal fade" id="addProducts" tabindex="-1" aria-labelledby="#addProductsLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addProductsLabel">Form</h5>
-                <button class="btn close" data-dismiss="modal" aria-label="close"></button>
-            </div>
-            <div class="modal-body">
-                <form  id="registerPr" class="table table-bordered" method="post" >
-                    <div class="form-group" align="center">
-                        <label for="username">Name</label>
-                        <br>
-                        <input type="text" class="control-input col-sm-10" id="name" placeholder="name">
-                    </div>
-                    <div class="form-group" align="center">
-                        <label for="username">Category</label>
-                        <br>
-                        <div  class="col-md-11">
-                            <select class="form-control">
-                                <option style=" background-color: red">choose your option</option>
-                                <option>Electronic</option>
-                                <option>Appliances</option>
-                                <option>Accessories</option>
-                                <option>Transportation</option>
-                                <option>Books</option>
-                                <option>Dishes</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group" align="center">
-                        <label for="products">Products</label>
-                        <br>
-                        <input type="text" class="control-input col-sm-10" id="products" placeholder="products">
-                    </div>
-                    <div class="form-group" align="center">
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button class="btn btn-outline-primary" type="submit">Save</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!--//Put method:-->
-<!--Modal-->
-<div class="modal fade" id="UpdateUser" tabindex="-1"  >
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editUserLabel">Form</h5>
-                <button class="btn close" data-dismiss="modal" aria-label="close"></button>
-            </div>
-            <div class="modal-body">
-                <h1> you should create </h1>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container-left-lg-6">
-    <table class="table table-hover table-striped table-bordered">
-        <tr class="text-left">
-            <th scope="col">Id</th>
-            <th scope="col">UserName</th>
-            <th scope="col">LastName</th>
-            <th scope="col">Gender</th>
-            <th scope="col">Email</th>
-            <th scope="col">Password</th>
-            <th scope="col">PhoneNumber</th>
-            <th scope="col">profilePicture</th>
-            <th scope="col">birthDate</th>
-            <th scope="col">Roles</th>
-            <th style="color: #03C203" scope="col">Edit</th>
-            <th style="color: red" scope="col">Delete</th>
-        </tr><tr>
-        <td>1</td>
-        <td>Chyngyz</td>
-        <td>Kamarov</td>
-        <td>Male</td>
-        <td>
-            chyngyz@gmail.com
-        </td>
-        <td>ch</td>
-        <td>0772202031</td>
-        <td>3*4</td>
-        <td>12.12.1989</td>
-        <td>ROLE_ADMIN</td>
-        <td><button class="btn btn-outline-success" data-toggle="modal" data-target="#UpdateUser">Update</button></td>
-        <td> <button  data-id="${u.id}" class="btn btn-outline-danger"><a href="#" id="delete-post"></a>Delete</button></td>
-    </tr>
-    </table>
-</div>
-<script src="
-https://code.jquery.com/jquery-3.3.1.slim.min.js
-" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="
-https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js
-" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="
-https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js
-" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
-</html>
+
+<script type="text/javascript"
+        src="https://botmonster.com/jquery-bootpag/jquery.bootpag.js"></script>
+
+<script>
+    $(document).ready(function () {
+        set_paging(Math.ceil(totalUser / 10));
+        fetchData(1);
+    });
+
+    $('.demo4_bottom').bootpag({
+        total: Math.ceil(totalUser / 10),
+        maxVisible: 5,
+        page: 1
+    });
+
+    function set_paging(total_pages) {
+        $('.demo4_bottom').html('');
+        $('.demo4_bottom').bootpag({
+            total: total_pages,
+            page: 1,
+            maxVisible: 5,
+            leaps: true,
+            firstLastUse: true,
+            first: '<span aria-hidden="true">&larr;</span>',
+            last: '<span aria-hidden="true">&rarr;</span>',
+            wrapClass: 'pagination',
+            activeClass: 'active',
+            disabledClass: 'disabled',
+            nextClass: 'next',
+            prevClass: 'prev',
+            lastClass: 'last',
+            firstClass: 'first'
+        }).on("page", function (event, num) {
+            const display_Start = num;
+            fetchData(display_Start);
+        }).find('.pagination');
+    }
+</script>

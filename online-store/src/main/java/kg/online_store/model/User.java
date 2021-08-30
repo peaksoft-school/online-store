@@ -63,7 +63,7 @@ public class User {
     LocalDate registerDate;
 
     @Schema(description = "дата рождения", example = "2000-07-31")
-    @DateTimeFormat(pattern = "dd.MM.yyyy")
+    @DateTimeFormat(pattern = "yyyy.MM.dd")
     @Column(name = "birth_date")
     LocalDate birthDate;
 

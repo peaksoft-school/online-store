@@ -11,4 +11,5 @@ public interface UserService {
     User findUserByEmail(String email);
     void save(User user);
     void deleteById(long id);
+    List<User>findPaginated(int pageNo,int pageSize);
 }

@@ -5,6 +5,9 @@ import kg.online_store.model.User;
 import kg.online_store.repository.UserRepository;
 import kg.online_store.service.RoleService;
 import kg.online_store.service.UserService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -68,5 +71,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteById(long id) {
         userRepository.deleteById(id);
+    }
+
+    @Override
+    public List<User> findPaginated(int pageNo, int pageSize) {
+        Pageable paging= PageRequest.of(pageNo, pageSize) ;
+        Page<User> pagedResult = userRepository.findAll(paging);
+        return pagedResult.toList();
     }
 }
