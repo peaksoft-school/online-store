@@ -61,10 +61,10 @@ public class UserServiceImpl implements UserService {
     public void save(User user) {
         String encryptedPass = passwordEncoder.encode(user.getPassword());
         user.setPassword(encryptedPass);
-        Set<Role> rolesFromBD = new HashSet<>();
-        rolesFromBD.add(roleService.getRoleByName("ROLE_USER"));
-        user.setRoles(rolesFromBD);
-        user.setRegisterDate(LocalDate.now());
+//        Set<Role> rolesFromBD = new HashSet<>();
+//        rolesFromBD.add(roleService.getRoleByName("ROLE_USER"));
+//        user.setRoles(rolesFromBD);
+//        user.setRegisterDate(LocalDate.now());
         userRepository.save(user);
     }
 

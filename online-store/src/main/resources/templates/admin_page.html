@@ -24,9 +24,9 @@
 
 
 <script th:inline="javascript">
-    const scpt_tb_col_nm = ["id", "userName", "lastName", "gender", "email", "phoneNumber", "birthDate",
+    const scpt_tb_col_nm = ["id", "userName","firstName","lastName", "gender", "email", "phoneNumber", "birthDate",
         "profilePicture"];
-    const scpt_tb_disp_col_nm = ["Id", "Name", "Lastname", "Gender", "Email", "PhoneNum", "BirthDate",
+    const scpt_tb_disp_col_nm = ["Id", "Username","firstName","Lastname", "Gender", "Email", "PhoneNum", "BirthDate",
         "Photo"];
     const totalUser = 10;
 
@@ -58,6 +58,8 @@
                         + ",\""
                         + data[i].username
                         + "\",\""
+                        + data[i].firstName
+                        + "\",\""
                         + data[i].lastName
                         + "\",\""
                         + data[i].gender
@@ -70,6 +72,7 @@
                         + "\")'>"
                         + data[i].id + "</button></td>");
                     tr.append("<td>" + data[i].username + "</td>");
+                    tr.append("<td>" + data[i].firstName + "</td>");
                     tr.append("<td>" + data[i].lastName + "</td>");
                     tr.append("<td>" + data[i].gender + "</td>");
                     tr.append("<td>" + data[i].email + "</td>");
@@ -92,10 +95,11 @@
         });
     }
 
-    function viewData(id, username, lastName, gender, email, phoneNumber,
+    function viewData(id, username,firstName, lastName, gender, email, phoneNumber,
                       birthDate) {
         $('#id').val(id);
         $('#username').val(username);
+        $('#firstName').val(firstName);
         $('#lastName').val(lastName);
         $('#gender').val(gender);
         $('#email').val(email);
@@ -254,8 +258,12 @@
                                id="id" name="id">
                     </div>
                     <div class="form-group">
-                        <label>Name</label> <input type="text" class="form-control"
+                        <label>Username</label> <input type="text" class="form-control"
                                                    id="username" name="username" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Name</label> <input type="text" class="form-control"
+                                                       id="firstName" name="firstName" placeholder="Name">
                     </div>
                     <div class="form-group">
                         <label>Lastname</label> <input type="text" class="form-control"
