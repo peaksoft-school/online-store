@@ -1,3 +1,6 @@
+window.MyLib = {
+    selectedProduct: 0
+};
 let html_categories = ``;
 let url = "http://localhost:9898/categories";
 let tech = [];
@@ -34,7 +37,13 @@ function methodOne(nameO) {
         const p = new Promise(function (resolve, reject) {
             let param = '';
             tv.forEach(function (iter) {
-                t = ` <div class="col-md-4"> <div class="container"> <img src="${iter.productPicture}" style="width: 220px; height: 200px"> <a href="/product_page"><p>${iter.name}</p></a> <p>Price: ${iter.productPrice}</p> </div> </div> `;
+                t = `   <div class="col-md-4">
+                            <div class="container">
+                                <img src="${iter.productPicture}" style="width: 220px; height: 200px">
+                                    <a href="/product_page" onclick="localStorage.setItem('selectedProduct', ${iter.id})">
+                                    <p>Price: ${iter.productPrice}</p>
+                            </div>
+                         </div> `;
                 param += document.createElement('div').innerHTML = t;
             });
             resolve(param);
@@ -46,7 +55,13 @@ function methodOne(nameO) {
         const p = new Promise(function (resolve, reject) {
             let param = '';
             tech.forEach(function (iter) {
-                t = ` <div class="col-md-4"> <div class="container"> <img src="${iter.productPicture}" style="width: 220px; height: 200px"> <a href="/product_page"><p>${iter.name}</p></a> <p>Price: ${iter.productPrice}</p> </div> </div> `;
+                t = ` <div class="col-md-4">
+                        <div class="container">
+                            <img src="${iter.productPicture}" style="width: 220px; height: 200px">
+                                <a href="/product_page" onclick="localStorage.setItem('selectedProduct', ${iter.id})">
+                            <p>Price: ${iter.productPrice}</p>
+                        </div>
+                      </div> `;
                 param += document.createElement('div').innerHTML = t;
             });
             resolve(param);
@@ -58,7 +73,13 @@ function methodOne(nameO) {
         const p = new Promise(function (resolve, reject) {
             let param = '';
             wMach.forEach(function (iter) {
-                t = ` <div class="col-md-4"> <div class="container"> <img src="${iter.productPicture}" style="width: 220px; height: 200px"> <a href="/product_page"><p>${iter.name}</p></a> <p>Price: ${iter.productPrice}</p> </div> </div> `;
+                t = `<div class="col-md-4">
+                        <div class="container">
+                            <img src="${iter.productPicture}" style="width: 220px; height: 200px">
+                                <a href="/product_page" onclick="localStorage.setItem('selectedProduct', ${iter.id})">
+                                <p>Price: ${iter.productPrice}</p>
+                        </div>
+                     </div> `;
                 param += document.createElement('div').innerHTML = t;
             });
             resolve(param);
@@ -73,7 +94,7 @@ function methodOne(nameO) {
                 t = ` <div class="col-md-4"> 
                         <div class="container">
                             <img src="${iter.productPicture}" style="width: 220px; height: 200px">
-                                <a href="/product_page">
+                                <a href="/product_page" onclick="localStorage.setItem('selectedProduct', ${iter.id})">
                                     <p>${iter.name}</p>
                                 </a>
                                 <p>Price: ${iter.productPrice}</p> 
@@ -96,9 +117,7 @@ function methodTwo() {
             let t = ` <div class="col-md-4"> 
                         <div class="container">
                             <img src="${iter.productPicture}" style="width: 220px; height: 200px">
-                                <a href="/product_page">
-                                    <p>${iter.name}</p>
-                                </a>
+                                <a href="/product_page" onclick="localStorage.setItem('selectedProduct', ${iter.id})">
                                 <p>Price: ${iter.productPrice}</p> 
                         </div> 
                       </div> `;
