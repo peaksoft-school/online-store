@@ -1,7 +1,7 @@
-let html_about_product;
+let html_about_product = ' ';
 let table2 = document.getElementById('productL');
 let idEl = localStorage.getItem('selectedProduct');
-const url = `http://localhost:9898/products/getById/${idEl}`;
+const url = `http://localhost:9898/products/getById/${idEl}`
 fetch(`${url}`, {
     method: 'GET',
 }).then(data => {
@@ -25,6 +25,7 @@ fetch(`${url}`, {
                         </div>
                     </div>
 `;
-    console.log(html_about_product);
+
+    console.log(html_about_product)
     table2.innerHTML = html_about_product;
 })
