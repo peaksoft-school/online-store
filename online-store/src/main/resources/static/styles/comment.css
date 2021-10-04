@@ -1,0 +1,39 @@
+main {
+    padding-top: 80px;
+}
+.section-main-class {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.section-inner {
+    padding-right: 900px;
+    padding-left: 20px;
+}
+textarea {
+    height: 27px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid black;
+    background-color: #f5f6f6;
+    outline: none;
+    resize: none;
+    padding: 0 20px;
+}
+input[type="submit"], button {
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 10px;
+}
+input[type="submit"] {
+    color: #fff;
+    background-color: rgb(80, 76, 76);
+}
+.btn {
+    display: flex;
+    justify-content: flex-end;
+}
