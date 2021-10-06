@@ -1,11 +1,11 @@
 let html_about_product;
 let table2 = document.getElementById('productL');
 let idEl = localStorage.getItem('selectedProduct');
-const url = `http://localhost:9898/products/getById/${idEl}`;
-fetch(`${url}`, {
+let url = `http://localhost:9898`;
+fetch(`${url + '/products/getById/'+ idEl}`, {
     method: 'GET',
 }).then(data => {
-    return data.json()
+    return data.json();
 }).then((about_product) => {
     console.log(about_product);
     html_about_product += `
@@ -25,6 +25,20 @@ fetch(`${url}`, {
                         </div>
                     </div>
 `;
-    console.log(html_about_product);
+    let commentList = document.getElementById('comment-list');
+    let param = '';
+    about_product.productComments.forEach(function (iter){
+    let fetchComments = `
+<div class="div-one">
+    <div class="div-two">
+        <div class="div-three">
+            ${iter.comment}(${iter.user.username})
+        </div>
+    </div>
+</div>
+`;
+    param += fetchComments;
+});
+    commentList.innerHTML = param;
     table2.innerHTML = html_about_product;
 })

@@ -1,5 +1,6 @@
 package kg.online_store.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AccessLevel;
@@ -10,6 +11,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -74,4 +77,18 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     Set<Role> roles;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
+
+    @JsonIgnore
+    List<Comment> userComments;
+
+    public List<Comment> addCommentOfUser(Comment comment) {
+        if (userComments == null) {
+            userComments = new ArrayList<>();
+        }
+        userComments.add(comment);
+        comment.setUser(this);
+        return userComments;
+    }
 }
