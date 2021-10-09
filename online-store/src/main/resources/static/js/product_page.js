@@ -7,7 +7,6 @@ fetch(`${url + '/products/getById/'+ idEl}`, {
 }).then(data => {
     return data.json();
 }).then((about_product) => {
-    console.log(about_product);
     html_about_product += `
                          <div class="col-md-12" style="display: flex; flex-wrap: wrap">
                     <div class="col-md-6" >
@@ -25,6 +24,28 @@ fetch(`${url + '/products/getById/'+ idEl}`, {
                         </div>
                     </div>
 `;
+
+    let userId = null;
+    let productId = about_product.id;
+     fetch(url + '/users/user')
+        .then(response => response.json())
+        .then(value => {
+            userId = value.id;
+    const create = document.getElementById('form-input-id');
+    create.addEventListener('submit', async function (event) {
+        event.preventDefault();
+        let commentSave = document.getElementById('textarea-id').value;
+        await fetch(url + "/comment/" + productId + "/" + userId, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                comment: commentSave
+            })
+        });
+    })
+});
     let commentList = document.getElementById('comment-list');
     let param = '';
     about_product.productComments.forEach(function (iter){

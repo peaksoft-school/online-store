@@ -1,5 +1,6 @@
 package kg.online_store.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -30,11 +31,14 @@ public class Comment {
     String comment;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @XmlTransient
+//    @XmlTransient
+//    @JsonBackReference
+//    @JsonIgnore
     @JoinColumn(name = "user_id")
     User user;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+//    @JsonBackReference
     @JsonIgnore
     @JoinColumn(name = "product_id")
     Product product;

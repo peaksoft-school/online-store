@@ -1,6 +1,7 @@
 package kg.online_store.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.annotations.ApiModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AccessLevel;
@@ -53,15 +54,5 @@ public class Product {
     Description description;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product", fetch = FetchType.EAGER)
-    @XmlTransient
     List<Comment> productComments;
-
-//    public List<Comment> addCommentOfProduct(Comment comment) {
-//        if (productComments == null) {
-//            productComments = new ArrayList<>();
-//        }
-//        productComments.add(comment);
-//        comment.setProduct(this);
-//        return productComments;
-//    }
 }

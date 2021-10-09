@@ -1,6 +1,7 @@
 package kg.online_store.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.annotations.ApiModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AccessLevel;
@@ -79,16 +80,16 @@ public class User {
     Set<Role> roles;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
-
     @JsonIgnore
+//    @JsonManagedReference
     List<Comment> userComments;
 
-    public List<Comment> addCommentOfUser(Comment comment) {
-        if (userComments == null) {
-            userComments = new ArrayList<>();
-        }
-        userComments.add(comment);
-        comment.setUser(this);
-        return userComments;
-    }
+//    public List<Comment> addCommentOfUser(Comment comment) {
+//        if (userComments == null) {
+//            userComments = new ArrayList<>();
+//        }
+//        userComments.add(comment);
+//        comment.setUser(this);
+//        return userComments;
+//    }
 }
