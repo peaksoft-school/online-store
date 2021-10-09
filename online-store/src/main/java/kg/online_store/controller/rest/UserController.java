@@ -72,7 +72,7 @@ public class UserController {
     @Operation(summary = "Добавление пользователя", description = "Позволяет добавить нового пользователя")
     public ResponseEntity<?> saveUser(@RequestBody User user) {
         try {
-            userService.save(user);
+            userService.addUser(user);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -104,7 +104,7 @@ public class UserController {
     @Operation(summary = "Обновление пользователя", description = "Позволяет обновить пользователя")
     public ResponseEntity<?> editUserPage(@RequestBody User user) {
         try {
-            userService.save(user);
+            userService.addUser(user);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

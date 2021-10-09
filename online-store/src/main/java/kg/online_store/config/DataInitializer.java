@@ -1,5 +1,6 @@
 package kg.online_store.config;
 
+import kg.online_store.repository.RoleRepository;
 import org.springframework.stereotype.Component;
 import kg.online_store.model.*;
 import kg.online_store.service.CategoryService;
@@ -21,13 +22,15 @@ import java.util.Set;
 public class DataInitializer {
 
     private final CategoryService categoryService;
-
     private final UserService userService;
+    private final RoleRepository roleRepository;
 
     public DataInitializer(CategoryService categoryService,
-                           UserService userService) {
+                           UserService userService,
+                           RoleRepository roleRepository) {
         this.categoryService = categoryService;
         this.userService = userService;
+        this.roleRepository = roleRepository;
     }
 
     /**
@@ -35,8 +38,8 @@ public class DataInitializer {
      * Вызов методов добавлять в этод метод.
      * Следить за последовательностью вызова.
      */
-//    @PostConstruct
-    //раскомментировать аннотацию при первом запуске проекта для создания таблиц БД, потом закомментировать
+    @PostConstruct
+//    раскомментировать аннотацию при первом запуске проекта для создания таблиц БД, потом закомментировать
     public void initDataBaseFilling() {
         productsAndCategoriesInit();
         usersAndRolesInit();
