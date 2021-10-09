@@ -1,11 +1,10 @@
 package kg.online_store.config;
 
-import kg.online_store.repository.RoleRepository;
-import org.springframework.stereotype.Component;
 import kg.online_store.model.*;
 import kg.online_store.service.CategoryService;
 import kg.online_store.service.UserService;
-import javax.annotation.PostConstruct;
+import org.springframework.stereotype.Component;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -23,14 +22,11 @@ public class DataInitializer {
 
     private final CategoryService categoryService;
     private final UserService userService;
-    private final RoleRepository roleRepository;
 
     public DataInitializer(CategoryService categoryService,
-                           UserService userService,
-                           RoleRepository roleRepository) {
+                           UserService userService) {
         this.categoryService = categoryService;
         this.userService = userService;
-        this.roleRepository = roleRepository;
     }
 
     /**
