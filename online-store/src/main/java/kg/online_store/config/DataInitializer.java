@@ -186,7 +186,7 @@ public class DataInitializer {
         user.setUsername("user");
         user.setLastName("userov");
         user.setEmail("user@gmail.com");
-        user.setPassword("2");
+        user.setPassword("$2a$12$X9w1iOGDuiI0bIh.juTHue4OfhZH0Md2v5kKaCX2SiuQqPqqkV0Re");
         user.setGender("Male");
         user.setPhoneNumber("0705250086");
         user.setProfilePicture("https://24.kg/files/media/205/205233.jpg");
@@ -211,7 +211,7 @@ public class DataInitializer {
         admin.setUsername("admin");
         admin.setLastName("adminov");
         admin.setEmail("admin@gmail.com");
-        admin.setPassword("1");
+        admin.setPassword("$2a$12$X9w1iOGDuiI0bIh.juTHue4OfhZH0Md2v5kKaCX2SiuQqPqqkV0Re");
         admin.setGender("Male");
         admin.setPhoneNumber("0705250086");
         admin.setProfilePicture("https://24.kg/files/media/205/205233.jpg");
