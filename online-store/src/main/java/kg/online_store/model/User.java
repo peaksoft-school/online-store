@@ -81,15 +81,6 @@ public class User {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
     @JsonIgnore
-//    @JsonManagedReference
     List<Comment> userComments;
 
-//    public List<Comment> addCommentOfUser(Comment comment) {
-//        if (userComments == null) {
-//            userComments = new ArrayList<>();
-//        }
-//        userComments.add(comment);
-//        comment.setUser(this);
-//        return userComments;
-//    }
 }

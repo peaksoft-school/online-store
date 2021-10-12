@@ -1,17 +1,26 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 main {
     padding-top: 80px;
 }
 .section-main-class {
-    padding: 0;
+    padding-top: 30px;
     margin: 0;
     box-sizing: border-box;
+    display: flex;
 }
-.section-inner {
-    padding-right: 900px;
-    padding-left: 20px;
+.section-inner-one {
+    width: 50%;
+    padding: 0 40px;
+}
+.section-inner-two {
+    width: 50%;
 }
 textarea {
-    height: 27px;
+    min-height: 27px;
     width: 100%;
     border: none;
     border-bottom: 2px solid black;
@@ -33,7 +42,70 @@ input[type="submit"] {
     color: #fff;
     background-color: rgb(80, 76, 76);
 }
-.btn {
+.btn-inner {
     display: flex;
     justify-content: flex-end;
 }
+.btn-outer {
+    display: none;
+}
+.div-main-button-class {
+    border: 1px solid black;
+}
+.three-dots {
+    padding: 0 20px 5px 20px;
+    cursor: pointer;
+    border: 1px solid greenyellow;
+}
+.div-main-picture-class {
+    padding: 20px 10px;
+}
+.picture-class {
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+}
+.div-main-comment-class {
+    padding: 0 10px;
+    width: 79%;
+    overflow-wrap: break-word;
+}
+.user-name-over-comment {
+    font-size: 15px;
+    font-family: serif;
+}
+.comment-thread-class {
+    color: blue;
+}
+.comment-class {
+    padding: 10px 0;
+}
+.answer-for-comment {
+    color: gray;
+    padding: 0;
+}
+.text-id {
+    cursor: pointer;
+    display: inline;
+}
+figure {
+    width: 6px;
+    height: 6px;
+    border-radius: 5px;
+    background: #ffffff;
+    margin: 3px 0;
+}
+.three-dots:hover figure{
+    background: black;
+}
+#modal-block-id {
+     display: none;
+    position: absolute;
+    width: 100px;
+    height: 58px;
+    border: 1px solid black;
+    transform: translate(0px, 0px);
+    background-color: beige;
+}
+
