@@ -78,8 +78,8 @@ fetch(`${url + '/products/getById/'+ idEl}`, {
     let param = '';
     about_product.productComments.forEach(function (iter){
     let fetchComments = `
-<div class="div-one" style="border: 1px solid gray">
-    <div class="div-two" style="display: flex">
+<div class="div-one"">
+    <div class="div-two">
         <div class="div-main-picture-class">
             <img src="${iter.user.profilePicture}" class="picture-class">
         </div>
@@ -102,22 +102,21 @@ fetch(`${url + '/products/getById/'+ idEl}`, {
             </div>
         </div>
         <div class="div-main-button-class">
-            <div onclick="myFunction(e)" id="three-dots-id" >
-<!--            <button onclick="return myFunction();">Button</button>-->
-                <div class="three-dots">
+<!--            <div id="three-dots-id" >-->
+                <div onclick="myFunction(${iter.id})" class="three-dots">
                 
                     <figure class="figure-id"></figure>
                     <figure class="figure-id"></figure>
                     <figure class="figure-id"></figure>
                
                 </div>
-            </div>
-            <div class="update-delete-classes" id="modal-block-id">
+<!--            </div>-->
+            <div class="update-delete-classes" id="${iter.id}">
                 <div class="update-class-one">
-                    <a>Edit</a>
+                    <div>Edit</div>
                 </div>
                 <div class="delete-class-one">
-                    <a>Remove</a>
+                    <div>Remove</div>
                 </div>
             </div>
         </div>
@@ -144,18 +143,13 @@ fetch(`${url + '/products/getById/'+ idEl}`, {
 //         // css('display', 'block');
 //         // $('#modal-block-id').slideDown();
 //     });
-function myFunction(e) {
-    console.log(ev.e.target.value)
+function myFunction(event) {
     console.log("reached")
-    let ev = document.getElementById("modal-block-id");
-    if (e.target.value.style.display === "none") {
-        e.target.value.style.display = "block";
+    let ev = document.getElementById(event);
+    if (ev.style.display === "none") {
+        ev.style.display = "block";
     } else {
-        e.target.value.style.display = "none";
+        ev.style.display = "none";
     }
 
 }
-
-myFunction(e)
-
-console
