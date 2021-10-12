@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
      * @param user
      */
     @Override
-    public void save(User user) {
+    public void addUser(User user) {
         String encryptedPass = passwordEncoder.encode(user.getPassword());
         user.setPassword(encryptedPass);
         Set<Role> rolesFromBD = new HashSet<>();
@@ -68,5 +68,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteById(long id) {
         userRepository.deleteById(id);
+    }
+
+    @Override
+    public void save(User user) {
+        userRepository.save(user);
     }
 }

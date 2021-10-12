@@ -1,10 +1,10 @@
 package kg.online_store.config;
 
-import org.springframework.stereotype.Component;
 import kg.online_store.model.*;
 import kg.online_store.service.CategoryService;
 import kg.online_store.service.UserService;
-import javax.annotation.PostConstruct;
+import org.springframework.stereotype.Component;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -21,7 +21,6 @@ import java.util.Set;
 public class DataInitializer {
 
     private final CategoryService categoryService;
-
     private final UserService userService;
 
     public DataInitializer(CategoryService categoryService,
@@ -36,7 +35,7 @@ public class DataInitializer {
      * Следить за последовательностью вызова.
      */
 //    @PostConstruct
-    //раскомментировать аннотацию при первом запуске проекта для создания таблиц БД, потом закомментировать
+//    раскомментировать аннотацию при первом запуске проекта для создания таблиц БД, потом закомментировать
     public void initDataBaseFilling() {
         productsAndCategoriesInit();
         usersAndRolesInit();
@@ -183,7 +182,7 @@ public class DataInitializer {
         user.setUsername("user");
         user.setLastName("userov");
         user.setEmail("user@gmail.com");
-        user.setPassword("2");
+        user.setPassword("$2a$12$X9w1iOGDuiI0bIh.juTHue4OfhZH0Md2v5kKaCX2SiuQqPqqkV0Re");
         user.setGender("Male");
         user.setPhoneNumber("0705250086");
         user.setProfilePicture("https://24.kg/files/media/205/205233.jpg");
@@ -208,7 +207,7 @@ public class DataInitializer {
         admin.setUsername("admin");
         admin.setLastName("adminov");
         admin.setEmail("admin@gmail.com");
-        admin.setPassword("1");
+        admin.setPassword("$2a$12$X9w1iOGDuiI0bIh.juTHue4OfhZH0Md2v5kKaCX2SiuQqPqqkV0Re");
         admin.setGender("Male");
         admin.setPhoneNumber("0705250086");
         admin.setProfilePicture("https://24.kg/files/media/205/205233.jpg");
