@@ -27,7 +27,9 @@
                 </ul>
             </li>
         </ul>
-
+        <button onclick="modal()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Stock
+        </button>
         <div class="container-center">
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -56,12 +58,35 @@
         </ul>
     </div>
 </nav>
+
 <main role="main">
     <div>
         <div class="container-fluid">
             <div class="row">
                 <div class="container col-md-12">
                     <div class="container" style="padding-top: 80px">
+                        <div id="modal1"></div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal stock</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div id="stock_model_body" class="modal-body">
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div id="productList" style="display: flex; flex-wrap: wrap">
                         </div>
                     </div>

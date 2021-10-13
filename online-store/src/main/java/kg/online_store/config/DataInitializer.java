@@ -2,9 +2,11 @@ package kg.online_store.config;
 
 import kg.online_store.model.*;
 import kg.online_store.service.CategoryService;
+import kg.online_store.service.StockService;
 import kg.online_store.service.UserService;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -22,11 +24,13 @@ public class DataInitializer {
 
     private final CategoryService categoryService;
     private final UserService userService;
+    private final StockService stockService;
 
     public DataInitializer(CategoryService categoryService,
-                           UserService userService) {
+                           UserService userService, StockService stockService) {
         this.categoryService = categoryService;
         this.userService = userService;
+        this.stockService = stockService;
     }
 
     /**
@@ -34,11 +38,12 @@ public class DataInitializer {
      * Вызов методов добавлять в этод метод.
      * Следить за последовательностью вызова.
      */
-//    @PostConstruct
+    @PostConstruct
 //    раскомментировать аннотацию при первом запуске проекта для создания таблиц БД, потом закомментировать
     public void initDataBaseFilling() {
         productsAndCategoriesInit();
         usersAndRolesInit();
+        addStockInit();
     }
 
     private void productsAndCategoriesInit() {
@@ -227,5 +232,24 @@ public class DataInitializer {
         admin.setRoles(roles);
 
         userService.save(admin);
+    }
+    private void addStockInit(){
+        Stock stock1 = new Stock();
+        stock1.setName("Mackbook pro 13 m1");
+        stock1.setStock(20l);
+        LocalDate localTime =LocalDate.of(2021,12,12);
+        stock1.setStock_time(localTime);
+        stock1.setStock_price(115000l);
+        stock1.setStock_picture("https://softech.kg/image/cache/cdcc7e62c117e5e900209ba89798c3a7.jpg");
+        stockService.save(stock1);
+
+        Stock stock2 = new Stock();
+        stock2.setName("Iphone 13 pro max");
+        stock2.setStock(10l);
+        LocalDate localTime2 =LocalDate.of(2021,9,12);
+        stock2.setStock_time(localTime2);
+        stock2.setStock_price(70000l);
+        stock2.setStock_picture("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw0utNIi4XIvaTEbiKEvBDtXi1tDBF2uGyNg&usqp=CAU");
+        stockService.save(stock2);
     }
 }
