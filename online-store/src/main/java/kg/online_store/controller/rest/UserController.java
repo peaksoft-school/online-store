@@ -79,7 +79,7 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/deleteById/{id}")
+    @DeleteMapping("/deleteById/2{id}")
     @Operation(summary = "Удаление пользователя", description = "Позволяет удалить пользователя")
     public ResponseEntity<?> deleteById(@PathVariable Long id) {
         try {
@@ -100,9 +100,14 @@ public class UserController {
         }
     }
 
-    @PutMapping("/updateUser")
+    @PostMapping("/updateUser")
     @Operation(summary = "Обновление пользователя", description = "Позволяет обновить пользователя")
     public ResponseEntity<?> editUserPage(@RequestBody User user) {
+        System.out.println("u"+user);
+        user.setFirstName("sdf");
+        user.setPassword("sdf");
+//        user.setRegisterDate("2,3,34");
+
         try {
             userService.addUser(user);
             return new ResponseEntity<>(HttpStatus.OK);

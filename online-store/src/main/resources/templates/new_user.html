@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New user</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="styles/new_user.css">
+</head>
+<body>
+<div class="container-wrapper">
+    <div class="container-sm container-custom py-5 px-3">
+        <div class="container h3">Create new user</div>
+        <form id="form" method="post" autocomplete="off">
+            <div class="mb-3">
+                <label for="username" class="form-label">User Name</label>
+                <input type="text" class="form-control" id="username" aria-describedby="nameHelp" required
+                       placeholder="enter name">
+            </div>
+            <!--    <div class="mb-3">-->
+            <!--        <label for="firstName" class="form-label">First Name</label>-->
+            <!--        <input type="text" class="form-control" id="firstName" aria-describedby="firstNameHelp" required-->
+            <!--               placeholder="enter firstName">-->
+            <!--    </div>-->
+            <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" aria-describedby="lastNameHelp" required
+                       placeholder="enter lastName">
+            </div>
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <input type="text" class="form-control" id="gender" aria-describedby="genderHelp" required
+                       placeholder="enter gender">
+            </div>
+            <div class="mb-3">
+                <label for="phoneNumber" class="form-label">PhoneNumber</label>
+                <input type="text" class="form-control" id="phoneNumber" aria-describedby="phoneNumberHelp" required
+                       placeholder="enter phoneNumber">
+            </div>
+            <div class="mb-3">
+                <label for="birthDate" class="form-label">BirthDate</label>
+                <input type="text" class="form-control" id="birthDate" aria-describedby="birthDateHelp" required
+                       placeholder="enter birthDate">
+            </div>
+            <div class="mb-3">
+                <label for="registerDate" class="form-label">RegisterDate</label>
+                <input type="text" class="form-control" id="registerDate" aria-describedby="registerDate" required
+                       placeholder="enter registerDate">
+            </div>
+
+
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required
+                       placeholder="enter email">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" required
+                       placeholder="the password must be at least 5 symbols" onkeyup='check();'>
+            </div>
+            <div class="mb-5">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" required placeholder="repeat password"
+                       onkeyup='check();'>
+                <span id='message'></span>
+            </div>
+            <div class="d-flex justify-content-center">
+                <div id="spinner" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <input type="checkbox" id="role_user" name="role_user" value="ROLE_USER">
+            <label for="role_user">ROLE_USER</label><br>
+            <input type="checkbox" id="role_admin" name="role_user" value="ROLE_ADMIN">
+            <label for="role_admin">ROLE_ADMIN</label><br>
+            <br>
+            <div class="container text-center">
+                <button type="submit" class="btn btn-primary">
+                    Create
+                </button>
+
+            </div>
+        </form>
+    </div>
+</div>
+<script src="js/new_user.js"></script>
+</body>
+</html>
