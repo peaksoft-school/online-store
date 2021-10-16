@@ -16,11 +16,11 @@ import java.time.LocalDate;
 @Setter
 @Entity
 @Table(name = "news1")
-//@Data
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @ApiModel(description = "Новости", value = "News")
 public class News {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -28,7 +28,6 @@ public class News {
     @Column(name = "name_news")
     @Schema(description = "Name news",example = "iphone")
     String name;
-
 
     @Column(name = "news")
     @Schema(description = "Новости ",example = "about new products")
@@ -44,7 +43,7 @@ public class News {
     Long news_price;
 
     @Column(name = "news_picture")
-    @Schema(description = "News picture",example = "img.pnj")
+    @Schema(description = "News picture",example = "img.png")
     String news_picture = "";
 
     @Column(name = "news_detail")
