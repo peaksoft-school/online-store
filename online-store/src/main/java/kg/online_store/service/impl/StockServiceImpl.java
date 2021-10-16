@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -29,12 +28,12 @@ public class StockServiceImpl implements StockService {
         Integer month = Integer.valueOf(new SimpleDateFormat("MM").format(Calendar.getInstance().getTime()));
         Integer date = Integer.valueOf(new SimpleDateFormat("dd").format(Calendar.getInstance().getTime()));
         for (Stock stock: stockList) {
-               if(stock.getStock_time().getYear() > year){
+               if(stock.getStockTime().getYear() > year){
                    stocks.add(stock);
-               }else if(stock.getStock_time().getYear() == year && stock.getStock_time().getMonth().getValue() > month){
+               }else if(stock.getStockTime().getYear() == year && stock.getStockTime().getMonth().getValue() > month){
                    stocks.add(stock);
-               }else if(stock.getStock_time().getYear() == year && stock.getStock_time().getMonth().getValue() == month
-                       && stock.getStock_time().getDayOfMonth() >= date){
+               }else if(stock.getStockTime().getYear() == year && stock.getStockTime().getMonth().getValue() == month
+                       && stock.getStockTime().getDayOfMonth() >= date){
                    stocks.add(stock);
                }
         }

@@ -31,12 +31,12 @@ public class Stock {
     @Column(name = "stock_time")
     @Schema(description = "stock_time",example = "2021-01-01")
     @DateTimeFormat(pattern = "dd.MM.yyyy")
-    LocalDate stock_time;
+    LocalDate stockTime;
     @Column(name = "stock_price")
     @Schema(description = "Stock price",example = "900")
-    Long stock_price;
+    Long stockPrice;
     @Column(name = "stock_picture")
     @Schema(description = "Stock_picture",example = "img.png")
-    String stock_picture = "";
+    String stockPicture = "";
 
 }
