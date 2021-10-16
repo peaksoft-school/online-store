@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .form-control, .btn {
+            min-height: 38px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1 align="center">Update user</h1>
+</div>
+
+<form class="container" id="editUser">
+    <br>
+    <div class="row" align="center">
+        <div>
+            <input type="number" id="editId" hidden>
+        </div>
+        <div class="col">
+            <label for="editUserName">User Name</label>
+            <br>
+            <input type="text" class="form-control control-input col-sm-8" id="editUserName" required>
+        </div>
+    </div>
+    <br>
+    <div class="row" align="center">
+        <div class="col">
+            <label for="editLastName">Last Name</label>
+            <br>
+            <input type="text" class="form-control control-input col-sm-8" id="editLastName" required>
+        </div>
+    </div>
+    <br>
+    <div class="row" align="center">
+        <div class="col">
+            <label for="editEmail">Email</label>
+            <br>
+            <input type="email" class="form-control control-input col-sm-8" id="editEmail" required>
+        </div>
+    </div>
+    <br>
+    <div class="row" align="center">
+        <div class="col">
+            <label for="editPhoneNumber">Phone number</label>
+            <br>
+            <input type="number" class="form-control control-input col-sm-8" id="editPhoneNumber" required>
+        </div>
+    </div>
+    <br>
+    <div class="row" align="center">
+        <div class="col">
+            <label for="editBirthday">Birth date</label>
+            <br>
+            <input type="date" class="form-control control-input col-sm-5" id="editBirthday" required>
+
+            <input type="password" class="form-control" id="editPassword" hidden>
+        </div>
+    </div>
+
+    <div class="row" align="center">
+        <div class="col">
+            <div class="radio-inline">
+                <label>
+                    <input type="radio" name="optionsRadios" id="radio1" value="Male" checked>
+                    Male
+                </label>
+            </div>
+            <div class="radio-inline">
+                <label>
+                    <input type="radio" name="optionsRadios" id="radio2" value="Female">
+                    Female
+                </label>
+            </div>
+        </div>
+        <div class="col">
+            <input type="date" id="registerDate" required hidden>
+            <input type="text" id="role" required hidden>
+        </div>
+    </div>
+    <br>
+    <div align="center">
+        <input class="btn btn-primary" type="submit" value="update">
+    </div>
+    <hr>
+</form>
+<script>
+    function getUser() {
+        let response = fetch('http://localhost:9898/users/user')
+            .then((res) => {
+                return res.json()
+            }).then((user) => {
+                let userRole = '';
+                for (let i = 0; i < user.roles.length; i++) {
+                    userRole += `${user.roles[i].name}`
+                }
+                console.log("test:  ", user)
+                document.getElementById('editId').value = user.id;
+                document.getElementById('editUserName').value = user.username;
+                document.getElementById('editLastName').value = user.lastName;
+                document.getElementById('editEmail').value = user.email;
+                document.getElementById('editPassword').value = user.password;
+                document.getElementById('editPhoneNumber').value = user.phoneNumber;
+                document.getElementById('registerDate').value = user.registerDate;
+                document.getElementById('role').value = userRole;
+            })
+    }
+    getUser()
+    let editForm = document.getElementById('editUser');
+    editForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        // let profilePicture = document.getElementById('editProfile').value;
+        let eid = document.getElementById('editId').value;
+        let eusername = document.getElementById('editUserName').value;
+        let elastName = document.getElementById('editLastName').value;
+        let egender = '';
+        let eemail = document.getElementById('editEmail').value;
+        let epassword = document.getElementById('editPassword').value;
+        let ephoneNumber = document.getElementById('editPhoneNumber').value;
+        let ebirthDay = document.getElementById('editBirthday').value;
+        let eregisterDate = document.getElementById('registerDate').value;
+        let radio = document.getElementsByName('optionsRadios');
+        for (let i = 0; i < radio.length; i++) {
+            if(radio[i].checked) {
+                egender = radio[i].value;
+            }
+        }
+        let role = document.getElementById('role').value;
+
+        fetch('http://localhost:9898/users/updateUser', {
+            method: 'POST',
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                id: eid,
+                username: eusername,
+                lastName: elastName,
+                gender: egender,
+                email: eemail,
+                password: epassword,
+                phoneNumber: ephoneNumber,
+                // profilePicture: profilePicture,
+                birthDate: ebirthDay,
+                registerDate: eregisterDate,
+                roles:[
+                    {
+                        name:role
+                    }
+                ]
+            }),
+        }).then((res) => {
+            if(res.ok) {
+                setTimeout(test, 50)
+            }
+        })
+        function test() {
+            document.location.href = 'http://localhost:9898/admin_page'
+        }
+    })
+
+</script>
+</body>
+</html>
