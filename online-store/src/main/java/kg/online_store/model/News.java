@@ -36,17 +36,17 @@ public class News {
     @Column(name = "news_time")
     @Schema(description = "news_time",example = "2021-01-01")
     @DateTimeFormat(pattern = "dd.MM.yyyy")
-    LocalDate news_time;
+    LocalDate newsTime;
 
     @Column(name = "news_price")
     @Schema(description = "News price",example = "900")
-    Long news_price;
+    Long newsPrice;
 
     @Column(name = "news_picture")
     @Schema(description = "News picture",example = "img.png")
-    String news_picture = "";
+    String newsPicture = "";
 
     @Column(name = "news_detail")
     @Schema(description = "News detail",example = "250gb")
-    String news_detail = "";
+    String newsDetail = "";
 }

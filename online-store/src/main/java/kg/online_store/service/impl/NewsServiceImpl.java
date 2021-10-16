@@ -1,6 +1,5 @@
 package kg.online_store.service.impl;
 
-import io.swagger.v3.oas.annotations.Operation;
 import kg.online_store.model.News;
 import kg.online_store.repository.NewsRepository;
 import kg.online_store.service.NewsService;
@@ -29,12 +28,12 @@ public class NewsServiceImpl implements NewsService {
         int month = Integer.parseInt(new SimpleDateFormat("MM").format(Calendar.getInstance().getTime()));
         int date = Integer.parseInt(new SimpleDateFormat("dd").format(Calendar.getInstance().getTime()));
         for (News stock: newsList) {
-            if(stock.getNews_time().getYear() > year){
+            if(stock.getNewsTime().getYear() > year){
                 news.add(stock);
-            }else if(stock.getNews_time().getYear() == year && stock.getNews_time().getMonth().getValue() > month){
+            }else if(stock.getNewsTime().getYear() == year && stock.getNewsTime().getMonth().getValue() > month){
                 news.add(stock);
-            }else if(stock.getNews_time().getYear() == year && stock.getNews_time().getMonth().getValue() == month
-                    && stock.getNews_time().getDayOfMonth() >= date){
+            }else if(stock.getNewsTime().getYear() == year && stock.getNewsTime().getMonth().getValue() == month
+                    && stock.getNewsTime().getDayOfMonth() >= date){
                 news.add(stock);
             }
         }
