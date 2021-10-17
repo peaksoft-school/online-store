@@ -23,6 +23,7 @@ function renderProduct(data) {
         img.width = 220;
         img.height = 200;
         let divTextLeft = document.createElement('div');
+        divTextLeft.className = "content-below";
         let link = document.createElement('a');
         link.href = '/product_page';
         let pName = document.createElement('p');

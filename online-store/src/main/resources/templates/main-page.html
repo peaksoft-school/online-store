@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/504c19067f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/main-page.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -20,21 +21,14 @@
             <li class="nav-item active">
                 <a class="nav-link" href="#">HOME<span class="sr-only"></span></a>
             </li>
-            <li class="nav-item dropdown" >
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">Categories</a>
-                <ul class="dropdown-menu" id="categories">
-                </ul>
-            </li>
         </ul>
-
         <div class="container-center">
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
             </form>
         </div>
-        <div style="float:left; width:10%">
+        <div class="inner-in-main-class">
             <ul class="nav justify-content-end" >
                 <li class="nav-item">
                     <a class="nav-link" href="#">BASKET<i class="fas fa-cart-arrow-down"></i></a>
@@ -42,7 +36,7 @@
             </ul>
         </div>
 
-        <ul class="nav justify-content-end" style="float:left; width:40%">
+        <ul class="nav justify-content-end">
             <li class="nav-item ">
                 <a class="nav-link" href="/logout">LOG OUT<i class="fas fa-sign-out-alt"></i></a>
             </li>
@@ -61,7 +55,10 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="container col-md-12">
-                    <div class="container" style="padding-top: 80px">
+                    <div class="container">
+                        <div class="category-on-left-side" id="categories">
+
+                        </div>
                         <div id="productList" style="display: flex; flex-wrap: wrap">
                         </div>
                     </div>
