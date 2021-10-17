@@ -1,10 +1,9 @@
 .inner-in-main-class {
     float: left;
-    width: 10%;
+    width: 25%;
 }
 nav .justify-content-end {
     float: left;
-    width: 40%;
 }
 .container {
     padding-top: 40px;
