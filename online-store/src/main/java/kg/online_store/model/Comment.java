@@ -22,12 +22,12 @@ public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id")
+    @Column(name = "id")
     @Schema(description = "Идентификатор", accessMode = Schema.AccessMode.READ_ONLY)
     long id;
 
     @Column(name = "comment")
-            @Schema(description = "коментарий", example = "Cute website, well done!")
+    @Schema(description = "коментарий", example = "Cute website, well done!")
     String comment;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
@@ -42,4 +42,8 @@ public class Comment {
     @JsonIgnore
     @JoinColumn(name = "product_id")
     Product product;
+
+    @Column(name = "date")
+    @Schema(description = "дата", example = "время")        
+    String date;
 }

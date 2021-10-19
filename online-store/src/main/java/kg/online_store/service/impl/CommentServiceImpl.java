@@ -30,4 +30,5 @@ public class CommentServiceImpl implements CommentService {
     public Comment getCommentById(long id) {
         return commentRepository.getById(id);
     }
+
 }
