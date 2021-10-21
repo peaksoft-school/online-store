@@ -9,7 +9,7 @@
         <unpackNestedArchives>false</unpackNestedArchives>
       </options>
     </properties>
-    <root id="archive" name="online-store-0.0.1-SNAPSHOT.war">
+    <root id="archive" name="online-store.war">
       <element id="artifact" artifact-name="online-store:war exploded" />
     </root>
   </artifact>

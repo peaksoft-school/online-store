@@ -5,6 +5,7 @@
     <title>Product page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/comment.css">
     <script src="https://kit.fontawesome.com/504c19067f.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -64,6 +65,33 @@
         </div>
     </div>
 </main>
+<hr style="padding: 20px 30px">
+<h5 style="padding-left: 40px">Оставьте коментарий</h5>
+<section class="main-section">
+    <div class="section-main-class">
+        <div class="section-inner-one">
+            <div class="section-final">
+                <textarea placeholder="Comment here" id="textarea-id"></textarea>
+                <div class="btn-outer">
+                    <div class="btn-inner">
+                        <div class="btn">
+                            <button id="cancel-id">Cancel</button>
+                        </div>
+                        <form class="btn" id="form-input-id">
+                            <input type="submit" value="Comment">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="comment-list">
+            </div>
+        </div>
+        <div class="section-inner-two">
+        </div>
+    </div>
+
+</section>
+<hr style="padding: 20px 30px; margin-top: 40px;">
 <footer class="page-footer font-small mdb-color pt-4">
     <div class="container text-center text-md-left">
         <div class="row text-center text-md-left mt-3 pb-3">
