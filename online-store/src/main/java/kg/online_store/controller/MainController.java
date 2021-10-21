@@ -19,4 +19,9 @@ public class MainController {
     public String userPage() {
         return "userTable";
     }
+
+    @GetMapping("update")
+    public String userPageTest() {
+        return "update";
+    }
 }
