@@ -25,7 +25,7 @@ public class NewsController {
 
     @GetMapping()
     @Operation(summary = "новости", description = "Позволяет получить все новости из базы данных")
-    public ResponseEntity<List<News>> getAllProduct() {
+    public ResponseEntity<List<News>> getAllNews() {
         List<News> newsList = newsService.findAllNews();
         try {
             return new ResponseEntity<>(newsService.findAllNews(), HttpStatus.OK);
@@ -36,7 +36,7 @@ public class NewsController {
 
     @GetMapping("/add")
     @Operation(summary = "Save news",description = "Saving news")
-    public ResponseEntity<?> saveStock(@RequestBody News news) {
+    public ResponseEntity<?> saveNews(@RequestBody News news) {
         try {
             newsService.save(news);
             return new ResponseEntity<>(HttpStatus.OK);
