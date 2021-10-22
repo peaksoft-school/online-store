@@ -24,4 +24,6 @@ public class MainController {
     public String userPageTest() {
         return "update";
     }
+    @GetMapping("/stock_page")
+    public String stockPage(){return "stock";}
 }

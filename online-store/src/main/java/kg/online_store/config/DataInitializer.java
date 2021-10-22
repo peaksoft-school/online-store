@@ -38,7 +38,7 @@ public class DataInitializer {
      * Вызов методов добавлять в этод метод.
      * Следить за последовательностью вызова.
      */
-//    @PostConstruct
+   @PostConstruct
 //    раскомментировать аннотацию при первом запуске проекта для создания таблиц БД, потом закомментировать
     public void initDataBaseFilling() {
         productsAndCategoriesInit();
@@ -242,6 +242,15 @@ public class DataInitializer {
         stock1.setStockPicture("https://softech.kg/image/cache/cdcc7e62c117e5e900209ba89798c3a7.jpg");
         stockService.save(stock1);
 
+        Stock stock3 = new Stock();
+        stock3.setName("Xiaomi Mi NoteBook Pro X 15");
+        stock3.setStock(15l);
+        LocalDate localTime3 =LocalDate.of(2021,11,10);
+        stock3.setStockTime(localTime3);
+        stock3.setStockPrice(115000l);
+        stock3.setStockPicture("https://login.kg/image/cache/catalog/new/Notebook/Xiaomi/Pro%20X%2015/4-500x500.jpg");
+        stockService.save(stock3);
+
         Stock stock2 = new Stock();
         stock2.setName("Iphone 13 pro max");
         stock2.setStock(10l);
@@ -250,5 +259,6 @@ public class DataInitializer {
         stock2.setStockPrice(70000l);
         stock2.setStockPicture("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw0utNIi4XIvaTEbiKEvBDtXi1tDBF2uGyNg&usqp=CAU");
         stockService.save(stock2);
+
     }
 }
