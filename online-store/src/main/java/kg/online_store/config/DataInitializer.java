@@ -49,24 +49,26 @@ public class DataInitializer {
 
     private void addNewsInit() {
         News news = new News();
-        news.setName("Телевизор Xiaomi Mi LED TV 4s (2+8Гб) 50&quot");
+        news.setName("AirPods Max");
         news.setNews("OUR NEW PRODUCTS FROM USA");
-        LocalDate localTime =LocalDate.of(2021,10,18);
+        LocalDate localTime =LocalDate.of(2021,11,10);
         news.setNewsTime(localTime);
         news.setNewsPrice(115000L);
-        news.setNewsPicture("https://softech.kg/image/cache/28c69713d2de5da607c545d43476a345.jpg");
+        news.setNewsPicture("https://softech.kg/image/cache/12d545a749c89084b27b1b2c674dad5d.jpg");
+        news.setNewsDetail("bluetooth headphones");
         newsService.save(news);
-        news.setNewsDetail("Операционная система: Android TV . Тип процессора: Cortex A53");
+
 
         News news1 = new News();
         news1.setName("Apple IPhone 13");
         news1.setNews("MOBILE TECHNOLOGIES (Apple)");
-        LocalDate localTime1 =LocalDate.of(2021,10,20);
+        LocalDate localTime1 =LocalDate.of(2021,10,27);
         news1.setNewsTime(localTime);
         news1.setNewsPrice(90000L);
         news1.setNewsPicture("https://softech.kg/image/cache/58c23d1f61e4dbc4de648b66965a00dd.png");
+        news1.setNewsDetail("6--128/256/512");
         newsService.save(news1);
-        news.setNewsDetail("Операционная система : iOS 15 .  Количество ядер : 6--128/256/512");
+
 
     }
 

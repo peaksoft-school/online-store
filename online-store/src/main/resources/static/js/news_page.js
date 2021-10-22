@@ -7,26 +7,27 @@
         }).then(result => {
         modal_body(result);
         console.log(result);
-        console.log(result.newsPrice);
     });
 
     function modal_body(data) {
         for (const n of data) {
 
-            console.log(n.newsPrice);
-
-
           let main = `
           <div>
             <div>
-                <img src="${n.newsPicture}">
-                <p>${n.news}</p>
+            
+            <p style="margin-left: 5%">${n.news}</p> 
+            <p ><b>Model: </b>${n.name}</p>
+                <img src="${n.newsPicture}" alt="" width="350" height="350">
+                <p><b>News Detail's: </b>${n.newsDetail}</p>
+                <p><b>Price: </b>${n.newsPrice}<b> KGS</b></p>
+                <p><b>Active from: </b>${n.newsTime}</p>
+                             
 </div>
 </div>
           `;
 
             news_body.innerHTML += main;
-            console.log("sdfsdf");
             console.log(news_body);
         }
 }
