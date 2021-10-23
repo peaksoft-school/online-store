@@ -4,7 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
 import kg.online_store.model.News;
 import kg.online_store.service.NewsService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,19 +15,14 @@ import java.util.List;
 @RequestMapping("/news")
 @CrossOrigin
 @Api(description = "контроллер для управления новостями")
+@RequiredArgsConstructor
 public class NewsController {
-    @Autowired
-    private final NewsService newsService;
 
-    public NewsController(NewsService newsService){
-        this.newsService = newsService;
-    }
+    private final NewsService newsService;
 
     @GetMapping()
     @Operation(summary = "новости", description = "Позволяет получить все новости из базы данных")
     public ResponseEntity<List<News>> getAllProduct() {
-    public ResponseEntity<List<News>> getAllNews() {
-        List<News> newsList = newsService.findAllNews();
         try {
             return new ResponseEntity<>(newsService.findAllNews(), HttpStatus.OK);
         } catch (Exception e) {
