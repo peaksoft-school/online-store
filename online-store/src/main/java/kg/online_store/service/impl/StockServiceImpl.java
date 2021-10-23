@@ -3,6 +3,7 @@ package kg.online_store.service.impl;
 import kg.online_store.model.Stock;
 import kg.online_store.repository.StockRepository;
 import kg.online_store.service.StockService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,13 +13,10 @@ import java.util.Calendar;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class StockServiceImpl implements StockService {
-    @Autowired
-    private final StockRepository stockRepository;
 
-    public StockServiceImpl(StockRepository stockRepository) {
-        this.stockRepository = stockRepository;
-    }
+    private final StockRepository stockRepository;
 
     @Override
     public List<Stock> findAllStock() {
@@ -42,7 +40,7 @@ public class StockServiceImpl implements StockService {
 
     @Override
     public Stock findById(Long id) {
-        return stockRepository.findById(id).get();
+        return stockRepository.findById(id).orElse(null);
     }
 
     @Override

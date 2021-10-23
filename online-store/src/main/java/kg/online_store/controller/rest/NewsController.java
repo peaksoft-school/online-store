@@ -26,7 +26,6 @@ public class NewsController {
     @GetMapping()
     @Operation(summary = "новости", description = "Позволяет получить все новости из базы данных")
     public ResponseEntity<List<News>> getAllProduct() {
-        List<News> newsList = newsService.findAllNews();
         try {
             return new ResponseEntity<>(newsService.findAllNews(), HttpStatus.OK);
         } catch (Exception e) {

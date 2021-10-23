@@ -11,6 +11,7 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlTransient;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "comment")
@@ -31,19 +32,15 @@ public class Comment {
     String comment;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-//    @XmlTransient
-//    @JsonBackReference
-//    @JsonIgnore
     @JoinColumn(name = "user_id")
     User user;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
-//    @JsonBackReference
     @JsonIgnore
     @JoinColumn(name = "product_id")
     Product product;
 
     @Column(name = "date")
-    @Schema(description = "дата", example = "время")        
-    String date;
+    @Schema(description = "дата", example = "время")
+    LocalDate date;
 }

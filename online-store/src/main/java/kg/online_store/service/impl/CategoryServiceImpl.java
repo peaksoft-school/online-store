@@ -3,35 +3,31 @@ package kg.online_store.service.impl;
 import kg.online_store.model.Category;
 import kg.online_store.repository.CategoryRepository;
 import kg.online_store.service.CategoryService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class CategoryServiceImpl implements CategoryService {
-    private final CategoryRepository categoryRepository;
 
-    public CategoryServiceImpl(CategoryRepository categoryRepository) {
-        this.categoryRepository = categoryRepository;
-    }
+    private final CategoryRepository categoryRepository;
 
     @Override
     public List<Category> findAll() {
-        List<Category> categories = categoryRepository.findAll();
-        return categories;
+        return categoryRepository.findAll();
     }
 
     @Override
     public Category findById(long id) {
-        Optional<Category> category = categoryRepository.findById(id);
-        return category.orElse(null);
+        return categoryRepository.findById(id).orElse(null);
     }
 
     @Override
     public Category findCategoryByName(String name) {
-        Optional<Category> category = categoryRepository.findCategoryByName(name);
-        return category.orElse(null);
+        return categoryRepository.findCategoryByName(name).orElse(null);
     }
 
     @Override

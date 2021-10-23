@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/product_page")
 public class ProductPageController {
+
     @GetMapping
     public String ProductPage(){
         return "product_page";

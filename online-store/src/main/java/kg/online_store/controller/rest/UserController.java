@@ -3,9 +3,9 @@ package kg.online_store.controller.rest;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
 import kg.online_store.model.User;
-import kg.online_store.service.RoleService;
 import kg.online_store.service.UserService;
 import kg.online_store.service.impl.UserDetailsImpl;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -17,16 +17,10 @@ import java.util.List;
 @RequestMapping("/users")
 @CrossOrigin
 @Api(description = "Контроллер для управления пользователем")
+@RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
-    private final RoleService roleService;
-
-    public UserController(UserService userService,
-                          RoleService roleService) {
-        this.userService = userService;
-        this.roleService = roleService;
-    }
 
     @GetMapping
     @Operation(summary = "Все пользователи", description = "Позволяет получить всех пользователей из базы данных")
@@ -72,7 +66,7 @@ public class UserController {
     @Operation(summary = "Добавление пользователя", description = "Позволяет добавить нового пользователя")
     public ResponseEntity<?> saveUser(@RequestBody User user) {
         try {
-            userService.addUser(user);
+            userService.insert(user);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -103,13 +97,8 @@ public class UserController {
     @PostMapping("/updateUser")
     @Operation(summary = "Обновление пользователя", description = "Позволяет обновить пользователя")
     public ResponseEntity<?> editUserPage(@RequestBody User user) {
-        System.out.println("u"+user);
-        user.setFirstName("sdf");
-        user.setPassword("sdf");
-//        user.setRegisterDate("2,3,34");
-
         try {
-            userService.addUser(user);
+            userService.insert(user);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

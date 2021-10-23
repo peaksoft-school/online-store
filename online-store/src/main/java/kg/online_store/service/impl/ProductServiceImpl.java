@@ -1,9 +1,9 @@
 package kg.online_store.service.impl;
 
-import kg.online_store.model.Category;
 import kg.online_store.model.Product;
 import kg.online_store.repository.ProductRepository;
 import kg.online_store.service.ProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,12 +11,10 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
-    private final ProductRepository productRepository;
 
-    public ProductServiceImpl(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
+    private final ProductRepository productRepository;
 
     @Override
     public List<Product> findAll() {

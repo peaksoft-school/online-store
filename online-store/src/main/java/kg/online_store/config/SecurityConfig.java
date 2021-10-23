@@ -51,16 +51,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .antMatchers("/stock").permitAll()
                 .antMatchers("/main-page").permitAll()
-                .antMatchers(HttpMethod.GET, "/stocks/**","/products/**", "/categories/**", "/users/user").hasAnyRole("ADMIN", "USER")
+                .antMatchers(HttpMethod.GET, "/stocks/**", "/products/**", "/categories/**", "/users/user").hasAnyRole("ADMIN", "USER")
                 .antMatchers(HttpMethod.PUT, "/users/updateUser").hasAnyRole("ADMIN", "USER")
-                .antMatchers(HttpMethod.DELETE, "/stocks/**","/products/**", "/categories/**", "/users/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/stocks/**", "/products/**", "/categories/**", "/users/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST, "/users/register").permitAll()
-                .antMatchers(HttpMethod.POST, "/products/**","/stocks/**", "/categories/**", "/users/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/products/**", "/stocks/**", "/categories/**", "/users/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.PUT, "/products/**", "/categories/**", "/users/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET, "/users/**").hasRole("ADMIN")
                 .antMatchers("/admin_page").hasRole("ADMIN")
                 .antMatchers("/sign_up", "/js/**", "/styles/**").permitAll()
-                .antMatchers( "/swagger-ui/**").anonymous()
+                .antMatchers("/swagger-ui/**").anonymous()
                 .anyRequest().authenticated();
     }
 
@@ -75,7 +75,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public DaoAuthenticationProvider daoAuthenticationProvider(){
+    public DaoAuthenticationProvider daoAuthenticationProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
         daoAuthenticationProvider.setUserDetailsService(userDetailsService);
