@@ -44,9 +44,9 @@ public class News {
 
     @Column(name = "news_picture")
     @Schema(description = "News picture",example = "img.png")
-    String newsPicture = "";
+    String newsPicture;
 
     @Column(name = "news_detail")
     @Schema(description = "News detail",example = "250gb")
-    String newsDetail = "";
+    String newsDetail;
 }
