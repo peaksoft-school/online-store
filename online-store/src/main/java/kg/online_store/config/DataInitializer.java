@@ -2,6 +2,7 @@ package kg.online_store.config;
 
 import kg.online_store.model.*;
 import kg.online_store.service.CategoryService;
+import kg.online_store.service.NewsService;
 import kg.online_store.service.UserService;
 import org.springframework.stereotype.Component;
 
@@ -23,11 +24,14 @@ public class DataInitializer {
 
     private final CategoryService categoryService;
     private final UserService userService;
+    private final NewsService newsService;
 
     public DataInitializer(CategoryService categoryService,
-                           UserService userService) {
+                           UserService userService,
+                           NewsService newsService) {
         this.categoryService = categoryService;
         this.userService = userService;
+        this.newsService = newsService;
     }
 
     /**
@@ -40,6 +44,30 @@ public class DataInitializer {
     public void initDataBaseFilling() {
         productsAndCategoriesInit();
         usersAndRolesInit();
+        addNewsInit();
+    }
+
+    private void addNewsInit() {
+        News news = new News();
+        news.setName("Телевизор Xiaomi Mi LED TV 4s (2+8Гб) 50&quot");
+        news.setNews("OUR NEW PRODUCTS FROM USA");
+        LocalDate localTime =LocalDate.of(2021,10,18);
+        news.setNewsTime(localTime);
+        news.setNewsPrice(115000L);
+        news.setNewsPicture("https://softech.kg/image/cache/28c69713d2de5da607c545d43476a345.jpg");
+        newsService.save(news);
+        news.setNewsDetail("Операционная система: Android TV . Тип процессора: Cortex A53");
+
+        News news1 = new News();
+        news1.setName("Apple IPhone 13");
+        news1.setNews("MOBILE TECHNOLOGIES (Apple)");
+        LocalDate localTime1 =LocalDate.of(2021,10,20);
+        news1.setNewsTime(localTime);
+        news1.setNewsPrice(90000L);
+        news1.setNewsPicture("https://softech.kg/image/cache/58c23d1f61e4dbc4de648b66965a00dd.png");
+        newsService.save(news1);
+        news.setNewsDetail("Операционная система : iOS 15 .  Количество ядер : 6--128/256/512");
+
     }
 
     private void productsAndCategoriesInit() {

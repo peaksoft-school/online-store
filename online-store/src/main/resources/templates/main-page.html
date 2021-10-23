@@ -7,6 +7,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/504c19067f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/main-page.css">
+    <link rel="stylesheet" type="text/css" href="../static/styles/news.css"/>
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -22,6 +23,13 @@
                 <a class="nav-link" href="#">HOME<span class="sr-only"></span></a>
             </li>
         </ul>
+
+
+        <button onclick="modal()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            News
+        </button>
+
+
         <div class="container-center">
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -49,6 +57,10 @@
         </ul>
     </div>
 </nav>
+
+
+
+
 <main role="main">
     <div>
         <div class="container-fluid">
@@ -58,6 +70,30 @@
                         <div class="category-on-left-side" id="categories">
 
                         </div>
+                    <div class="container" style="padding-top: 80px">
+                        <div id="modal"></div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">NEWS FOR NEW PRODUCT</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div id="news_model_body" class="modal-body">
+                                    </div>
+                                    <div  class="modal-body">
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div id="productList" style="display: flex; flex-wrap: wrap">
                         </div>
                     </div>
@@ -66,6 +102,9 @@
         </div>
     </div>
 </main>
+
+
+
 <footer class="page-footer font-small mdb-color pt-4">
     <div class="container text-center text-md-left">
         <div class="row text-center text-md-left mt-3 pb-3">

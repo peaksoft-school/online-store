@@ -44,6 +44,7 @@ input[type="submit"] {
 }
 .div-two {
     display: flex;
+    padding: 10px 0;
 }
 .btn-inner {
     display: flex;
@@ -76,12 +77,13 @@ input[type="submit"] {
 .user-name-over-comment {
     font-size: 15px;
     font-family: serif;
+    display: flex;
 }
 .comment-thread-class {
     color: blue;
 }
 .comment-class {
-    padding: 10px 0;
+    padding: 5px 0;
 }
 .answer-for-comment {
     color: gray;
@@ -98,7 +100,7 @@ figure {
     background: #ffffff;
     margin: 3px 0;
 }
-.three-dots:hover figure{
+.div-two:hover figure{
     background: black;
 }
 .update-delete-classes {
@@ -109,5 +111,9 @@ figure {
     /*border: 1px solid black;*/
     transform: translate(0px, 0px);
     background-color: beige;
+}
+.date-id {
+    padding-left: 10px;
+    font-size: 15px
 }
 

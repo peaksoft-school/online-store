@@ -10,6 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 @RestController
 @RequestMapping("/comment")
@@ -31,6 +34,11 @@ public class CommentController {
 
     public ResponseEntity<?> saveComment(@RequestBody Comment comment, @PathVariable("product-id") long productId, @PathVariable("user-id") long userId) {
         try {
+            Date date = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+            System.out.println(formatter.format(date));
+            String date1 = formatter.format(date);
+            comment.setDate(date1);
             comment.setUser(userService.findById(userId));
             comment.setProduct(productService.findById(productId));
             commentService.saveComment(comment);
