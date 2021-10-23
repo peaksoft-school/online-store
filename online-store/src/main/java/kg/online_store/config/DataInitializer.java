@@ -4,6 +4,7 @@ import kg.online_store.model.*;
 import kg.online_store.service.CategoryService;
 import kg.online_store.service.NewsService;
 import kg.online_store.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -20,19 +21,12 @@ import java.util.Set;
  * в файле "application.yml" с "update" на "create" или "create-drop".
  */
 @Component
+@RequiredArgsConstructor
 public class DataInitializer {
 
     private final CategoryService categoryService;
     private final UserService userService;
     private final NewsService newsService;
-
-    public DataInitializer(CategoryService categoryService,
-                           UserService userService,
-                           NewsService newsService) {
-        this.categoryService = categoryService;
-        this.userService = userService;
-        this.newsService = newsService;
-    }
 
     /**
      * Основной метод для заполнения базы данных.
