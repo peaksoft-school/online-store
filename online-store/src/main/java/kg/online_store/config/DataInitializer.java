@@ -2,6 +2,7 @@ package kg.online_store.config;
 
 import kg.online_store.model.*;
 import kg.online_store.service.CategoryService;
+import kg.online_store.service.StockService;
 import kg.online_store.service.NewsService;
 import kg.online_store.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +27,7 @@ public class DataInitializer {
 
     private final CategoryService categoryService;
     private final UserService userService;
+    private final StockService stockService;
     private final NewsService newsService;
 
     /**
@@ -38,6 +40,7 @@ public class DataInitializer {
     public void initDataBaseFilling() {
         productsAndCategoriesInit();
         usersAndRolesInit();
+        addStockInit();
         addNewsInit();
     }
 
@@ -250,5 +253,34 @@ public class DataInitializer {
         admin.setRoles(roles);
 
         userService.save(admin);
+    }
+    private void addStockInit(){
+        Stock stock1 = new Stock();
+        stock1.setName("Mackbook pro 13 m1");
+        stock1.setStock(20l);
+        LocalDate localTime =LocalDate.of(2021,12,12);
+        stock1.setStockTime(localTime);
+        stock1.setStockPrice(115000l);
+        stock1.setStockPicture("https://softech.kg/image/cache/cdcc7e62c117e5e900209ba89798c3a7.jpg");
+        stockService.save(stock1);
+
+        Stock stock3 = new Stock();
+        stock3.setName("Xiaomi Mi NoteBook Pro X 15");
+        stock3.setStock(15l);
+        LocalDate localTime3 =LocalDate.of(2021,11,10);
+        stock3.setStockTime(localTime3);
+        stock3.setStockPrice(115000l);
+        stock3.setStockPicture("https://login.kg/image/cache/catalog/new/Notebook/Xiaomi/Pro%20X%2015/4-500x500.jpg");
+        stockService.save(stock3);
+
+        Stock stock2 = new Stock();
+        stock2.setName("Iphone 13 pro max");
+        stock2.setStock(10l);
+        LocalDate localTime2 =LocalDate.of(2021,9,12);
+        stock2.setStockTime(localTime2);
+        stock2.setStockPrice(70000l);
+        stock2.setStockPicture("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw0utNIi4XIvaTEbiKEvBDtXi1tDBF2uGyNg&usqp=CAU");
+        stockService.save(stock2);
+
     }
 }

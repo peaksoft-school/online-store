@@ -26,4 +26,6 @@ public class MainController {
     }
     @GetMapping("/buyer's_cabinet")
     public String buyersCabinet(){return "buyer's_cabinet";}
+    @GetMapping("/stock_page")
+    public String stockPage(){return "stock";}
 }
