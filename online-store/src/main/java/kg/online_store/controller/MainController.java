@@ -24,4 +24,6 @@ public class MainController {
     public String userPageTest() {
         return "update";
     }
+    @GetMapping("/buyer's_cabinet")
+    public String buyersCabinet(){return "buyer's_cabinet";}
 }
