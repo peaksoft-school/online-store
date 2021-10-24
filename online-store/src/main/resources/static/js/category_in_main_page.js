@@ -23,9 +23,11 @@ fetch(url).then(response => response.json()).then(categories => {
             }
             allCategories.push(elo)
         });
-        html_categories += `<div class="category-class" onclick="return methodOne('${el.name}');" style="text-decoration: none;"> <li class="category-list-class">&nbsp;&nbsp; ${el.name}</li></div>`
+        html_categories += `<button class="category-class" onclick="return methodOne('${el.name}');
+        "style="text-decoration: none;"> <li class="category-list-class">&nbsp;&nbsp; ${el.name}</li></button>`
     });
-    html_categories += ` <div class="category-class" onclick="return methodTwo();"><li class="category-list-class">&nbsp;&nbsp;Все Категории</li></>`;
+    html_categories += ` <button class="category-class" onclick="return methodTwo();">
+    <li class="category-list-class">&nbsp;&nbsp;All Categories</li></button>`;
     document.getElementById("categories").innerHTML = html_categories;
 }).catch(err => {
     console.log(err)
@@ -37,7 +39,7 @@ function methodOne(nameO) {
         const p = new Promise(function (resolve, reject) {
             let param = '';
             tv.forEach(function (iter) {
-                t = `   <div class="col-md-4" >
+                t = `   <div class="col-md-4">
                             <div class="container">
                                 <img src="${iter.productPicture}" style="width: 220px; height: 200px">
                                     <a href="/product_page" onclick="localStorage.setItem('selectedProduct', ${iter.id})">

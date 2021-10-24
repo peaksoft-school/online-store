@@ -1,9 +1,10 @@
 .inner-in-main-class {
     float: left;
-    width: 25%;
+    width: 10%;
 }
 nav .justify-content-end {
     float: left;
+    width: 40%;
 }
 .container {
     padding-top: 40px;
@@ -11,26 +12,34 @@ nav .justify-content-end {
 .content-below {
     padding: 10px 40px;
 }
-.category-list-class {
-    padding: 5px 0;
+.category-class {
     cursor: pointer;
+    width: 230px;
+    height: 35px;
+    text-decoration: none;
+    padding: 0;
+    margin: 1px 0;
+    border: 0;
+    background-color: #f6f6f6;
+    border-radius: 5px;
 }
-.category-list-class:hover {
-    background-color: rgba(64, 107, 239, 20%);
-    color: rgba(1, 55, 218, 0.73);
-    font-size: 18px;
+.category-class:hover {
+    background-color: rgb(201, 220, 239);
+    color: rgb(103, 92, 92);
+    font-size: 19px;
     -webkit-transition: transform 1.05s ease-in-out;
     position: relative;
-    border-radius: 10px;
 }
 .category-on-left-side {
-    width: 210px;
+    width: 252px;
+    min-height: 200px;
     list-style-type: none;
-    background-color: transparent;
+    background-color: #cfcccc;
     color: #406bef;
-    min-height: 100px;
     position: absolute;
-    transform: translate(-190px, 45px);
+    transform: translate(-207px, 659px);
     text-align: center;
+    padding-top: 8px;
     font-size: 15px;
+    border-radius: 5px;
 }
