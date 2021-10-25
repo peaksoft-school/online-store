@@ -2,18 +2,20 @@ package kg.online_store.jwt;
 
 public class UsernameAndPasswordAuthenticationRequest {
 
-    private String name;
+    //Here is needs to be used email instead of username
+    private String username;
+
     private String password;
 
     public UsernameAndPasswordAuthenticationRequest() {
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

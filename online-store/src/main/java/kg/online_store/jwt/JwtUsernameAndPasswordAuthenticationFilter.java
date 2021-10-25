@@ -32,7 +32,7 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
                     new ObjectMapper().readValue(request.getInputStream(), UsernameAndPasswordAuthenticationRequest.class);
 
             Authentication authentication = new UsernamePasswordAuthenticationToken(
-                authenticationRequest.getName(),
+                authenticationRequest.getUsername(),
                     authenticationRequest.getPassword()
             );
             Authentication authenticate = authenticationManager.authenticate(authentication);
@@ -54,11 +54,11 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
                 .setSubject(authResult.getName())
                 .claim("authorities", authResult.getAuthorities())
                 .setIssuedAt(new Date())
+                // Here the token expiration needs to be set for an hour
                 .setExpiration(java.sql.Date.valueOf(LocalDate.now().plusDays(2)))
                 .signWith(Keys.hmacShaKeyFor(key.getBytes()))
                 .compact();
         response.addHeader("Authorization", "Bearer " + token);
 
-        super.successfulAuthentication(request, response, chain, authResult);
     }
 }
