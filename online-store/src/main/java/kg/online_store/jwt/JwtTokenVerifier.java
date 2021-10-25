@@ -5,6 +5,7 @@ import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -59,12 +60,11 @@ public class JwtTokenVerifier extends OncePerRequestFilter {
                     null,
                     simpleGrantedAuthorities
             );
+
             SecurityContextHolder.getContext().setAuthentication(authentication);
+
         }catch (JwtException e) {
-
-            // Here is needs to be set the 403 status exception
-
-            throw new IllegalStateException(String.format("Token %s cannot be trusted" + token));
+            throw new IllegalStateException(String.format("%s " + HttpStatus.FORBIDDEN));
         }
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
