@@ -30,7 +30,7 @@ public class NewsController {
         }
     }
 
-    @GetMapping("/add")
+    @PostMapping("/add")
     @Operation(summary = "Save news",description = "Saving news")
     public ResponseEntity<?> saveNews(@RequestBody News news) {
         try {
@@ -41,7 +41,7 @@ public class NewsController {
         }
     }
 
-    @PostMapping("/post")
+    @GetMapping("/post")
     public ResponseEntity<News> findById(@PathVariable Long id) {
         try {
             return new ResponseEntity<>(newsService.findById(id), HttpStatus.OK);

@@ -25,7 +25,7 @@ fetch(url).then(response => response.json()).then(categories => {
         });
         html_categories += `<div class="category-class" onclick="return methodOne('${el.name}');" style="text-decoration: none;"> <li class="category-list-class">&nbsp;&nbsp; ${el.name}</li></div>`
     });
-    html_categories += ` <div class="category-class" onclick="return methodTwo();"><li class="category-list-class">&nbsp;&nbsp;Все Категории</li></>`;
+    html_categories += ` <div class="category-class" onclick="return methodTwo();"><li class="category-list-class">&nbsp;&nbsp;Все Категории</li></div>`;
     document.getElementById("categories").innerHTML = html_categories;
 }).catch(err => {
     console.log(err)

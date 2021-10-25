@@ -2,7 +2,7 @@
 <html lang="en" xmlns:https="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Main page</title>
+    <title>Stock page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/504c19067f.js" crossorigin="anonymous"></script>
@@ -172,9 +172,9 @@
                    let stock_name = document.createElement('p');
                    stock_name.innerText = s.name;
                    let stock_price = document.createElement('p');
-                   stock_price.innerText = "price:" + s.stockPrice;
+                   stock_price.innerText = "Price:" + s.stockPrice;
                    let stock = document.createElement('p');
-                   stock.innerText ='Stock '+ s.stock+'%';
+                   stock.innerText ='Stock: '+ s.stock+'%';
                    let dataStock = document.createElement('p');
                    dataStock.innerText = ' to ' + s.stockTime;
                    div.appendChild(img);
