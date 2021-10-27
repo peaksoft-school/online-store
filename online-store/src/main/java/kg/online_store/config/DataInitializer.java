@@ -35,7 +35,7 @@ public class DataInitializer {
      * Вызов методов добавлять в этод метод.
      * Следить за последовательностью вызова.
      */
-    @PostConstruct
+//    @PostConstruct
 //    раскомментировать аннотацию при первом запуске проекта для создания таблиц БД, потом закомментировать
     public void initDataBaseFilling() {
         productsAndCategoriesInit();
@@ -46,27 +46,25 @@ public class DataInitializer {
 
     private void addNewsInit() {
         News news = new News();
-        news.setName("AirPods Max");
-        news.setNews("OUR NEW PRODUCTS FROM USA");
+        news.setName("Macbook Pro");
+        news.setNews("NEW PRODUCT FROM USA");
         LocalDate localTime =LocalDate.of(2021,11,10);
         news.setNewsTime(localTime);
         news.setNewsPrice(115000L);
-        news.setNewsPicture("https://softech.kg/image/cache/12d545a749c89084b27b1b2c674dad5d.jpg");
-        news.setNewsDetail("bluetooth headphones");
+        news.setNewsPicture("https://asiastore.kg/image/cache/catalog/mac/macbook/pro/191114150007894631-670x540.png");
+        news.setNewsDetail("CPU M1");
         newsService.save(news);
 
 
         News news1 = new News();
-        news1.setName("Apple IPhone 13");
-        news1.setNews("MOBILE TECHNOLOGIES (Apple)");
+        news1.setName("Macbook Air");
+        news1.setNews("Apple TECHNOLOGIES NEW PRODUCTION");
         LocalDate localTime1 =LocalDate.of(2021,10,27);
         news1.setNewsTime(localTime);
         news1.setNewsPrice(90000L);
-        news1.setNewsPicture("https://softech.kg/image/cache/58c23d1f61e4dbc4de648b66965a00dd.png");
-        news1.setNewsDetail("6--128/256/512");
+        news1.setNewsPicture("https://asiastore.kg/image/cache/catalog/mac/macbook/pro/191114150007894631-670x540.png");
+        news1.setNewsDetail("128/256/512 / CPU M1");
         newsService.save(news1);
-
-
     }
 
     private void productsAndCategoriesInit() {

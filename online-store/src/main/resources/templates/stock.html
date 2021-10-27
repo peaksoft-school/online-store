@@ -9,7 +9,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="/main_page">Online_Store</a>
+    <a class="navbar-brand">Online_Store</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -18,14 +18,15 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">HOME<span class="sr-only"></span></a>
+                <a class="nav-link" href="/main_page">HOME<span class="sr-only"></span></a>
             </li>
-            <li class="nav-item dropdown" >
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">Categories</a>
-                <ul class="dropdown-menu" id="categories">
-                </ul>
-            </li>
+            <!-- You can open this category when we have more stocks -->
+<!--            <li class="nav-item dropdown" >-->
+<!--                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"-->
+<!--                   aria-haspopup="true" aria-expanded="false">Categories</a>-->
+<!--                <ul class="dropdown-menu" id="categories">-->
+<!--                </ul>-->
+<!--            </li>-->
         </ul>
         <div class="container-center">
             <form class="form-inline my-2 my-lg-0">
@@ -42,12 +43,6 @@
         </div>
 
         <ul class="nav justify-content-end" style="float:left; width:40%">
-            <li class="nav-item ">
-                <a class="nav-link" href="/logout">LOG OUT<i class="fas fa-sign-out-alt"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/sign_up">SIGN UP<i class="fas fa-user-plus"></i></a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link" href="/main_page/userProfile">Profile <i
                         class="fas fa-user-circle"></i></a>
@@ -172,11 +167,11 @@
                    let stock_name = document.createElement('p');
                    stock_name.innerText = s.name;
                    let stock_price = document.createElement('p');
-                   stock_price.innerText = "Price:" + s.stockPrice;
+                   stock_price.innerText = "Price:" + s.stockPrice + " KGS";
                    let stock = document.createElement('p');
-                   stock.innerText ='Stock: '+ s.stock+'%';
+                   stock.innerText =s.stock+'%';
                    let dataStock = document.createElement('p');
-                   dataStock.innerText = ' to ' + s.stockTime;
+                   dataStock.innerText =s.stockTime;
                    div.appendChild(img);
                    div.appendChild(br);
                    div.appendChild(divTextLeft);

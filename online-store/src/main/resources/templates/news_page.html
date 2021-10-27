@@ -11,19 +11,119 @@
 </head>
 <body>
 
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand">Online_Store</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/main_page">HOME<span class="sr-only"></span></a>
+            </li>
+<!--            <li class="nav-item dropdown" >-->
+<!--                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"-->
+<!--                   aria-haspopup="true" aria-expanded="false">Categories</a>-->
+<!--                <ul class="dropdown-menu" id="categories">-->
+<!--                </ul>-->
+<!--            </li>-->
+        </ul>
+        <div class="container-center">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        <div style="float:left; width:10%">
+            <ul class="nav justify-content-end" >
+                <li class="nav-item">
+                    <a class="nav-link" href="#">BASKET<i class="fas fa-cart-arrow-down"></i></a>
+                </li>
+            </ul>
+        </div>
+
+        <ul class="nav justify-content-end" style="float:left; width:40%">
+            <li class="nav-item">
+                <a class="nav-link" href="/main_page/userProfile">Profile <i
+                        class="fas fa-user-circle"></i></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<main role="main">
+    <div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="container col-md-12">
+                    <div class="container" style="padding-top: 80px">
+
+                        <div id="news_model_body"  style="display: flex; flex-wrap: wrap;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+<script >
+    window.MyLib = {
+        selectedProduct: 0
+    };
 
 
-<div id="news_model_body" class="modal-body" style="display: flex">
-    <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary"><a href="/main_page">Left</a></button>
-<!--        <button type="button" class="btn btn-primary"><a href="/stocks">Middle</a></button>-->
-</div>
-</div>
+    fetch("http://localhost:9898/news")
+        .then(data=>{
+            return data.json()
+        }).then(result=>{
+        modal_body(result);
+    });
 
+    function modal_body(data){
+        for(const n of data){
+            const news_body = document.getElementById('news_model_body');
+            let div = document.createElement('div');
+            div.className = "col-md-4";
+            let br = document.createElement('br');
+            let divCon = document.createElement('div');
+            divCon.className = "container";
+            let img = document.createElement('img');
+            img.src = n.newsPicture;
+            img.width = 220;
+            img.height = 200;
+            let divTextLeft = document.createElement('div');
+            let news_name = document.createElement('p');
+            news_name.innerText = n.name;
+            let news_price = document.createElement('p');
+            news_price.innerText = "Price:" + n.newsPrice + " KGS";
+            let news = document.createElement('p');
+            news.innerText =n.news;
+            let dataNews = document.createElement('p');
+            dataNews.innerText =n.newsTime;
+            div.appendChild(news);
+            div.appendChild(br);
+            div.appendChild(img);
+            div.appendChild(br);
 
+            div.appendChild(news_name);
 
-<script src="js/news_page.js"></script>
+            div.appendChild(divTextLeft);
+            div.appendChild(news_price);
 
+            div.appendChild(dataNews);
+
+            news_body.append(div);
+        }
+
+    }
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>
