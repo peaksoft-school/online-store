@@ -41,14 +41,6 @@ public class NewsController {
         }
     }
 
-    @GetMapping("/post")
-    public ResponseEntity<News> findById(@PathVariable Long id) {
-        try {
-            return new ResponseEntity<>(newsService.findById(id), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-    }
 
     @DeleteMapping("/delete")
     @Operation(summary = "Delete news",description = "Позволяеть удалить news")
