@@ -41,7 +41,7 @@ public class StockController {
         }
     }
 
-    @GetMapping("/stock/{stockId}")
+    @GetMapping("/{stockId}")
     @Operation(summary = "Акция(stockId)", description = "Позволяеть получить акцию по stockId")
     public ResponseEntity<Stock> findById(@PathVariable("stockId") Long stockId) {
         try {
@@ -51,7 +51,7 @@ public class StockController {
         }
     }
 
-    @DeleteMapping("/delete/{stockId}")
+    @DeleteMapping("/{stockId}")
     @Operation(summary = "Delete stock", description = "Позволяеть удалить акция")
     public ResponseEntity<?> deleteById(@PathVariable("stockId") Long stockId) {
         try {
