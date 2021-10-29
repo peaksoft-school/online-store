@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import kg.online_store.model.Category;
 import kg.online_store.model.Product;
 import kg.online_store.service.ProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,13 +16,10 @@ import java.util.List;
 @RequestMapping("/products")
 @CrossOrigin
 @Api(description = "Контроллер для управления продуктами")
+@RequiredArgsConstructor
 public class ProductController {
 
     private final ProductService productService;
-
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
 
     @GetMapping
     @Operation(summary = "Все продукты", description = "Позволяет получить все продукты из базы данных")

@@ -88,6 +88,7 @@ fetch(`${url + '/products/getById/'+ idEl}`, {
                 <p class="text-id">
                     ${iter.user.username}
                 </p>
+                <p class="date-id">${iter.date}</p>
             </div>
             <div class="comment-class">
             <p class="text-id">

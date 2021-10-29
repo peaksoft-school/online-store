@@ -23,9 +23,9 @@ fetch(url).then(response => response.json()).then(categories => {
             }
             allCategories.push(elo)
         });
-        html_categories += `<a href="#" onclick="return methodOne('${el.name}');" style="text-decoration: none;"> <li style="border-bottom: 1px solid dimgrey; padding: 5px 0">&nbsp;&nbsp; ${el.name}</li></a>`
+        html_categories += `<div class="category-class" onclick="return methodOne('${el.name}');" style="text-decoration: none;"> <li class="category-list-class">&nbsp;&nbsp; ${el.name}</li></div>`
     });
-    html_categories += ` <a href="#" style="text-decoration: none;" onclick="return methodTwo();"><li>&nbsp;&nbsp;Все Категории</li></a>`;
+    html_categories += ` <div class="category-class" onclick="return methodTwo();"><li class="category-list-class">&nbsp;&nbsp;Все Категории</li></>`;
     document.getElementById("categories").innerHTML = html_categories;
 }).catch(err => {
     console.log(err)
@@ -37,10 +37,12 @@ function methodOne(nameO) {
         const p = new Promise(function (resolve, reject) {
             let param = '';
             tv.forEach(function (iter) {
-                t = `   <div class="col-md-4">
+                t = `   <div class="col-md-4" >
                             <div class="container">
                                 <img src="${iter.productPicture}" style="width: 220px; height: 200px">
                                     <a href="/product_page" onclick="localStorage.setItem('selectedProduct', ${iter.id})">
+                                        <p>${iter.name}</p>
+                                    </a>
                                     <p>Price: ${iter.productPrice}</p>
                             </div>
                          </div> `;
@@ -59,6 +61,8 @@ function methodOne(nameO) {
                         <div class="container">
                             <img src="${iter.productPicture}" style="width: 220px; height: 200px">
                                 <a href="/product_page" onclick="localStorage.setItem('selectedProduct', ${iter.id})">
+                                    <p>${iter.name}</p>
+                                </a>
                             <p>Price: ${iter.productPrice}</p>
                         </div>
                       </div> `;
@@ -77,6 +81,8 @@ function methodOne(nameO) {
                         <div class="container">
                             <img src="${iter.productPicture}" style="width: 220px; height: 200px">
                                 <a href="/product_page" onclick="localStorage.setItem('selectedProduct', ${iter.id})">
+                                    <p>${iter.name}</p>
+                                </a>
                                 <p>Price: ${iter.productPrice}</p>
                         </div>
                      </div> `;
@@ -95,9 +101,9 @@ function methodOne(nameO) {
                         <div class="container">
                             <img src="${iter.productPicture}" style="width: 220px; height: 200px">
                                 <a href="/product_page" onclick="localStorage.setItem('selectedProduct', ${iter.id})">
-                                    <p>${iter.name}</p>
+                                    <p class="text-class">${iter.name}</p>
                                 </a>
-                                <p>Price: ${iter.productPrice}</p> 
+                                <p class="text-class">Price: ${iter.productPrice}</p> 
                         </div>
                       </div> `;
                 param += document.createElement('div').innerHTML = t;
@@ -118,6 +124,8 @@ function methodTwo() {
                         <div class="container">
                             <img src="${iter.productPicture}" style="width: 220px; height: 200px">
                                 <a href="/product_page" onclick="localStorage.setItem('selectedProduct', ${iter.id})">
+                                    <p>${iter.name}</p>
+                                </a>
                                 <p>Price: ${iter.productPrice}</p> 
                         </div> 
                       </div> `;

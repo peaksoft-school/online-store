@@ -5,11 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/admin_page")
-public class AdminPageController {
-
+@RequestMapping("news_page")
+public class NewsPageController {
     @GetMapping
-    public String adminPage() {
-        return "admin_page";
+    public String newsPage() {
+        return "news_page";
     }
 }

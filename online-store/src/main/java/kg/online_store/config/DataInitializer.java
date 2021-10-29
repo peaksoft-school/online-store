@@ -2,7 +2,10 @@ package kg.online_store.config;
 
 import kg.online_store.model.*;
 import kg.online_store.service.CategoryService;
+import kg.online_store.service.StockService;
+import kg.online_store.service.NewsService;
 import kg.online_store.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -19,16 +22,13 @@ import java.util.Set;
  * в файле "application.yml" с "update" на "create" или "create-drop".
  */
 @Component
+@RequiredArgsConstructor
 public class DataInitializer {
 
     private final CategoryService categoryService;
     private final UserService userService;
-
-    public DataInitializer(CategoryService categoryService,
-                           UserService userService) {
-        this.categoryService = categoryService;
-        this.userService = userService;
-    }
+    private final StockService stockService;
+    private final NewsService newsService;
 
     /**
      * Основной метод для заполнения базы данных.
@@ -40,6 +40,33 @@ public class DataInitializer {
     public void initDataBaseFilling() {
         productsAndCategoriesInit();
         usersAndRolesInit();
+        addStockInit();
+        addNewsInit();
+    }
+
+    private void addNewsInit() {
+        News news = new News();
+        news.setName("AirPods Max");
+        news.setNews("OUR NEW PRODUCTS FROM USA");
+        LocalDate localTime =LocalDate.of(2021,11,10);
+        news.setNewsTime(localTime);
+        news.setNewsPrice(115000L);
+        news.setNewsPicture("https://softech.kg/image/cache/12d545a749c89084b27b1b2c674dad5d.jpg");
+        news.setNewsDetail("bluetooth headphones");
+        newsService.save(news);
+
+
+        News news1 = new News();
+        news1.setName("Apple IPhone 13");
+        news1.setNews("MOBILE TECHNOLOGIES (Apple)");
+        LocalDate localTime1 =LocalDate.of(2021,10,27);
+        news1.setNewsTime(localTime);
+        news1.setNewsPrice(90000L);
+        news1.setNewsPicture("https://softech.kg/image/cache/58c23d1f61e4dbc4de648b66965a00dd.png");
+        news1.setNewsDetail("6--128/256/512");
+        newsService.save(news1);
+
+
     }
 
     private void productsAndCategoriesInit() {
@@ -228,5 +255,34 @@ public class DataInitializer {
         admin.setRoles(roles);
 
         userService.save(admin);
+    }
+    private void addStockInit(){
+        Stock stock1 = new Stock();
+        stock1.setName("Mackbook pro 13 m1");
+        stock1.setStock(20l);
+        LocalDate localTime =LocalDate.of(2021,12,12);
+        stock1.setStockTime(localTime);
+        stock1.setStockPrice(115000l);
+        stock1.setStockPicture("https://softech.kg/image/cache/cdcc7e62c117e5e900209ba89798c3a7.jpg");
+        stockService.save(stock1);
+
+        Stock stock3 = new Stock();
+        stock3.setName("Xiaomi Mi NoteBook Pro X 15");
+        stock3.setStock(15l);
+        LocalDate localTime3 =LocalDate.of(2021,11,10);
+        stock3.setStockTime(localTime3);
+        stock3.setStockPrice(115000l);
+        stock3.setStockPicture("https://login.kg/image/cache/catalog/new/Notebook/Xiaomi/Pro%20X%2015/4-500x500.jpg");
+        stockService.save(stock3);
+
+        Stock stock2 = new Stock();
+        stock2.setName("Iphone 13 pro max");
+        stock2.setStock(10l);
+        LocalDate localTime2 =LocalDate.of(2021,9,12);
+        stock2.setStockTime(localTime2);
+        stock2.setStockPrice(70000l);
+        stock2.setStockPicture("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw0utNIi4XIvaTEbiKEvBDtXi1tDBF2uGyNg&usqp=CAU");
+        stockService.save(stock2);
+
     }
 }

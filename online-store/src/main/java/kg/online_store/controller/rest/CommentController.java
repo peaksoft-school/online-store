@@ -29,11 +29,12 @@ public class CommentController {
     @PostMapping("/{product-id}/{user-id}")
     @Operation(summary = "Добавление комментарии", description = "Позволяет добавить коментарии в базу данных")
 
-    public ResponseEntity<?> saveComment(@RequestBody Comment comment, @PathVariable("product-id") long productId, @PathVariable("user-id") long userId) {
+    public ResponseEntity<?> saveComment(
+            @RequestBody Comment comment,
+            @PathVariable("product-id") long productId,
+            @PathVariable("user-id") long userId) {
         try {
-            comment.setUser(userService.findById(userId));
-            comment.setProduct(productService.findById(productId));
-            commentService.saveComment(comment);
+            commentService.save(comment, productId, userId);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

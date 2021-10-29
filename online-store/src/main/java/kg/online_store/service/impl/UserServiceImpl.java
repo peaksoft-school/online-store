@@ -5,6 +5,7 @@ import kg.online_store.model.User;
 import kg.online_store.repository.UserRepository;
 import kg.online_store.service.RoleService;
 import kg.online_store.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -15,17 +16,11 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final RoleService roleService;
-
-    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder,RoleService roleService) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-        this.roleService = roleService;
-
-    }
 
     @Override
     public List<User> findAll() {
@@ -40,22 +35,21 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findUserByUsername(String username) {
-        Optional<User> user = userRepository.findUserByUsername(username);
-        return user.orElse(null);
+        return userRepository.findUserByUsername(username).orElse(null);
     }
 
     @Override
     public User findUserByEmail(String email) {
-        Optional<User> user = userRepository.findUserByEmail(email);
-        return user.orElse(null);
+        return userRepository.findUserByEmail(email).orElse(null);
     }
 
     /**
      * Роль юзера назначаеться автоматически всем новым пользователям.
+     *
      * @param user
      */
     @Override
-    public void addUser(User user) {
+    public void insert(User user) {
         String encryptedPass = passwordEncoder.encode(user.getPassword());
         user.setPassword(encryptedPass);
         Set<Role> rolesFromBD = new HashSet<>();

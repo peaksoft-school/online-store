@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/504c19067f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/main-page.css">
+    <link rel="stylesheet" type="text/css" href="../static/styles/news.css"/>
+<!--    <link rel="stylesheet" type="text/css" href="../static/styles/news.css"/>-->
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -20,13 +23,13 @@
             <li class="nav-item active">
                 <a class="nav-link" href="#">HOME<span class="sr-only"></span></a>
             </li>
-            <li class="nav-item dropdown" >
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">Categories</a>
-                <ul class="dropdown-menu" id="categories">
-                </ul>
-            </li>
         </ul>
+
+
+<!--        <button onclick="modal()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">-->
+<!--            News-->
+<!--        </button>-->
+
 
         <div class="container-center">
             <form class="form-inline my-2 my-lg-0">
@@ -34,7 +37,7 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
             </form>
         </div>
-        <div style="float:left; width:10%">
+        <div class="inner-in-main-class">
             <ul class="nav justify-content-end" >
                 <li class="nav-item">
                     <a class="nav-link" href="#">BASKET<i class="fas fa-cart-arrow-down"></i></a>
@@ -42,7 +45,7 @@
             </ul>
         </div>
 
-        <ul class="nav justify-content-end" style="float:left; width:40%">
+        <ul class="nav justify-content-end">
             <li class="nav-item ">
                 <a class="nav-link" href="/logout">LOG OUT<i class="fas fa-sign-out-alt"></i></a>
             </li>
@@ -56,9 +59,92 @@
         </ul>
     </div>
 </nav>
+
+
+
+
+
 <main role="main">
     <div>
         <div class="container-fluid">
+            <div class="row">
+                <div class="container col-md-12">
+                    <div class="container">
+                        <div class="category-on-left-side" id="categories">
+
+                        </div>
+                    <div class="container" style="padding-top: 80px">
+
+                          <div style="margin-left: 60%">
+                              <a href="/main_page/stock_page">  <img src="https://i.pinimg.com/originals/01/05/cd/0105cd8de9af870f76b525412fc1acdf.png" style="width: 180px;height: 180px"></a>
+                          </div>
+                        <div id="modal"></div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">NEWS FOR NEW PRODUCT</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div id="news_model_body" class="modal-body">
+                                    </div>
+                                    <div  class="modal-body">
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+<div  class="" style="margin-left: 20%; margin-top:90px">
+    <button><a href="/news_page" >
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" style="width: 350px; height: 120px">
+            <div class="carousel-item active">
+                <h4>NEWS</h4>
+                <img class="d-block w-100" src="https://softech.kg/image/cache/31aa8a8368739840c0fa1690cbaa292c.jpg" style="width: 300px; height: 100px" alt="First slide">
+            </div>
+            <div class="carousel-item" style="width: 350px; height: 120px">
+                <img class="d-block w-100" src="https://softech.kg/image/cache/12d545a749c89084b27b1b2c674dad5d.jpg" style="width: 350px; height: 120px" alt="Second slide">
+            </div>
+            <div class="carousel-item" style="width: 350px; height: 120px">
+                <img class="d-block w-100" src="https://zurimall.co.ke/wp-content/uploads/2021/10/Artboard-1@300x-100-300x300.jpg" style="width: 350px; height: 120px" alt="Third slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+ </a>
+ </button>
+</div>
+<div>
+</div>
+
+
+
+
+
+<main role="main" >
+
+    <div>
+        <div>
             <div class="row">
                 <div class="container col-md-12">
                     <div class="container" style="padding-top: 80px">
@@ -70,6 +156,9 @@
         </div>
     </div>
 </main>
+
+
+
 <footer class="page-footer font-small mdb-color pt-4">
     <div class="container text-center text-md-left">
         <div class="row text-center text-md-left mt-3 pb-3">
