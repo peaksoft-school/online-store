@@ -3,10 +3,10 @@ window.MyLib = {
 };
 
 fetch("http://localhost:9898/products/order-by-rating")
-    .then(data=>{
+    .then(data => {
         return data.json()
-    }).then(result=>{
-        renderProduct(result);
+    }).then(result => {
+    renderProduct(result);
 });
 
 function renderProduct(data) {
@@ -49,7 +49,6 @@ function renderProduct(data) {
     }
 
 }
-
 
 
 function modal() {

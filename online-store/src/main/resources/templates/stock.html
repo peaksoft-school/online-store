@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:https="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Main page</title>
@@ -9,7 +9,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="/main_page">Online_Store</a>
+    <a class="navbar-brand" href="/">Online_Store</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -20,7 +20,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="#">HOME<span class="sr-only"></span></a>
             </li>
-            <li class="nav-item dropdown" >
+            <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">Categories</a>
                 <ul class="dropdown-menu" id="categories">
@@ -30,11 +30,12 @@
         <div class="container-center">
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i>
+                </button>
             </form>
         </div>
         <div style="float:left; width:10%">
-            <ul class="nav justify-content-end" >
+            <ul class="nav justify-content-end">
                 <li class="nav-item">
                     <a class="nav-link" href="#">BASKET<i class="fas fa-cart-arrow-down"></i></a>
                 </li>
@@ -49,7 +50,7 @@
                 <a class="nav-link" href="/sign_up">SIGN UP<i class="fas fa-user-plus"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/main_page/userProfile">Profile <i
+                <a class="nav-link" href="/userProfile">Profile <i
                         class="fas fa-user-circle"></i></a>
             </li>
         </ul>
@@ -62,13 +63,13 @@
                 <div class="container col-md-12">
                     <div class="container" style="padding-top: 80px">
 
-                        <div id="stock_model_body"  style="display: flex; flex-wrap: wrap;">
-                        </div>
+                        <div id="stock_model_body" style="display: flex; flex-wrap: wrap;">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </main>
 <footer class="page-footer font-small mdb-color pt-4">
@@ -143,56 +144,56 @@
 </footer>
 </div>
 
-       <script >
-           window.MyLib = {
-               selectedProduct: 0
-           };
+<script>
+    window.MyLib = {
+        selectedProduct: 0
+    };
 
 
-           fetch("http://localhost:9898/stocks")
-               .then(data=>{
-                   return data.json()
-               }).then(result=>{
-               modal_body(result);
-           });
+    fetch("http://localhost:9898/stocks")
+        .then(data => {
+            return data.json()
+        }).then(result => {
+        modal_body(result);
+    });
 
-           function modal_body(data){
-               for(const s of data){
-                   const stock_body = document.getElementById('stock_model_body');
-                   let div = document.createElement('div');
-                   div.className = "col-md-4";
-                   let br = document.createElement('br');
-                   let divCon = document.createElement('div');
-                   divCon.className = "container";
-                   let img = document.createElement('img');
-                   img.src = s.stockPicture;
-                   img.width = 220;
-                   img.height = 200;
-                   let divTextLeft = document.createElement('div');
-                   let stock_name = document.createElement('p');
-                   stock_name.innerText = s.name;
-                   let stock_price = document.createElement('p');
-                   stock_price.innerText = "price:" + s.stockPrice;
-                   let stock = document.createElement('p');
-                   stock.innerText ='Stock '+ s.stock+'%';
-                   let dataStock = document.createElement('p');
-                   dataStock.innerText = ' to ' + s.stockTime;
-                   div.appendChild(img);
-                   div.appendChild(br);
-                   div.appendChild(divTextLeft);
-                   div.appendChild(stock_name);
-                   div.appendChild(stock_price);
-                   div.appendChild(stock);
-                   div.appendChild(dataStock);
+    function modal_body(data) {
+        for (const s of data) {
+            const stock_body = document.getElementById('stock_model_body');
+            let div = document.createElement('div');
+            div.className = "col-md-4";
+            let br = document.createElement('br');
+            let divCon = document.createElement('div');
+            divCon.className = "container";
+            let img = document.createElement('img');
+            img.src = s.stockPicture;
+            img.width = 220;
+            img.height = 200;
+            let divTextLeft = document.createElement('div');
+            let stock_name = document.createElement('p');
+            stock_name.innerText = s.name;
+            let stock_price = document.createElement('p');
+            stock_price.innerText = "price:" + s.stockPrice;
+            let stock = document.createElement('p');
+            stock.innerText = 'Stock ' + s.stock + '%';
+            let dataStock = document.createElement('p');
+            dataStock.innerText = ' to ' + s.stockTime;
+            div.appendChild(img);
+            div.appendChild(br);
+            div.appendChild(divTextLeft);
+            div.appendChild(stock_name);
+            div.appendChild(stock_price);
+            div.appendChild(stock);
+            div.appendChild(dataStock);
 
-                   stock_body.append(div);
-               }
+            stock_body.append(div);
+        }
 
-           }
+    }
 
-       </script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

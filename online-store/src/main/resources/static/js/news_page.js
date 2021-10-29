@@ -1,16 +1,16 @@
+const news_body = document.getElementById('news_model_body');
+news_body.innerHTML = ``;
+fetch("http://localhost:9898/news")
+    .then(date => {
+        return date.json()
+    }).then(result => {
+    modal_body(result);
+    console.log(result);
+});
 
-    const news_body = document.getElementById('news_model_body');
-    news_body.innerHTML = ``;
-    fetch("http://localhost:9898/news")
-        .then(date => {
-            return date.json()
-        }).then(result => {
-        modal_body(result);
-        console.log(result);
-    });
-    function modal_body(data) {
-        for (const n of data) {
-          let main = `
+function modal_body(data) {
+    for (const n of data) {
+        let main = `
           <div>
             <div>
             <p style="margin-left: 5%">${n.news}</p> 
@@ -24,7 +24,7 @@
 
           `;
 
-            news_body.innerHTML += main;
-            console.log(news_body);
-        }
+        news_body.innerHTML += main;
+        console.log(news_body);
+    }
 }

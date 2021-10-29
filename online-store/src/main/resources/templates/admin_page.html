@@ -77,7 +77,6 @@
     <!--    </div>-->
 
 
-
 </ul>
 <div class="tab-content">
     <div class="tab-pane fade show active" id="UsersTable">
@@ -153,7 +152,7 @@
                                 email: email,
                                 phoneNumber: phoneNumber,
                                 birthDate: birthDate,
-                                registerDate : registerDate,
+                                registerDate: registerDate,
                                 roles: roles
                             })
                         });
@@ -164,7 +163,7 @@
                 }
 
                 function deleteByIdTest(id) {
-                    fetch('http://localhost:9898/users/deleteById/2'+id, {
+                    fetch('http://localhost:9898/users/deleteById/2' + id, {
                         method: "DELETE"
                     });
                     window.location.reload(true);
@@ -197,7 +196,7 @@
                     <td>
 
                     <input type="button" onclick="deleteByIdTest(${user.id})" value="delete" class="btn btn-outline-danger">
-                    <input type="button" value="update" onclick="location.href='/main_page/update'" / class="btn btn-outline-primary">
+                    <input type="button" value="update" onclick="location.href='/update'" / class="btn btn-outline-primary">
 
 
                      </td>`;
