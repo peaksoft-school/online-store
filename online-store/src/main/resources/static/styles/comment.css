@@ -3,22 +3,27 @@
 *::after {
     box-sizing: border-box;
 }
+
 main {
     padding-top: 80px;
 }
+
 .section-main-class {
     padding-top: 30px;
     margin: 0;
     box-sizing: border-box;
     display: flex;
 }
+
 .section-inner-one {
     width: 50%;
     padding: 0 40px;
 }
+
 .section-inner-two {
     width: 50%;
 }
+
 textarea {
     min-height: 27px;
     width: 100%;
@@ -29,6 +34,7 @@ textarea {
     resize: none;
     padding: 0 20px;
 }
+
 input[type="submit"], button {
     padding: 10px 15px;
     border: none;
@@ -38,21 +44,26 @@ input[type="submit"], button {
     cursor: pointer;
     border-radius: 10px;
 }
+
 input[type="submit"] {
     color: #fff;
     background-color: rgb(80, 76, 76);
 }
+
 .div-two {
     display: flex;
     padding: 10px 0;
 }
+
 .btn-inner {
     display: flex;
     justify-content: flex-end;
 }
+
 .btn-outer {
     display: none;
 }
+
 /*.div-main-button-class {*/
 /*    border: 1px solid black;*/
 /*}*/
@@ -60,39 +71,48 @@ input[type="submit"] {
     padding: 0 20px 5px 20px;
     cursor: pointer;
 }
+
 .div-main-picture-class {
     padding: 20px 10px;
 }
+
 .picture-class {
     border-radius: 50px;
     height: 50px;
     width: 50px;
     cursor: pointer;
 }
+
 .div-main-comment-class {
     padding: 0 10px;
     width: 79%;
     overflow-wrap: break-word;
 }
+
 .user-name-over-comment {
     font-size: 15px;
     font-family: serif;
     display: flex;
 }
+
 .comment-thread-class {
     color: blue;
 }
+
 .comment-class {
     padding: 5px 0;
 }
+
 .answer-for-comment {
     color: gray;
     padding: 0;
 }
+
 .text-id {
     cursor: pointer;
     display: inline;
 }
+
 figure {
     width: 6px;
     height: 6px;
@@ -100,11 +120,13 @@ figure {
     background: #ffffff;
     margin: 3px 0;
 }
-.div-two:hover figure{
+
+.div-two:hover figure {
     background: black;
 }
+
 .update-delete-classes {
-     display: none;
+    display: none;
     position: absolute;
     width: 100px;
     height: 58px;
@@ -112,6 +134,7 @@ figure {
     transform: translate(0px, 0px);
     background-color: beige;
 }
+
 .date-id {
     padding-left: 10px;
     font-size: 15px

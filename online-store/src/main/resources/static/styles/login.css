@@ -31,6 +31,7 @@
     );
     background-blend-mode: overlay, multiply, color, normal;
 }
+
 .container-custom {
     background: white;
     max-width: 480px;
@@ -44,6 +45,7 @@
     width: 100%;
     font-weight: 600;
 }
+
 .btn-custom:hover {
     background-color: var(--color-main-opac);
 }

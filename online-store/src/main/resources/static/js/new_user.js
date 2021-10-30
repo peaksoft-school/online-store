@@ -57,6 +57,6 @@ addEventListener('submit', function (e) {
     setTimeout(test, 1500);
 
     function test() {
-        document.location.href = 'http://localhost:9898/admin_page'
+        document.location.href = 'http://localhost:9898/admin'
     }
 })

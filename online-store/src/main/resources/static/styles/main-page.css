@@ -2,17 +2,23 @@
     float: left;
     width: 10%;
 }
+
 nav .justify-content-end {
     float: left;
     width: 40%;
 }
+
 .container {
     padding-top: 40px;
 }
+
 .content-below {
     padding: 10px 40px;
 }
 .category-class {
+
+.category-list-class {
+    padding: 5px 0;
     cursor: pointer;
     width: 230px;
     height: 35px;
