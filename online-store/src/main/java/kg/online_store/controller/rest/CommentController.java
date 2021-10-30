@@ -6,6 +6,7 @@ import kg.online_store.model.Comment;
 import kg.online_store.service.CommentService;
 import kg.online_store.service.ProductService;
 import kg.online_store.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,16 +16,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/comment")
 @CrossOrigin
 @Api(description = "Контроллер для коментарии")
+@RequiredArgsConstructor
 public class CommentController {
     private final CommentService commentService;
-    private final UserService userService;
-    private final ProductService productService;
-
-    public CommentController(CommentService commentService, UserService userService, ProductService productService) {
-        this.commentService = commentService;
-        this.userService = userService;
-        this.productService = productService;
-    }
 
     @PostMapping("/{product-id}/{user-id}")
     @Operation(summary = "Добавление комментарии", description = "Позволяет добавить коментарии в базу данных")
