@@ -12,7 +12,7 @@ public class ProductPageController {
 
     @GetMapping
     public String ProductPage(){
-        return "product_page";
+        return "product-page";
     }
 
 }

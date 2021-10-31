@@ -10,6 +10,6 @@ public class AdminPageController {
 
     @GetMapping
     public String adminPage() {
-        return "admin_page";
+        return "admin-page";
     }
 }

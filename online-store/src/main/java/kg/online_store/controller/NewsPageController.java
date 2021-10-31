@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class NewsPageController {
     @GetMapping
     public String newsPage() {
-        return "news_page";
+        return "news-page";
     }
 }

@@ -1,6 +1,6 @@
 let form = document.getElementById("form")
-var check = function () {
-    if (document.getElementById('password').value ==
+let check = function () {
+    if (document.getElementById('password').value ===
         document.getElementById('confirmPassword').value) {
         document.getElementById('message').style.color = 'green';
         document.getElementById('message').innerHTML = 'matching';
@@ -16,6 +16,8 @@ form.addEventListener('submit', function (e) {
     let username = document.getElementById('username').value
     let email = document.getElementById('email').value
     let password = document.getElementById('password').value
+    let gender = document.getElementById('gender').value
+    let birthDate = document.getElementById('birthDate').value
     let spinner = document.getElementById('spinner');
 
     fetch(url, {
@@ -23,7 +25,9 @@ form.addEventListener('submit', function (e) {
         body: JSON.stringify({
             username: username,
             email: email,
-            password: password
+            password: password,
+            gender: gender,
+            birthDate: birthDate
         }),
         headers: {
             "Content-Type": "application/json"

@@ -10,6 +10,6 @@ public class NewPageController {
 
     @GetMapping
     public String userPage() {
-        return "new_user";
+        return "new-user";
     }
 }

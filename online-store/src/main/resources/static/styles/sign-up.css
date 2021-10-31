@@ -1,3 +1,12 @@
+.body {
+line-height: 0.5;
+}
+.container-h3{
+    padding-bottom: 25px;
+    font-size: 35px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+}
 :root {
     --color-main: rgb(114, 43, 255);
     --color-main-opac: rgba(114, 43, 255, 0.3);

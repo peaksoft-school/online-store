@@ -14,12 +14,12 @@ public class MainController {
 
     @GetMapping("editProfile")
     public String editPage() {
-        return "editUserPage";
+        return "edit-user-page";
     }
 
     @GetMapping("userProfile")
     public String userPage() {
-        return "userTable";
+        return "user-table";
     }
 
     @GetMapping("update")
@@ -29,7 +29,7 @@ public class MainController {
 
     @GetMapping("/buyer's_cabinet")
     public String buyersCabinet() {
-        return "buyer's_cabinet";
+        return "buyer's-cabinet";
     }
 
     @GetMapping("/stock_page")
