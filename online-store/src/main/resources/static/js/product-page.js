@@ -2,7 +2,7 @@ let html_about_product;
 let table2 = document.getElementById('productL');
 let idEl = localStorage.getItem('selectedProduct');
 let url = `http://localhost:9898`;
-fetch(`${url + '/products/getById/' + idEl}`, {
+fetch(`${url + '/product/' + idEl}`, {
     method: 'GET',
 }).then(data => {
     return data.json();
@@ -52,7 +52,7 @@ fetch(`${url + '/products/getById/' + idEl}`, {
 
     let userId = null;
     let productId = about_product.id;
-    fetch(url + '/users/user')
+    fetch(url + '/user/users')
         .then(response => response.json())
         .then(value => {
             userId = value.id;

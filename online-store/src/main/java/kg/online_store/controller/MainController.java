@@ -5,24 +5,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
 public class MainController {
     @GetMapping
     public String loginPage() {
         return "main-page";
     }
 
-    @GetMapping("editProfile")
+    @GetMapping("/editProfile")
     public String editPage() {
         return "edit-user-page";
     }
 
-    @GetMapping("userProfile")
+    @GetMapping("/userProfile")
     public String userPage() {
         return "user-table";
     }
 
-    @GetMapping("update")
+    @GetMapping("/update")
     public String userPageTest() {
         return "update";
     }

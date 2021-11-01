@@ -51,14 +51,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .antMatchers("/stock").permitAll()
                 .antMatchers("/main-page").permitAll()
-                .antMatchers(HttpMethod.GET, "/stocks/**", "/news/**", "/products/**", "/categories/**", "/users/user").hasAnyRole("ADMIN", "USER")
-                .antMatchers(HttpMethod.PUT, "/users/updateUser").hasAnyRole("ADMIN", "USER")
-                .antMatchers(HttpMethod.DELETE, "/stocks/**", "/news/**", "/products/**", "/categories/**", "/users/**").hasRole("ADMIN")
-                .antMatchers(HttpMethod.POST, "/users/register").permitAll()
-                .antMatchers(HttpMethod.POST, "/products/**", "/stocks/**", "/news/**", "/categories/**", "/users/**").hasRole("ADMIN")
-                .antMatchers(HttpMethod.PUT, "/products/**", "/categories/**", "/users/**").hasRole("ADMIN")
-                .antMatchers(HttpMethod.GET, "/users/**").hasRole("ADMIN")
-                .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/stock/**", "/product/**", "/category/**", "/user/users").hasAnyRole("ADMIN", "USER")
+                .antMatchers(HttpMethod.PUT, "/user/updateUser").hasAnyRole("ADMIN", "USER")
+                .antMatchers(HttpMethod.DELETE, "/stock/**", "/product/**", "/category/**", "/user/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/user/register").permitAll()
+                .antMatchers(HttpMethod.POST, "/product/**", "/stock/**", "/category/**", "/user/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PUT, "/product/**", "/category/**", "/user/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/user/**").hasRole("ADMIN")
+                .antMatchers("/admin_page").hasRole("ADMIN")
                 .antMatchers("/sign_up", "/js/**", "/styles/**").permitAll()
                 .antMatchers("/swagger-ui/**").anonymous()
                 .anyRequest().authenticated();
@@ -88,6 +88,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .ignoring()
                 .antMatchers("/resources/**");
     }
-
-
 }

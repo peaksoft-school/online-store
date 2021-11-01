@@ -30,7 +30,7 @@ public class CategoryController {
         }
     }
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/getById/{id}")
     @Operation(summary = "Категория(id)", description = "Позволяет получить категорию по 'id'")
     public ResponseEntity<Category> getById(@PathVariable Long id) {
         try {
@@ -41,7 +41,7 @@ public class CategoryController {
     }
 
 
-    @GetMapping("/get/{name}")
+    @GetMapping("/{name}")
     @Operation(summary = "Категория(name)", description = "Позволяет получить категорию по имени")
     public ResponseEntity<Category> getByName(@PathVariable String name) {
         try {
@@ -62,7 +62,7 @@ public class CategoryController {
         }
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     @Operation(summary = "Удаление категории", description = "Позволяет удалить категорию")
     public ResponseEntity<?> deleteById(@PathVariable Long id) {
         try {

@@ -41,7 +41,7 @@ public class ProductController {
         }
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     @Operation(summary = "Удаление продукта", description = "Позволяет удалить продукт")
     public ResponseEntity<?> deleteById(@PathVariable Long id) {
         try {
@@ -61,7 +61,7 @@ public class ProductController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
-    @GetMapping("/get/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Product> getById(@PathVariable Long id) {
         try {
             return new ResponseEntity<>(productService.findById(id), HttpStatus.OK);

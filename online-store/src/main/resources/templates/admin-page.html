@@ -109,7 +109,7 @@
                     const register = document.getElementById('register');
                     let url = 'http://localhost:9898/register';
 
-                    fetch("http://localhost:9898/users/getById/" + 1)
+                    fetch("http://localhost:9898/user/" + 1)
                         .then(response => response.json())
                         .then(console.log)
 
@@ -163,14 +163,14 @@
                 }
 
                 function deleteByIdTest(id) {
-                    fetch('http://localhost:9898/users/deleteById/2' + id, {
+                    fetch('http://localhost:9898/user/' + id, {
                         method: "DELETE"
                     });
                     window.location.reload(true);
                 }
 
 
-                let url2 = 'http://localhost:9898/users';
+                let url2 = 'http://localhost:9898/user';
                 fetch(url2)
                     .then(response => response.json())
                     .then(data => {
@@ -207,10 +207,7 @@
                     })
 
             </script>
-            <script src="js/new_user.js"></script>
-            <!--            <script src="js/test.js"></script>-->
-            <!--            <script src="js/edit_user.js"></script>-->
-            <!--<script src="../static/index.js"></script>-->
+            <script src="js/new-user.js"></script>
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>

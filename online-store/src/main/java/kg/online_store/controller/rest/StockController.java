@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/stocks")
+@RequestMapping("/stock")
 @Api(description = "контроллер для управления Акция")
 @RequiredArgsConstructor
 public class StockController {
@@ -41,21 +41,21 @@ public class StockController {
         }
     }
 
-    @GetMapping("/{stockId}")
+    @GetMapping("/{id}")
     @Operation(summary = "Акция(stockId)", description = "Позволяеть получить акцию по stockId")
-    public ResponseEntity<Stock> findById(@PathVariable("stockId") Long stockId) {
+    public ResponseEntity<Stock> findById(@PathVariable Long id) {
         try {
-            return new ResponseEntity<>(stockService.findById(stockId), HttpStatus.OK);
+            return new ResponseEntity<>(stockService.findById(id), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
-    @DeleteMapping("/{stockId}")
+    @DeleteMapping("/{id}")
     @Operation(summary = "Delete stock", description = "Позволяеть удалить акция")
-    public ResponseEntity<?> deleteById(@PathVariable("stockId") Long stockId) {
+    public ResponseEntity<?> deleteById(@PathVariable Long id) {
         try {
-            stockService.deleteById(stockId);
+            stockService.deleteById(id);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
