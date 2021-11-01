@@ -30,7 +30,7 @@ public class NewsController {
         }
     }
 
-    @PostMapping("/add")
+    @PostMapping()
     @Operation(summary = "Save news",description = "Saving news")
     public ResponseEntity<?> saveNews(@RequestBody News news) {
         try {
@@ -42,9 +42,9 @@ public class NewsController {
     }
 
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{deleteId}")
     @Operation(summary = "Delete news",description = "Позволяеть удалить news")
-    public ResponseEntity<?> deleteById(@PathVariable Long id){
+    public ResponseEntity<?> deleteById(@PathVariable("deleteId") Long id){
         try {
             newsService.deleteById(id);
             return new ResponseEntity<>(HttpStatus.OK);

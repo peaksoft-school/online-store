@@ -10,7 +10,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="/main_page">Online_Store</a>
+    <a class="navbar-brand" href="/">Online_Store</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,8 @@
         <div>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i>
+                </button>
             </form>
         </div>
         <div style="float:right; width:10%">
@@ -181,7 +182,7 @@
 
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                 <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
-                <p><i class="fas fa-home mr-3"></i> Bishkek,  720010, Kyrgyzstan</p>
+                <p><i class="fas fa-home mr-3"></i> Bishkek, 720010, Kyrgyzstan</p>
                 <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
                 <p><i class="fas fa-phone mr-3"></i> + 996 312 312 312</p>
                 <p><i class="fas fa-print mr-3"></i> + 996 315 315 315</p>
@@ -252,6 +253,7 @@
                 document.getElementById('role').value = userRole;
             })
     }
+
     getUser()
     let editForm = document.getElementById('editUser');
     editForm.addEventListener('submit', function (e) {
@@ -268,8 +270,8 @@
         let eregisterDate = document.getElementById('registerDate').value;
         let radio = document.getElementsByName('optionsRadios');
         for (let i = 0; i < radio.length; i++) {
-            if(radio[i].checked) {
-                 egender = radio[i].value;
+            if (radio[i].checked) {
+                egender = radio[i].value;
             }
         }
         let role = document.getElementById('role').value;
@@ -277,7 +279,7 @@
         fetch('http://localhost:9898/user/updateUser', {
             method: 'PUT',
             headers: {
-                "Content-Type":"application/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 id: eid,
@@ -290,25 +292,32 @@
                 profilePicture: profilePicture,
                 birthDate: ebirthDay,
                 registerDate: eregisterDate,
-                roles:[
+                roles: [
                     {
-                        name:role
+                        name: role
                     }
                 ]
             }),
         }).then((res) => {
-            if(res.ok) {
+            if (res.ok) {
                 setTimeout(test, 50)
             }
         })
+
         function test() {
-            document.location.href = 'http://localhost:9898/main_page'
+            document.location.href = 'http://localhost:9898'
         }
     })
 
 </script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 </html>

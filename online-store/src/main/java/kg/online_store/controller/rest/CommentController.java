@@ -2,7 +2,6 @@ package kg.online_store.controller.rest;
 
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
-import jdk.jfr.Registered;
 import kg.online_store.model.Comment;
 import kg.online_store.service.CommentService;
 import kg.online_store.service.ProductService;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class CommentController {
     private final CommentService commentService;
-
 
     @PostMapping("/{product-id}/{user-id}")
     @Operation(summary = "Добавление комментарии", description = "Позволяет добавить коментарии в базу данных")

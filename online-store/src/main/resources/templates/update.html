@@ -114,6 +114,7 @@
                 document.getElementById('role').value = userRole;
             })
     }
+
     getUser()
     let editForm = document.getElementById('editUser');
     editForm.addEventListener('submit', function (e) {
@@ -130,7 +131,7 @@
         let eregisterDate = document.getElementById('registerDate').value;
         let radio = document.getElementsByName('optionsRadios');
         for (let i = 0; i < radio.length; i++) {
-            if(radio[i].checked) {
+            if (radio[i].checked) {
                 egender = radio[i].value;
             }
         }
@@ -139,7 +140,7 @@
         fetch('http://localhost:9898/user/updateUser', {
             method: 'POST',
             headers: {
-                "Content-Type":"application/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 id: eid,
@@ -152,19 +153,20 @@
                 // profilePicture: profilePicture,
                 birthDate: ebirthDay,
                 registerDate: eregisterDate,
-                roles:[
+                roles: [
                     {
-                        name:role
+                        name: role
                     }
                 ]
             }),
         }).then((res) => {
-            if(res.ok) {
+            if (res.ok) {
                 setTimeout(test, 50)
             }
         })
+
         function test() {
-            document.location.href = 'http://localhost:9898/admin_page'
+            document.location.href = 'http://localhost:9898/admin'
         }
     })
 

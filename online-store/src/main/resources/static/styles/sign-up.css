@@ -40,6 +40,7 @@ line-height: 0.5;
     );
     background-blend-mode: overlay, multiply, color, normal;
 }
+
 .container-custom {
     background: white;
     max-width: 480px;
@@ -53,12 +54,15 @@ line-height: 0.5;
     width: 100%;
     font-weight: 600;
 }
+
 .btn-custom:hover {
     background-color: var(--color-main-opac);
 }
+
 #message {
     color: red;
 }
+
 #message.hidden {
     display: none;
 }

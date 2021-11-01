@@ -77,7 +77,6 @@
     <!--    </div>-->
 
 
-
 </ul>
 <div class="tab-content">
     <div class="tab-pane fade show active" id="UsersTable">
@@ -103,16 +102,14 @@
             <div id="update" class="login-form"></div>
             <div id="add" class="login-form">
             </div>
-        </div>
-    </div>
-</div>
+
             <!--JSscript-->
             <script>
                 function register() {
                     const register = document.getElementById('register');
                     let url = 'http://localhost:9898/register';
 
-                    fetch("http://localhost:9898/user/get/" + 1)
+                    fetch("http://localhost:9898/users/getById/" + 1)
                         .then(response => response.json())
                         .then(console.log)
 
@@ -155,7 +152,7 @@
                                 email: email,
                                 phoneNumber: phoneNumber,
                                 birthDate: birthDate,
-                                registerDate : registerDate,
+                                registerDate: registerDate,
                                 roles: roles
                             })
                         });
@@ -166,14 +163,14 @@
                 }
 
                 function deleteByIdTest(id) {
-                    fetch('http://localhost:9898/user/delete/'+id, {
+                    fetch('http://localhost:9898/users/deleteById/2' + id, {
                         method: "DELETE"
                     });
                     window.location.reload(true);
                 }
 
 
-                let url2 = 'http://localhost:9898/user';
+                let url2 = 'http://localhost:9898/users';
                 fetch(url2)
                     .then(response => response.json())
                     .then(data => {
@@ -199,7 +196,7 @@
                     <td>
 
                     <input type="button" onclick="deleteByIdTest(${user.id})" value="delete" class="btn btn-outline-danger">
-                    <input type="button" value="update" onclick="location.href='/main_page/update'" / class="btn btn-outline-primary">
+                    <input type="button" value="update" onclick="location.href='/update'" / class="btn btn-outline-primary">
 
 
                      </td>`;
@@ -210,7 +207,7 @@
                     })
 
             </script>
-            <script src="js/new-user.js"></script>
+            <script src="js/new_user.js"></script>
             <!--            <script src="js/test.js"></script>-->
             <!--            <script src="js/edit_user.js"></script>-->
             <!--<script src="../static/index.js"></script>-->

@@ -2,7 +2,7 @@ let html_about_product;
 let table2 = document.getElementById('productL');
 let idEl = localStorage.getItem('selectedProduct');
 let url = `http://localhost:9898`;
-fetch(`${url + '/product/get/'+ idEl}`, {
+fetch(`${url + '/products/getById/' + idEl}`, {
     method: 'GET',
 }).then(data => {
     return data.json();
@@ -24,8 +24,8 @@ fetch(`${url + '/product/get/'+ idEl}`, {
                         </div>
                     </div>
 `;
-    $(document).ready(function(){
-        $('#textarea-id').click(function(){
+    $(document).ready(function () {
+        $('#textarea-id').click(function () {
             var styles = {
                 height: "55px",
                 overflow: "hidden",
@@ -34,16 +34,17 @@ fetch(`${url + '/product/get/'+ idEl}`, {
             $('.btn-outer').slideDown();
             $('#textarea-id').css(styles);
         });
-        $('#cancel-id').click(function (){
+        $('#cancel-id').click(function () {
             $('.btn-outer').val('').slideUp();
             $('#textarea-id').css("height", "27px");
         });
     });
     var textarea = document.querySelector('textarea');
     textarea.addEventListener('keydown', autosize);
-    function autosize(){
+
+    function autosize() {
         var el = this;
-        setTimeout(function(){
+        setTimeout(function () {
             el.style.cssText = 'height:auto; padding:0';
             el.style.cssText = 'height:' + el.scrollHeight + 'px';
         }, 0);
@@ -51,33 +52,32 @@ fetch(`${url + '/product/get/'+ idEl}`, {
 
     let userId = null;
     let productId = about_product.id;
-     fetch(url + '/user/users')
+    fetch(url + '/users/user')
         .then(response => response.json())
         .then(value => {
             userId = value.id;
-    const create = document.getElementById('form-input-id');
-    create.addEventListener('submit', async function (event) {
-        event.preventDefault();
-        let commentSave = document.getElementById('textarea-id').value;
-        await fetch(url + "/comment/" + productId + "/" + userId, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                comment: commentSave
+            const create = document.getElementById('form-input-id');
+            create.addEventListener('submit', async function (event) {
+                event.preventDefault();
+                let commentSave = document.getElementById('textarea-id').value;
+                await fetch(url + "/comment/" + productId + "/" + userId, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        comment: commentSave
+                    })
+                });
+                location.reload(true);
             })
         });
-        location.reload(true);
-    })
-});
-
 
 
     let commentList = document.getElementById('comment-list');
     let param = '';
-    about_product.productComments.forEach(function (iter){
-    let fetchComments = `
+    about_product.productComments.forEach(function (iter) {
+        let fetchComments = `
 <div class="div-one"">
     <div class="div-two">
         <div class="div-main-picture-class">
@@ -125,8 +125,8 @@ fetch(`${url + '/product/get/'+ idEl}`, {
 </div>
 `;
 
-           param += fetchComments;
-});
+        param += fetchComments;
+    });
 
 
     commentList.innerHTML = param;

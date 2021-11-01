@@ -7,17 +7,18 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/504c19067f.js" crossorigin="anonymous"></script>
     <style>
-        .container{
+        .container {
             display: flex;
         }
-        .btn-group-vertical{
-            margin-top:0px ;
+
+        .btn-group-vertical {
+            margin-top: 0px;
         }
     </style>
 </head>
 <body>products
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="/main_page">Online_Store</a>
+    <a class="navbar-brand" href="/">Online_Store</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -45,13 +46,14 @@
         <div class="container-center">
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i>
+                </button>
             </form>
         </div>
         <div style="float:left; width:10%">
-            <ul class="nav justify-content-end" >
+            <ul class="nav justify-content-end">
                 <li class="nav-item">
-            <a class="nav-link" href="#">BASKET<i class="fas fa-cart-arrow-down"></i></a>
+                    <a class="nav-link" href="#">BASKET<i class="fas fa-cart-arrow-down"></i></a>
                 </li>
             </ul>
         </div>
@@ -72,18 +74,18 @@
 <br>
 <h1 align="center">My Profile</h1>
 <div class="container">
-<div class="btn-group-vertical">
-    <button type="button" class="btn btn-outline-primary" ><a href="/main_page/userProfile">Profile<i
-            class="fas fa-user-circle"></i></a></button>
-    <button type="button" class="btn btn-outline-success" style="margin-top: 30px">Подписаться</button>
-    <button type="button" class="btn btn-outline-warning" style="margin-top: 30px">Любимый продукт</button>
-    <button type="button" class="btn btn-outline-danger"  style="margin-top: 30px">Купить</button>
-</div>
-<table class="table table-hover col-md-8" align="center" width="300px">
-    <tbody id="userTable">
+    <div class="btn-group-vertical">
+        <button type="button" class="btn btn-outline-primary"><a href="/userProfile">Profile<i
+                class="fas fa-user-circle"></i></a></button>
+        <button type="button" class="btn btn-outline-success" style="margin-top: 30px">Подписаться</button>
+        <button type="button" class="btn btn-outline-warning" style="margin-top: 30px">Любимый продукт</button>
+        <button type="button" class="btn btn-outline-danger" style="margin-top: 30px">Купить</button>
+    </div>
+    <table class="table table-hover col-md-8" align="center" width="300px">
+        <tbody id="userTable">
 
-    </tbody>
-</table>
+        </tbody>
+    </table>
 </div>
 <footer class="page-footer font-small mdb-color pt-4">
     <div class="container text-center text-md-left">
@@ -119,7 +121,7 @@
 
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                 <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
-                <p><i class="fas fa-home mr-3"></i> Bishkek,  720010, Kyrgyzstan</p>
+                <p><i class="fas fa-home mr-3"></i> Bishkek, 720010, Kyrgyzstan</p>
                 <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
                 <p><i class="fas fa-phone mr-3"></i> + 996 312 312 312</p>
                 <p><i class="fas fa-print mr-3"></i> + 996 315 315 315</p>
@@ -213,17 +215,24 @@
         <td align="left" style="width: 200px"><b>Role</b></td>
         <td align="left" style="width: 200px">${userRole}</td>
     </tr>
-    <tr>    <a class="btn btn-primary" href="/main_page/editProfile" role="button">Edit</a>
+    <tr>    <a class="btn btn-primary" href="/editProfile" role="button">Edit</a>
 </tr>
                 `;
                 document.getElementById('userTable').innerHTML = li;
             })
     }
+
     getUser()
 
 </script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 </html>
