@@ -42,7 +42,7 @@ public class NewsController {
     }
 
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/{id}")
     @Operation(summary = "Delete news",description = "Позволяеть удалить news")
     public ResponseEntity<?> deleteById(@PathVariable Long id){
         try {

@@ -32,7 +32,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("/getById/{id}")
+    @GetMapping("/get/{id}")
     @Operation(summary = "Пользователь(id)", description = "Позволяет получить пользователя по 'id'")
     public ResponseEntity<User> getById(@PathVariable Long id) {
         try {
@@ -42,7 +42,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("/getByUsername/{name}")
+    @GetMapping("/getBy/{name}")
     @Operation(summary = "Пользователь(name)", description = "Позволяет получить пользователя по имени")
     public ResponseEntity<User> getByUsername(@PathVariable String name) {
         try {
@@ -52,7 +52,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("/getByEmail/{email}")
+    @GetMapping("/get/{email}")
     @Operation(summary = "Пользователь(email)", description = "Позволяет получить пользователя по по электронному адресу")
     public ResponseEntity<User> getByEmail(@PathVariable String email) {
         try {
@@ -73,7 +73,7 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/deleteById/2{id}")
+    @DeleteMapping("/delete/{id}")
     @Operation(summary = "Удаление пользователя", description = "Позволяет удалить пользователя")
     public ResponseEntity<?> deleteById(@PathVariable Long id) {
         try {

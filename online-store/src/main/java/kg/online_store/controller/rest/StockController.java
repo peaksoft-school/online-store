@@ -41,21 +41,21 @@ public class StockController {
         }
     }
 
-    @GetMapping("/stock/{stockId}")
+    @GetMapping("/get/{id}")
     @Operation(summary = "Акция(stockId)", description = "Позволяеть получить акцию по stockId")
-    public ResponseEntity<Stock> findById(@PathVariable("stockId") Long stockId) {
+    public ResponseEntity<Stock> findById(@PathVariable Long id) {
         try {
-            return new ResponseEntity<>(stockService.findById(stockId), HttpStatus.OK);
+            return new ResponseEntity<>(stockService.findById(id), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
-    @DeleteMapping("/delete/{stockId}")
+    @DeleteMapping("/delete/{id}")
     @Operation(summary = "Delete stock", description = "Позволяеть удалить акция")
-    public ResponseEntity<?> deleteById(@PathVariable("stockId") Long stockId) {
+    public ResponseEntity<?> deleteById(@PathVariable Long id) {
         try {
-            stockService.deleteById(stockId);
+            stockService.deleteById(id);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

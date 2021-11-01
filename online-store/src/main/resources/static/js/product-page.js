@@ -2,7 +2,7 @@ let html_about_product;
 let table2 = document.getElementById('productL');
 let idEl = localStorage.getItem('selectedProduct');
 let url = `http://localhost:9898`;
-fetch(`${url + '/product/getById/'+ idEl}`, {
+fetch(`${url + '/product/get/'+ idEl}`, {
     method: 'GET',
 }).then(data => {
     return data.json();

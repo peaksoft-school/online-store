@@ -112,7 +112,7 @@
                     const register = document.getElementById('register');
                     let url = 'http://localhost:9898/register';
 
-                    fetch("http://localhost:9898/user/getById/" + 1)
+                    fetch("http://localhost:9898/user/get/" + 1)
                         .then(response => response.json())
                         .then(console.log)
 
@@ -166,7 +166,7 @@
                 }
 
                 function deleteByIdTest(id) {
-                    fetch('http://localhost:9898/user/deleteById/2'+id, {
+                    fetch('http://localhost:9898/user/delete/'+id, {
                         method: "DELETE"
                     });
                     window.location.reload(true);
