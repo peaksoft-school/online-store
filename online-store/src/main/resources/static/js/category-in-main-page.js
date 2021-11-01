@@ -2,7 +2,7 @@ window.MyLib = {
     selectedProduct: 0
 };
 let html_categories = ``;
-let url = "http://localhost:9898/categories";
+let url = "http://localhost:9898/category";
 let tech = [];
 let wMach = [];
 let refr = [];

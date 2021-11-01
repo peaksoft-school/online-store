@@ -11,7 +11,7 @@ var check = function () {
 }
 // {addEventListener}
 
-let url = 'http://localhost:9898/users/register';
+let url = 'http://localhost:9898/user/register';
 addEventListener('submit', function (e) {
     e.preventDefault()
     // form.addEventListener('submit', function (e) {

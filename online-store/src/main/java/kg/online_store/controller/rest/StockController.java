@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/stocks")
+@RequestMapping("/stock")
 @Api(description = "контроллер для управления Акция")
 @RequiredArgsConstructor
 public class StockController {

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/user")
 @CrossOrigin
 @Api(description = "Контроллер для управления пользователем")
 @RequiredArgsConstructor
@@ -84,7 +84,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("/user")
+    @GetMapping("/users")
     @Operation(summary = "Получения пользователя", description = "Позволяет получить пользователя")
     public ResponseEntity<User> getCurrentUser(@AuthenticationPrincipal UserDetailsImpl userDetails) {
         try {

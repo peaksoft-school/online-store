@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/product")
 @CrossOrigin
 @Api(description = "Контроллер для управления продуктами")
 @RequiredArgsConstructor

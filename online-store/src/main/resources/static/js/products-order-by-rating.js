@@ -2,7 +2,7 @@ window.MyLib = {
     selectedProduct: 0
 };
 
-fetch("http://localhost:9898/products/order-by-rating")
+fetch("http://localhost:9898/product/order-by-rating")
     .then(data=>{
         return data.json()
     }).then(result=>{

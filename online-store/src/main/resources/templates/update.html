@@ -95,7 +95,7 @@
 </form>
 <script>
     function getUser() {
-        let response = fetch('http://localhost:9898/users/user')
+        let response = fetch('http://localhost:9898/user/users')
             .then((res) => {
                 return res.json()
             }).then((user) => {
@@ -136,7 +136,7 @@
         }
         let role = document.getElementById('role').value;
 
-        fetch('http://localhost:9898/users/updateUser', {
+        fetch('http://localhost:9898/user/updateUser', {
             method: 'POST',
             headers: {
                 "Content-Type":"application/json"
