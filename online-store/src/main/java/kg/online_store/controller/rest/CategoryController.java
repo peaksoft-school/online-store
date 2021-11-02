@@ -30,7 +30,7 @@ public class CategoryController {
         }
     }
 
-    @GetMapping("/getById/{id}")
+    @GetMapping("/{id}")
     @Operation(summary = "Категория(id)", description = "Позволяет получить категорию по 'id'")
     public ResponseEntity<Category> getById(@PathVariable Long id) {
         try {
