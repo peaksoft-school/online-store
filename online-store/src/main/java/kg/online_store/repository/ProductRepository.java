@@ -10,6 +10,7 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    @Query("from Product order by rating desc")
+    @Query("from Product order by rating_average desc")
     List<Product> findAndOrderByRating();
+   Product findById(long id);
 }

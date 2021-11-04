@@ -35,7 +35,7 @@ public class DataInitializer {
      * Вызов методов добавлять в этод метод.
      * Следить за последовательностью вызова.
      */
-//    @PostConstruct
+    @PostConstruct
 //    раскомментировать аннотацию при первом запуске проекта для создания таблиц БД, потом закомментировать
     public void initDataBaseFilling() {
         productsAndCategoriesInit();
@@ -72,7 +72,7 @@ public class DataInitializer {
     private void productsAndCategoriesInit() {
         Product iPhone12 = new Product();
         iPhone12.setName("iPhone 12 Pro Max");
-        iPhone12.setRating(3.7);
+//        iPhone12.setRating(3.7);
         iPhone12.setProductCount(15);
         iPhone12.setProductPrice(100182);
         iPhone12.setProductPicture("https://www.mytrendyphone.eu/images/iPhone-12-Pro-Max-128GB-Graphite-0194252021200-25102020-1-p.jpg");
@@ -89,7 +89,7 @@ public class DataInitializer {
 
         Product iPhone11 = new Product();
         iPhone11.setName("iPhone 11 Pro");
-        iPhone11.setRating(4.8);
+//        iPhone11.setRating(4.8);
         iPhone11.setProductCount(13);
         iPhone11.setProductPrice(75561);
         iPhone11.setProductPicture("https://cdn.alzashop.com/Foto/f16/RI/RI029b1.jpg");
@@ -106,7 +106,7 @@ public class DataInitializer {
 
         Product macBookProI9 = new Product();
         macBookProI9.setName("MacBook Pro i9 - 1 ТБ");
-        macBookProI9.setRating(4.3);
+//        macBookProI9.setRating(4.3);
         macBookProI9.setProductCount(25);
         macBookProI9.setProductPrice(241965);
         macBookProI9.setProductPicture("https://asiastore.kg/image/cache/catalog/mac/macbook/pro/191114150007894631-670x540.png");
@@ -123,7 +123,7 @@ public class DataInitializer {
 
         Product refrigerator = new Product();
         refrigerator.setName("Холодильник Indesit DS 316 W");
-        refrigerator.setRating(3.5);
+//        refrigerator.setRating(3.5);
         refrigerator.setProductCount(12);
         refrigerator.setProductPrice(21290);
         refrigerator.setProductPicture("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSUuqtXCfN6yyeSALZ4HQIO8oAF0z5NeHF9Q&usqp=CAU");
@@ -139,7 +139,7 @@ public class DataInitializer {
 
         Product washingMachineLG = new Product();
         washingMachineLG.setName("Стиральная машина LG");
-        washingMachineLG.setRating(3.9);
+//        washingMachineLG.setRating(3.9);
         washingMachineLG.setProductCount(14);
         washingMachineLG.setProductPrice(29000);
         washingMachineLG.setProductPicture("https://object.pscloud.io/cms/cms/Photo/img_0_8_629_0.png");
@@ -155,7 +155,7 @@ public class DataInitializer {
 
         Product tv = new Product();
         tv.setName("LED ТЕЛЕВИЗОР BBK 32 LEX-7289");
-        tv.setRating(3.1);
+//        tv.setRating(3.1);
         tv.setProductCount(8);
         tv.setProductPrice(15000);
         tv.setProductPicture("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcjpYci9bUHwcOVN1_1yvdgaHt_rhzLSF-MQ&usqp=CAU");

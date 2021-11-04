@@ -1,12 +1,23 @@
 let html_about_product;
 let table2 = document.getElementById('productL');
 let idEl = localStorage.getItem('selectedProduct');
+let ratingIdTeg = document.getElementById('section-rating-id');
 let url = `http://localhost:9898`;
 fetch(`${url + '/products/getById/'+ idEl}`, {
     method: 'GET',
 }).then(data => {
     return data.json();
 }).then((about_product) => {
+    console.log("before")
+    console.log(about_product.id)
+    console.log("after")
+    let count1 = 0;
+    let avg = 0;
+    about_product.ratings.forEach(function (response) {
+        count1++;
+        avg = avg + response.rating;
+    });
+    avg /= count1;
     html_about_product += `
                          <div class="col-md-12" style="display: flex; flex-wrap: wrap">
                     <div class="col-md-6" >
@@ -21,9 +32,11 @@ fetch(`${url + '/products/getById/'+ idEl}`, {
                         <p><b>Цвет: </b>${about_product.description.productColor}</p>
                         <p><b>Размер: </b>${about_product.description.productDimensions}</p>
                         <p><b>Вес: </b>${about_product.description.productWeight}</p>
+                        <p>Rating: ${avg}</p>
                         </div>
                     </div>
 `;
+
     $(document).ready(function(){
         $('#textarea-id').click(function(){
             var styles = {
@@ -49,8 +62,9 @@ fetch(`${url + '/products/getById/'+ idEl}`, {
         }, 0);
     }
 
-    let userId = null;
+
     let productId = about_product.id;
+    let userId = 0;
      fetch(url + '/users/user')
         .then(response => response.json())
         .then(value => {
@@ -68,9 +82,34 @@ fetch(`${url + '/products/getById/'+ idEl}`, {
                 comment: commentSave
             })
         });
-        location.reload(true);
-    })
+
+    });
+    console.log(about_product.id)
+            console.log(userId)
+            const invent = document.getElementById('invent-id');
+            invent.addEventListener('submit', async function (e1) {
+                e1.preventDefault();
+                console.log('user id')
+                console.log(userId)
+                let reviewValue = document.getElementById("review").value;
+                await fetch(url + "/rating/" + 1, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        rating: count,
+                        review: reviewValue
+                    })
+
+                });
+            });
 });
+
+
+
+
+
 
 
 
@@ -103,15 +142,13 @@ fetch(`${url + '/products/getById/'+ idEl}`, {
             </div>
         </div>
         <div class="div-main-button-class">
-<!--            <div id="three-dots-id" >-->
                 <div onclick="myFunction(${iter.id})" class="three-dots">
                 
                     <figure class="figure-id"></figure>
                     <figure class="figure-id"></figure>
                     <figure class="figure-id"></figure>
-               
+              
                 </div>
-<!--            </div>-->
             <div class="update-delete-classes" id="${iter.id}">
                 <div class="update-class-one">
                     <div>Edit</div>
@@ -131,19 +168,8 @@ fetch(`${url + '/products/getById/'+ idEl}`, {
 
     commentList.innerHTML = param;
     table2.innerHTML = html_about_product;
-})
-// let hrefValue = document.getElementById('three-dots');
-// let modalValue = document.getElementById('modal-id');
-// hrefValue.click = function () {
-//     modalValue.style.display = "block";
-// }
-//     $(document).ready(function (){
-//         $('this').find('.three-dots').click(function (){
-//             $("#modal-block-id").css('display', 'block');
-//         });
-//         // css('display', 'block');
-//         // $('#modal-block-id').slideDown();
-//     });
+});
+
 function myFunction(event) {
     console.log("reached")
     let ev = document.getElementById(event);
@@ -152,5 +178,26 @@ function myFunction(event) {
     } else {
         ev.style.display = "none";
     }
+}
+let count = 0;
+
+function starmark(item)
+{
+    count=item.id[0];
+    sessionStorage.starRating = count;
+    let subid= item.id.substring(1);
+    for(let i=0;i<5;i++)
+    {
+        if(i<count)
+        {
+            document.getElementById((i+1)+subid).style.color="orange";
+        }
+        else
+        {
+            document.getElementById((i+1)+subid).style.color="grey";
+        }
+    }
 
 }
+
+

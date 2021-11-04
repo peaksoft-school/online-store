@@ -1,7 +1,5 @@
 package kg.online_store.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.annotations.ApiModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AccessLevel;
@@ -44,10 +42,12 @@ public class Product {
     @Column(name = "product_count")
     @Schema(description = "Количество", example = "100")
     int productCount = 0;
+    @Column
+    double rating_average;
 
-    @Column(name = "rating")
-    @NonNull
-    Double rating;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "product",fetch = FetchType.EAGER)
+    List<Rating> ratings;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "description_id")
@@ -55,4 +55,5 @@ public class Product {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product", fetch = FetchType.EAGER)
     List<Comment> productComments;
+
 }

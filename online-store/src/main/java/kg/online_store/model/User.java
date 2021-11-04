@@ -83,4 +83,9 @@ public class User {
     @JsonIgnore
     List<Comment> userComments;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
+            @JsonIgnore
+    List<Rating> ratings;
+
+
 }

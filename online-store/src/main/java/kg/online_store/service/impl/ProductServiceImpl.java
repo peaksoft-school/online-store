@@ -1,6 +1,7 @@
 package kg.online_store.service.impl;
 
 import kg.online_store.model.Product;
+import kg.online_store.model.Rating;
 import kg.online_store.repository.ProductRepository;
 import kg.online_store.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -45,4 +46,24 @@ public class ProductServiceImpl implements ProductService {
         Optional<Product> product = productRepository.findById(id);
         return product.orElse(null);
     }
+
+    public double avgRating(long id){
+        double intTotal = 0;
+
+        List<Rating> ratings = productRepository.findById(id).getRatings();
+
+        for(int i=0;i<ratings.size();i++){
+            intTotal += ratings.get(i).getRating();
+        }
+
+        double avgRating = intTotal / ratings.size();
+
+
+       Product product = productRepository.findById(id);
+        product.setRating_average(avgRating);
+        productRepository.save(product);
+
+        return avgRating;
+    }
+
 }
