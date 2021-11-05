@@ -66,6 +66,11 @@ public class User {
     @Column(name = "register_date")
     LocalDate registerDate;
 
+    @Column(name = "verification_code", length = 64)
+    private String verificationCode;
+
+    private boolean enabled;
+
     @Schema(description = "дата рождения", example = "2000-07-31")
     @DateTimeFormat(pattern = "dd.MM.yyyy")
     @Column(name = "birth_date")
@@ -83,4 +88,7 @@ public class User {
     @JsonIgnore
     List<Comment> userComments;
 
+    public String getFullName() {
+        return this.firstName + " " + this.lastName;
+    }
 }

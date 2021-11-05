@@ -13,17 +13,13 @@ var check = function () {
 let url = 'http://localhost:9898/users/register';
 form.addEventListener('submit', function (e) {
     e.preventDefault()
-    let username = document.getElementById('username').value
     let email = document.getElementById('email').value
-    let password = document.getElementById('password').value
-    let spinner = document.getElementById('spinner');
 
     fetch(url, {
         method: 'POST',
         body: JSON.stringify({
-            username: username,
             email: email,
-            password: password
+            password : ""
         }),
         headers: {
             "Content-Type": "application/json"
@@ -31,10 +27,7 @@ form.addEventListener('submit', function (e) {
     })
         .then(function (response) {
             if (response.ok) {
-                spinner.classList.add('spinner-grow')
                 return response.text()
-            } else {
-                spinner.innerText += "ошибка";
             }
         })
         .then(function (data) {

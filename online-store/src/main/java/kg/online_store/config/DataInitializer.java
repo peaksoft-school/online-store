@@ -35,7 +35,7 @@ public class DataInitializer {
      * Вызов методов добавлять в этод метод.
      * Следить за последовательностью вызова.
      */
-//    @PostConstruct
+    @PostConstruct
 //    раскомментировать аннотацию при первом запуске проекта для создания таблиц БД, потом закомментировать
     public void initDataBaseFilling() {
         productsAndCategoriesInit();
@@ -218,7 +218,7 @@ public class DataInitializer {
 
         LocalDate registerDate = LocalDate.now();
         user.setRegisterDate(registerDate);
-
+        user.setEnabled(true);
         Role role = new Role();
         role.setName("ROLE_USER");
         Set<Role> roleSet = new HashSet<>();
@@ -244,7 +244,7 @@ public class DataInitializer {
         LocalDate registerDateAdmin = LocalDate.now();
         admin.setRegisterDate(registerDateAdmin);
 
-
+         admin.setEnabled(true);
         Role roleAdmin = new Role();
         roleAdmin.setName("ROLE_ADMIN");
         Set<Role> roles = new HashSet<>();
