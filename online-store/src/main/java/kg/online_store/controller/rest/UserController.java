@@ -5,12 +5,17 @@ import io.swagger.v3.oas.annotations.Operation;
 import kg.online_store.model.User;
 import kg.online_store.service.UserService;
 import kg.online_store.service.impl.UserDetailsImpl;
+import kg.online_store.service.impl.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 @RestController
@@ -64,13 +69,18 @@ public class UserController {
 
     @PostMapping("/register")
     @Operation(summary = "Добавление пользователя", description = "Позволяет добавить нового пользователя")
-    public ResponseEntity<?> saveUser(@RequestBody User user) {
+    public ResponseEntity<?> saveUser(@RequestBody User user, HttpServletRequest request) 	throws UnsupportedEncodingException, MessagingException {
         try {
-            userService.insert(user);
+            userService.insert(user,getSiteURL(request));
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+    }
+
+    private String getSiteURL(HttpServletRequest request) {
+        String siteURL = request.getRequestURL().toString();
+        return siteURL.replace(request.getServletPath(), "");
     }
 
     @DeleteMapping("/deleteById/2{id}")
@@ -96,9 +106,9 @@ public class UserController {
 
     @PostMapping("/updateUser")
     @Operation(summary = "Обновление пользователя", description = "Позволяет обновить пользователя")
-    public ResponseEntity<?> editUserPage(@RequestBody User user) {
+    public ResponseEntity<?> editUserPage(@RequestBody User user,HttpServletRequest request) {
         try {
-            userService.insert(user);
+            userService.insert(user,getSiteURL(request));
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
