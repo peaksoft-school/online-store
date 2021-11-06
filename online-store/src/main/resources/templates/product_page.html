@@ -7,6 +7,14 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/comment.css">
     <script src="https://kit.fontawesome.com/504c19067f.js" crossorigin="anonymous"></script>
+    <style>
+        .reviews{
+            width: 100px; /* Ширина таблицы в процентах */
+            background: white; /* Цвет фона */
+            /*border: 4px;*/
+
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -26,11 +34,12 @@
         <div class="container-center">
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i>
+                </button>
             </form>
         </div>
         <div style="float:left; width:10%">
-            <ul class="nav justify-content-end" >
+            <ul class="nav justify-content-end">
                 <li class="nav-item">
                     <a class="nav-link" href="#">BASKET<i class="fas fa-cart-arrow-down"></i></a>
                 </li>
@@ -53,7 +62,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="container col-md-12">
-                        <div id="productL" style="display: flex; flex-wrap: wrap"></div>
+                    <div id="productL" style="display: flex; flex-wrap: wrap"></div>
                 </div>
             </div>
         </div>
@@ -82,23 +91,43 @@
             </div>
         </div>
         <div id="section-rating-id" class="section-inner-two">
-            <span  onmouseover="return starmark(this)" onclick="return starmark(this)" id="1one" style="font-size:40px;cursor:pointer;"  class="fa fa-star checked"></span>
-            <span onmouseover="return starmark(this)" onclick="return starmark(this)" id="2one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
-            <span onmouseover="return starmark(this)" onclick="return starmark(this)" id="3one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
-            <span onmouseover="return starmark(this)" onclick="return starmark(this)" id="4one"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
-            <span onmouseover="return starmark(this)" onclick="return starmark(this)" id="5one"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
+            <span onmouseover="return starmark(this)" onclick="return starmark(this)" id="1one"
+                  style="font-size:40px;cursor:pointer;" class="fa fa-star checked"></span>
+            <span onmouseover="return starmark(this)" onclick="return starmark(this)" id="2one"
+                  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
+            <span onmouseover="return starmark(this)" onclick="return starmark(this)" id="3one"
+                  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
+            <span onmouseover="return starmark(this)" onclick="return starmark(this)" id="4one"
+                  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
+            <span onmouseover="return starmark(this)" onclick="return starmark(this)" id="5one"
+                  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
             <br/>
-            <textarea  style="margin-top:5px;" class="form-control" rows="3" id="comment" placeholder="Enter your review"></textarea>
-            <form>
-            <input id="invent-id" type="submit" style="margin-top:10px;margin-left:5px;" class="btn btn-lg btn-success" value="Submit">
-            </form>
-        </div>
-    </div>
-    <script>
-        console.log("haha");
-    </script>
+            <form id="formIdHa">
+                <textarea style="margin-top:5px;" class="form-control" rows="3" id="comment"
+                          placeholder="Enter your review"></textarea>
+                <input id="invent-id" type="submit" style="margin-top:10px;margin-left:5px;"
+                       class="btn btn-lg btn-success" value="Submit" onclick="relHa()">
+                <br>
+              <h5>Отзывы:</h5>
 
+                <div id="list-review"></div>
+</form>
+</div>
+    </div>
 </section>
+<div class="tab-pane fade mx-5" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+    <hr class="mb-4">
+    <div class="container">
+        <!-- Compiled and minified CSS -->
+        <div class="container">
+
+        </div>
+
+        </div>
+
+    </div>
+</div>
+</div>
 <hr style="padding: 20px 30px; margin-top: 40px;">
 <footer class="page-footer font-small mdb-color pt-4">
     <div class="container text-center text-md-left">

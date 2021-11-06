@@ -47,6 +47,7 @@ public class ProductServiceImpl implements ProductService {
         return product.orElse(null);
     }
 
+    @Override
     public double avgRating(long id){
         double intTotal = 0;
 

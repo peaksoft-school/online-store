@@ -2,7 +2,9 @@ package kg.online_store.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -15,6 +17,8 @@ import static javax.persistence.GenerationType.*;
 @Entity
 @Table(name = "rating_review")
 @Data
+@Getter
+@Setter
 @NoArgsConstructor
 public class Rating {
 

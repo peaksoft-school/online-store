@@ -10,4 +10,5 @@ public interface ProductService {
     void deleteById(long id);
     List<Product> findAndOrderByRating();
     Product findById (Long id);
+    double avgRating(long id);
 }
