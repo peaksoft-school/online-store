@@ -31,6 +31,15 @@ setTimeout(function () {
             responseRating = `
                 <div>
                     <div>
+                     <div class="div-main-picture-class">
+            <img src="${showReviews.user.profilePicture}" class="picture-class">
+        </div>
+        <div class="div-main-comment-class">
+            <div class="user-name-over-comment">
+                <p class="text-id">
+                    ${showReviews.user.username}
+                </p>
+                <h6>:</h6>
                     ${showReviews.review}
 </div>
 </div>
