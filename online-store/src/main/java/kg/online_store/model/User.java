@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+@SuppressWarnings("ALL")
 @Entity
 @Table(name = "users")
 @Data

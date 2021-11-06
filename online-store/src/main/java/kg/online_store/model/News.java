@@ -12,6 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@SuppressWarnings("ALL")
 @Getter
 @Setter
 @Entity

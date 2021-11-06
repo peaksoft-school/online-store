@@ -1,6 +1,5 @@
 package kg.online_store.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -10,9 +9,9 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlTransient;
 import java.time.LocalDate;
 
+@SuppressWarnings("ALL")
 @Entity
 @Table(name = "comment")
 @Data

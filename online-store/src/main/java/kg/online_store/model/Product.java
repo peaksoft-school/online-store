@@ -1,7 +1,5 @@
 package kg.online_store.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.annotations.ApiModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AccessLevel;
@@ -11,16 +9,15 @@ import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlTransient;
-import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("ALL")
 @Entity
 @Table(name = "products")
 @Data
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@ApiModel(description = "Продукт",value = "Product")
+@ApiModel(description = "Продукт", value = "Product")
 public class Product {
 
     @Id

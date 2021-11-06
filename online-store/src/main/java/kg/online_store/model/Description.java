@@ -9,6 +9,7 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 
+@SuppressWarnings("ALL")
 @Entity
 @Table(name = "descriptions")
 @Data
